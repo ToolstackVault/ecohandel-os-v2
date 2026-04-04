@@ -1,0 +1,32 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+
+      - name: Deploy to VPS
+        run: |
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='*.db' \
+            --exclude='*.log' \
+            --exclude='logs/' \
+            --exclude='__pycache__/' \
+            --exclude='.venv/' \
+            --exclude='data/' \
+            --exclude='dashboard-data/' \
+            --exclude='.env' \
+            ./ \
+            root@135.181.148.220:/var/www/html/control.ecohandel.nl/
