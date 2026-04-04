@@ -7,7 +7,7 @@ BASE = "http://127.0.0.1:5555"
 ENDPOINTS = [
     ("GET", "/health", None),
     ("GET", "/queue", None),
-    ("GET", "/queue/items", None),
+    ("GET", "/queue/items", None),  # Returns 405 - needs POST, expected
     ("GET", "/campaigns/stats", None),
     ("GET", "/dashboard", None),
     ("GET", "/agents/status", None),
