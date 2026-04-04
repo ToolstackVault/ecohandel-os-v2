@@ -47,14 +47,28 @@ jobs:
              find /var/www/html/control.ecohandel.nl/ -type d -exec chmod 755 {} \; && \
              find /var/www/html/control.ecohandel.nl/ -type f -exec chmod 644 {} \;"
 
+      - name: Install Google API libs on VPS
+        run: |
+          ssh root@135.181.148.220 \
+            "/opt/ecohandel-venv/bin/pip install --quiet google-api-python-client google-auth 2>/dev/null || true"
+
+      - name: Setup cron job for auto-fetch
+        run: |
+          ssh root@135.181.148.220 \
+            "cat > /etc/cron.d/ecohandel-fetch << CRONEOF
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/30 * * * * www-data /opt/ecohandel-venv/bin/python3 /var/www/html/control.ecohandel.nl/dashboard-data/scripts/fetch_all.py >> /var/log/ecohandel-fetch.log 2>&1
+CRONEOF
+chmod 644 /etc/cron.d/ecohandel-fetch"
+
       - name: Health check after deploy
         run: |
-          echo "Waiting 5s for server to settle..."
-          sleep 5
-          echo "Running health check..."
+          echo "Waiting 3s for server to settle..."
+          sleep 3
           HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-            -u "${{ secrets.VPS_BASIC_AUTH }}" \
-            https://control.ecohandel.nl/api/v1/health)
+            -u "milan:ecohandel2026" \
+            http://127.0.0.1:5555/health)
           echo "Health check HTTP code: $HTTP_CODE"
           if [ "$HTTP_CODE" = "200" ]; then
             echo "✅ Health check passed"
