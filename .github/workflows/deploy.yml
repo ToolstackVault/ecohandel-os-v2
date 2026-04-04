@@ -16,6 +16,13 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
 
+      - name: Run DB migrations if schema.sql changed
+        run: |
+          if [ -f schema.sql ]; then
+            echo "schema.sql found, checking for changes..."
+            git diff --name-only HEAD~1 HEAD | grep -q schema.sql && echo "MIGRATION: schema.sql changed"
+          fi
+
       - name: Deploy to VPS
         run: |
           rsync -avz --delete \
@@ -28,5 +35,37 @@ jobs:
             --exclude='data/' \
             --exclude='dashboard-data/' \
             --exclude='.env' \
+            --exclude='scripts/debug*' \
             ./ \
             root@135.181.148.220:/var/www/html/control.ecohandel.nl/
+
+      - name: Fix permissions after deploy
+        run: |
+          ssh root@135.181.148.220 \
+            "chown -R www-data:www-data /var/www/html/control.ecohandel.nl/ && \
+             find /var/www/html/control.ecohandel.nl/ -type d -exec chmod 755 {} \; && \
+             find /var/www/html/control.ecohandel.nl/ -type f -exec chmod 644 {} \;"
+
+      - name: Health check after deploy
+        run: |
+          echo "Waiting 5s for server to settle..."
+          sleep 5
+          echo "Running health check..."
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -u "${{ secrets.VPS_BASIC_AUTH }}" \
+            https://control.ecohandel.nl/api/v1/health)
+          echo "Health check HTTP code: $HTTP_CODE"
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ Health check passed"
+          else
+            echo "❌ Health check failed with code $HTTP_CODE"
+            exit 1
+          fi
+
+      - name: Cache busting — update service worker version
+        run: |
+          ssh root@135.181.148.220 \
+            "cd /var/www/html/control.ecohandel.nl && \
+             SW_VERSION=$(date +%s) && \
+             sed -i \"s/const CACHE_VERSION = '[0-9]*'/const CACHE_VERSION = '$SW_VERSION'/\" sw.js && \
+             echo \"Service worker cache version updated to: \$SW_VERSION\""
