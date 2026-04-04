@@ -25,6 +25,7 @@ jobs:
 
       - name: Deploy to VPS
         run: |
+          ssh-keyscan -H 135.181.148.220 >> ~/.ssh/known_hosts 2>/dev/null
           rsync -avz --delete \
             --exclude='.git' \
             --exclude='*.db' \
