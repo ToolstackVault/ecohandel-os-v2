@@ -1,316 +1,243 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>EcoHandel.nl — Smart Content Queue</title>
-  <meta name="description" content="Smart Content Queue voor EcoHandel.nl">
-  <meta name="theme-color" content="#07111d">
-  <meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
-  <link rel="manifest" href="/app.webmanifest">
-  <link rel="icon" href="/favicon.png?v=3" type="image/png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
-  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=3">
-  <style>
-    :root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--panel3:#0b1b2b;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:24px;}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:var(--bg)}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
-    a{color:inherit}
-    .app-shell{max-width:1680px;margin:0 auto;padding:calc(16px + var(--safe-top)) 18px 0;overflow-x:hidden}
-    .topbar{position:sticky;top:0;z-index:20;padding-top:8px;backdrop-filter:blur(20px)}
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.78);border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.22)}
-    .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#22d3ee,#8b5cf6 55%,#ec4899);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:0 10px 24px rgba(34,211,238,.25)}
-    .brand-copy{min-width:0}
-    .brand-eyebrow{font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
-    .brand-title{font-size:18px;font-weight:900;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .brand-sub{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .top-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
-    .page-pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.04em}
-    .wrap{padding:18px 0 0}
-    .desktop-nav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
-    .desktop-nav a{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
-    .desktop-nav a.is-active{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 8px 20px rgba(22,163,74,.22)}
-    .hero-card,.panel{background:linear-gradient(180deg,var(--panel) 0,var(--panel2) 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 20px 70px rgba(0,0,0,.28)}
-    .hero-card{padding:22px}
-    .eyebrow{font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
-    h1{margin:8px 0 10px;font-size:clamp(34px,7vw,54px);line-height:.96;letter-spacing:-.05em}
-    .subhead{color:var(--muted);line-height:1.6;max-width:900px}
-    .timestamp{color:var(--muted);font-size:13px;line-height:1.6}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:18px}
-    .span-4{grid-column:span 4} .span-5{grid-column:span 5} .span-6{grid-column:span 6} .span-7{grid-column:span 7} .span-8{grid-column:span 8} .span-12{grid-column:span 12}
-    .panel{padding:18px 18px 16px}
-    .panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
-    h2{margin:4px 0 0;font-size:24px;letter-spacing:-.03em}
-    .status{padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
-    .status-live{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
-    .status-seed{background:rgba(34,211,238,.12);color:var(--cyan);border:1px solid rgba(34,211,238,.25)}
-    .status-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
-    .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
-    .hero-metric,.kpi-card{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
-    .label,.kpi-label,.mini-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-    .value,.kpi-value{font-size:26px;font-weight:900;margin-top:7px;letter-spacing:-.04em}
-    .muted{color:var(--muted)}
-    .sub{color:var(--muted);font-size:14px;line-height:1.55;margin-top:4px}
-    .stack{display:grid;gap:10px;margin:0;padding-left:18px}
-    .table-wrap,.tw{position:relative;overflow-x:auto;overflow-y:hidden;margin:0 -4px;padding:0 4px 6px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(34,211,238,.35) transparent}
-    .table-wrap::-webkit-scrollbar,.tw::-webkit-scrollbar{height:8px}
-    .table-wrap::-webkit-scrollbar-thumb,.tw::-webkit-scrollbar-thumb{background:rgba(34,211,238,.28);border-radius:999px}
-    .table-wrap table,.tw table,table{width:100%;border-collapse:collapse;min-width:0}
-    th,td{padding:10px 8px;border-top:1px solid var(--line);text-align:left;vertical-align:top;word-break:break-word}
-    th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-    .pill{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
-    .pill-soft{background:rgba(255,255,255,.05);color:var(--muted)}
-    .pill-live{background:rgba(34,197,94,.16);color:#86efac}
-    .pill-warn{background:rgba(245,158,11,.16);color:#fcd34d}
-    .pill-accent{background:rgba(34,211,238,.12);color:var(--cyan)}
-    .stat-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .empty{color:var(--muted)}
-    .bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 14px calc(10px + var(--safe-bottom));pointer-events:none}
-    .bottom-nav-inner{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px;border-radius:24px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.28);pointer-events:auto}
-    .bottom-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 8px;border-radius:16px;text-decoration:none;color:#cfe2f3;font-size:11px;font-weight:800;letter-spacing:.04em}
-    .bottom-nav a .icon{font-size:18px;line-height:1}
-    .bottom-nav a.is-active{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
-    .install-hint{display:none}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    
-    .lane-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
-    .lane-card{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
-    .lane-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-    .lane-value{display:block;margin-top:8px;font-size:26px;letter-spacing:-.04em;color:var(--cyan)}
-    .lane-note{margin-top:6px;color:var(--muted);font-size:13px;line-height:1.5}
-    .hero-note{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.6}
-    .queue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .queue-grid-single{grid-template-columns:1fr}
-    .refresh-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .queue-card,.refresh-card{padding:18px;border-radius:20px;background:linear-gradient(180deg,rgba(7,19,31,.8),rgba(10,24,40,.95));border:1px solid rgba(255,255,255,.07);min-width:0}
-    .queue-top,.refresh-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-    .queue-score{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,rgba(34,211,238,.22),rgba(139,92,246,.22));display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;flex:0 0 auto}
-    .queue-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-    .queue-card h3,.refresh-card h3{margin:14px 0 10px;font-size:21px;letter-spacing:-.03em;line-height:1.2;overflow-wrap:anywhere}
-    .queue-card p,.refresh-card p{margin:0;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
-    .queue-foot{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
-    .queue-foot strong{font-size:13px}
-    @media (max-width:1180px){.lane-grid,.queue-grid,.refresh-grid,.queue-foot{grid-template-columns:1fr}.queue-card,.refresh-card{padding:14px;border-radius:16px}.queue-score{width:46px;height:46px;font-size:20px}.queue-card h3,.refresh-card h3{font-size:18px}.panel{padding:16px 14px 14px}}
-    
-    @media (max-width:1180px){.grid,.hero-grid{grid-template-columns:1fr} .span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 1} .desktop-nav{display:none} h2{font-size:22px} .topbar-inner{align-items:flex-start;flex-direction:column} .brand-sub{white-space:normal;overflow:visible;text-overflow:clip} .top-actions{width:100%} .page-pill{width:100%;justify-content:center} .table-wrap,.tw{margin:0 -8px;padding:0 8px 10px} .table-wrap::after,.tw::after{content:'↔ swipe';display:block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-align:right} .table-wrap table,.tw table,table{min-width:680px} th,td{font-size:13px;padding:10px 6px} .mobile-cards{overflow:visible;margin:0;padding:0} .mobile-cards::after{display:none} .mobile-cards table{min-width:0} .mobile-cards thead{display:none} .mobile-cards tbody{display:grid;gap:10px} .mobile-cards tr{display:block;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)} .mobile-cards td{display:flex;justify-content:space-between;gap:12px;border-top:none;padding:6px 0;font-size:13px} .mobile-cards td::before{content:attr(data-label);display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;flex:0 0 38%}}
-    @media (min-width:1181px){.bottom-nav{display:none} .app-shell{padding-left:28px;padding-right:28px}}
-  </style>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js').catch(function(){}); });
-    }
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EcoHandel.nl — Smart Content Queue</title>
+<meta name="theme-color" content="#07111d">
+<meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
+<link rel="manifest" href="/app.webmanifest?v=1775338984">
+<link rel="icon" href="/favicon.png?v=1775338984" type="image/png">
+<link rel="shortcut icon" href="/favicon.png?v=1775338984" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1775338984">
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=1775338984">
+<style>:root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.shell{max-width:1680px;margin:0 auto;padding:calc(10px + var(--safe-top)) 14px 0;overflow-x:hidden}
+.topbar{position:sticky;top:0;z-index:20;padding-top:4px;backdrop-filter:blur(20px)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.86);border-radius:20px;box-shadow:0 12px 36px rgba(0,0,0,.22)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{width:38px;height:38px;border-radius:12px;display:block;object-fit:cover;background:#0b1b2b;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.brand-copy{min-width:0}.brand-ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.brand-t{font-size:17px;font-weight:900;letter-spacing:-.03em}.brand-s{font-size:11px;color:var(--muted)}
+.pill-page{padding:6px 10px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.04em}
+.dnav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.dnav a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
+.dnav a.on{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 6px 16px rgba(22,163,74,.22)}
+.wrap{padding:14px 0 0}
+.hero{padding:22px;border-radius:24px;background:linear-gradient(180deg,rgba(15,34,54,.97),rgba(20,49,77,.93));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.28);margin-bottom:18px}
+.ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+h1{margin:8px 0 10px;font-size:clamp(30px,6vw,46px);line-height:.94;letter-spacing:-.05em}
+.sub{color:var(--muted);font-size:13px;line-height:1.6;max-width:920px}
+.ts{color:var(--muted);font-size:12px;margin-top:10px}
+.g{display:grid;gap:14px;margin-top:14px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g12{grid-template-columns:repeat(12,1fr)}
+.s6{grid-column:span 6}.s7{grid-column:span 7}.s5{grid-column:span 5}.s12{grid-column:span 12}.s4{grid-column:span 4}.s8{grid-column:span 8}
+.p{padding:18px;border-radius:22px;background:linear-gradient(180deg,rgba(15,34,54,.94),rgba(20,49,77,.88));border:1px solid rgba(255,255,255,.08);box-shadow:0 16px 50px rgba(0,0,0,.22)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:16px}
+h2{margin:2px 0 0;font-size:21px;letter-spacing:-.035em}
+.badge{padding:5px 10px;border-radius:999px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.badge-ok{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+.badge-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+.badge-off{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.08)}
+.sg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hero .sg{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:16px}
+.sc{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.sl{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.sv{display:block;margin-top:7px;font-size:24px;letter-spacing:-.045em;font-weight:900;line-height:1.05}
+.sn{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.45}
+.sc-g .sv{color:#86efac}.sc-w .sv{color:#fcd34d}.sc-c .sv{color:var(--cyan)}.sc-r .sv{color:#fca5a5}
+.tw{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(34,211,238,.35) transparent}
+.tw::-webkit-scrollbar{height:8px}
+.tw::-webkit-scrollbar-thumb{background:rgba(34,211,238,.28);border-radius:999px}
+table{width:100%;border-collapse:collapse}th,td{padding:8px 6px;border-top:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}
+th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.pill{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+.pill-g{background:rgba(34,197,94,.16);color:#86efac}.pill-w{background:rgba(245,158,11,.16);color:#fcd34d}
+.pill-c{background:rgba(34,211,238,.12);color:var(--cyan)}.pill-s{background:rgba(255,255,255,.05);color:var(--muted)}
+.pill-r{background:rgba(239,68,68,.16);color:#fca5a5}
+.note{padding:15px 16px;border-radius:18px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.14);margin-top:12px}
+.note ul,.note ol{margin:8px 0 0;padding-left:16px;display:grid;gap:6px}
+.stack{display:grid;gap:12px}.stack-tight{display:grid;gap:10px}.stretch{height:100%}
+.insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.insight-card{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06)}
+.insight-card strong{display:block;font-size:12px;letter-spacing:-.01em;margin-bottom:6px}.insight-card .mini{font-size:12px;color:var(--muted);line-height:1.45}
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat-card{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07)}
+.stat-card .k{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.stat-card .v{display:block;margin-top:8px;font-size:23px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
+.stat-card .n{display:block;margin-top:6px;font-size:12px;line-height:1.5;color:var(--muted)}
+.list-card{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);overflow:hidden}
+.list-card strong{display:block;font-size:14px;letter-spacing:-.01em;word-break:break-word}
+.list-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.list-card .desc{margin-top:8px;font-size:12px;line-height:1.55;color:var(--muted);word-break:break-word}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.muted{color:var(--muted)}
+.refresh-btn{position:fixed;top:calc(var(--safe-top) + 70px);right:16px;z-index:30;width:42px;height:42px;border-radius:50%;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.25);color:var(--cyan);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 6px 20px rgba(0,0,0,.3);transition:transform .2s}
+.refresh-btn:active{transform:scale(.9)}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + var(--safe-bottom));pointer-events:none}
+.bnav-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:20px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -8px 30px rgba(0,0,0,.28);pointer-events:auto}
+.bnav a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:14px;color:#cfe2f3;font-size:10px;font-weight:800;letter-spacing:.04em}
+.bnav a .ic{font-size:16px;line-height:1}
+.bnav a.on{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
+@media(max-width:1180px){.sg,.hero .sg,.g2,.g3,.g4,.insight-grid,.card-grid{grid-template-columns:1fr}.g12{grid-template-columns:1fr}.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 1}.dnav{display:none}.shell{padding:calc(8px + var(--safe-top)) 10px 0}.topbar{padding-top:2px}.topbar-inner{flex-direction:column;align-items:flex-start;padding:12px 12px 10px}.brand{width:100%}.brand-s{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4}.pill-page{width:100%;text-align:center;justify-content:center}.hero{padding:16px 14px 14px;border-radius:20px}.p{padding:14px;border-radius:20px}.ph{margin-bottom:12px}.refresh-btn{top:auto;bottom:calc(var(--safe-bottom) + 92px);right:12px;width:46px;height:46px}h1{font-size:clamp(28px,9vw,36px);line-height:1}h2{font-size:18px}.sub,.ts,.sn,.list-card .desc{font-size:12px}.sv{font-size:22px}.tw{margin:0 -4px;padding:0 4px 8px}.tw::after{content:'↔ swipe';display:block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-align:right}.tw table,table{min-width:680px}.mobile-cards{overflow:visible;margin:0;padding:0}.mobile-cards::after{display:none}.mobile-cards table{min-width:0}.mobile-cards thead{display:none}.mobile-cards tbody{display:grid;gap:10px}.mobile-cards tr{display:block;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)}.mobile-cards td{display:block;border-top:none;padding:0 0 8px;font-size:13px;word-break:break-word}.mobile-cards td:last-child{padding-bottom:0}.mobile-cards td::before{content:attr(data-label);display:block;margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.mobile-cards td .sub{margin-top:4px;font-size:12px;line-height:1.45}.mobile-cards .pill{margin-top:2px;max-width:100%;white-space:normal}.mobile-cards strong,.mobile-cards span,.mobile-cards div{word-break:break-word}}
+@media(min-width:1181px){.bnav{display:none}.shell{padding-left:24px;padding-right:24px}}</style>
 </head>
 <body>
-  <div class="app-shell">
-    <div class="topbar">
-      <div class="topbar-inner">
-        <div class="brand">
-          <div class="brand-mark">EH</div>
-          <div class="brand-copy">
-            <div class="brand-eyebrow">Mission board</div>
-            <div class="brand-title">EcoHandel.nl</div>
-            <div class="brand-sub">Prioriteiten, refresh en contentkansen</div>
-          </div>
-        </div>
-        <div class="top-actions"><span class="page-pill">Queue</span></div>
-      </div>
-    </div>
-    <div class="wrap">
-      <nav class="desktop-nav" aria-label="Hoofdnavigatie">
-        <a href="/" class="">Dashboard</a>
-        <a href="/smart-content-queue.html" class="is-active">Queue</a>
-        <a href="/workflows.html" class="">Workflows</a>
-        <a href="/partner-campaign.html" class="">Partners</a>
-      </nav>
+<button class="refresh-btn" onclick="location.reload(true)" title="Refresh">⟳</button>
+<div class="shell">
+  <div class="topbar"><div class="topbar-inner">
+    <div class="brand"><img class="brand-mark" src="/favicon.png?v=1775338984" alt="EcoHandel logo"><div class="brand-copy"><div class="brand-ey">Mission board</div><div class="brand-t">EcoHandel.nl</div><div class="brand-s">Content planning &amp; artikelen</div></div></div>
+    <span class="pill-page">Queue</span>
+  </div></div>
+  <div class="wrap">
+    <nav class="dnav"><a href="/" class="">Dashboard</a>
+<a href="/smart-content-queue.html" class="on">Queue</a>
+<a href="/workflows.html" class="">Workflows</a>
+<a href="/partner-campaign.html" class="">Partners</a></nav>
     
-      <section class="hero-card">
-        <div class="eyebrow">Queue</div>
-        <h1>Smart Content Queue</h1>
-        <div class="subhead">De prioriteitenmotor van EcoHandel. Niet alleen een lijstje, maar de commerciële volgorde van de machine: nu, hierna, later en refresh.</div>
-        <div class="lane-grid"><article class="lane-card"><span class="lane-label">Top 5</span><strong class="lane-value">5</strong><div class="lane-note">Wat nu telt</div></article><article class="lane-card"><span class="lane-label">Next up</span><strong class="lane-value">5</strong><div class="lane-note">Wat hierna komt</div></article><article class="lane-card"><span class="lane-label">Watchlist</span><strong class="lane-value">5</strong><div class="lane-note">Nog volgen</div></article><article class="lane-card"><span class="lane-label">Refresh</span><strong class="lane-value">3</strong><div class="lane-note">Bestaande pagina’s fixen</div></article></div>
-        <div class="hero-note">Built 2026-04-04 18:00 UTC · Revenue-first blijft leidend · Refresh blijft bewust in beeld.</div>
-      </section>
-      <div class="grid">
-        <section class="panel span-12"><div class="panel-head"><div><div class="eyebrow">Now</div><h2>Top 5 now</h2></div></div><div class="queue-grid"><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">76</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">refresh_task</span></div></div>
-      <h3>Refresh: missing title meta pattern</h3>
-      <p>Audit indicated standard title/meta tags were missing sitewide and likely need template-level recovery.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>maintenance</strong></div>
-        <div><span class="mini-label">Next</span><strong>refresh_existing</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>refresh</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>88%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">89</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">money_page</span></div></div>
-      <h3>Beste thuisbatterij voor dynamisch energiecontract</h3>
-      <p>Sterke koopintentie en direct relevant voor EcoHandel thuisbatterij-omzet.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_direct</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>home_batteries</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>86%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">89</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">money_page</span></div></div>
-      <h3>Deye vs Marstek: welke thuisbatterij past beter bij jouw situatie?</h3>
-      <p>Merkenvergelijking met directe koopintentie en sterk commercieel anker.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_direct</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>home_batteries</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>82%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">88</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">money_page</span></div></div>
-      <h3>Deye hybride omvormer met thuisbatterij: welke combinatie klopt?</h3>
-      <p>Sterke EcoHandel-fit door directe koppeling tussen omvormer en batterijkeuze.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_direct</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>deye_ecosystem</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>79%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">87</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">support_seo_page</span></div></div>
-      <h3>Wat levert een thuisbatterij echt op in 2026?</h3>
-      <p>Veel twijfel bij kopers zit op terugverdientijd en echte besparing.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_support</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>home_batteries</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>80%</strong></div>
-      </div>
-    </article></div></section>
-        <section class="panel span-8"><div class="panel-head"><div><div class="eyebrow">Next lane</div><h2>Next up</h2></div></div><div class="queue-grid"><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">79</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">money_page</span></div></div>
-      <h3>JA solar 450W N-Type Full Black Dual Glass: product focus en use-cases</h3>
-      <p>Top product from Shopify revenue snapshot: 4 stuks · omzet €258,00</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_direct</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>product_specific</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>78%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">79</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">money_page</span></div></div>
-      <h3>Marstek Venus E 5.12kWh Thuisbatterij – Plug &amp; Play, IP65, 2.5kVA Back-up: product focus en use-cases</h3>
-      <p>Top product from Shopify revenue snapshot: 1 stuks · omzet €935,00</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_direct</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>product_specific</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>78%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">79</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">money_page</span></div></div>
-      <h3>Deye SUN-25K-SG01HP3-EU: product focus en use-cases</h3>
-      <p>Top product from Shopify revenue snapshot: 1 stuks · omzet €1.959,99</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_direct</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>deye_ecosystem</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>78%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">74</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">money_page</span></div></div>
-      <h3>Thuisbatterij 5 Kwh Plug And Play</h3>
-      <p>GSC opportunity spotted: 3 impressions · CTR 100,0% · Pos 6.7</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_direct</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>home_batteries</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>74%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">81</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">support_seo_page</span></div></div>
-      <h3>Welke thuisbatterij past bij 1-fase of 3-fase?</h3>
-      <p>Praktische keuzevraag vlak voor aankoop of offerte-aanvraag.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_support</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>home_batteries</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>76%</strong></div>
-      </div>
-    </article></div></section>
-        <section class="panel span-4"><div class="panel-head"><div><div class="eyebrow">Later</div><h2>Watchlist</h2></div></div><div class="queue-grid queue-grid-single"><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">77</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">support_seo_page</span></div></div>
-      <h3>Thuisbatterij zonder zonnepanelen: slim of niet?</h3>
-      <p>Lage instapvraag met potentie om nieuwe doelgroepen de funnel in te trekken.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_support</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>home_batteries</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>77%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">74</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">support_seo_page</span></div></div>
-      <h3>Ecohandel</h3>
-      <p>GSC opportunity spotted: 10 impressions · CTR 70,0% · Pos 1.8</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_support</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>product_specific</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>74%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">74</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">support_seo_page</span></div></div>
-      <h3>Eco Handel</h3>
-      <p>GSC opportunity spotted: 7 impressions · CTR 71,4% · Pos 2.3</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_support</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>product_specific</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>74%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">75</span><div class="queue-tags"><span class="pill pill-live">P2</span><span class="pill pill-soft">authority_page</span></div></div>
-      <h3>Deye thuisbatterij voor installateurs: welke systemen verkopen het makkelijkst?</h3>
-      <p>Sluit aan op EcoHandel B2B-groei en installateursfocus.</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>strategic_positioning</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>installer_focus</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>74%</strong></div>
-      </div>
-    </article><article class="queue-card">
-      <div class="queue-top"><span class="queue-score">63</span><div class="queue-tags"><span class="pill pill-live">P3</span><span class="pill pill-soft">support_seo_page</span></div></div>
-      <h3>PMax-EcoHandel Deye: landingspagina en value-fit verbeteren</h3>
-      <p>Ads campaign snapshot shows value pressure: PERFORMANCE_MAX · Spend €77,98 · Value €1.310,00</p>
-      <div class="queue-foot">
-        <div><span class="mini-label">Goal</span><strong>revenue_support</strong></div>
-        <div><span class="mini-label">Next</span><strong>queue_now</strong></div>
-        <div><span class="mini-label">Cluster</span><strong>campaign_support</strong></div>
-        <div><span class="mini-label">Confidence</span><strong>73%</strong></div>
-      </div>
-    </article></div></section>
-        <section class="panel span-12"><div class="panel-head"><div><div class="eyebrow">Refresh</div><h2>Refresh queue</h2></div></div><div class="refresh-grid"><article class="refresh-card">
-      <div class="refresh-top"><span class="pill pill-warn">high</span><span class="pill pill-soft">missing_title_meta_pattern</span></div>
-      <h3>https://www.ecohandel.nl/</h3>
-      <p>Validate current theme output and restore title/meta structure in the correct non-live Shopify theme first.</p>
-    </article><article class="refresh-card">
-      <div class="refresh-top"><span class="pill pill-warn">high</span><span class="pill pill-soft">low_ctr_high_impressions</span></div>
-      <h3>https://www.ecohandel.nl/</h3>
-      <p>Review title/meta/H1 alignment and strengthen commercial framing for home battery intent.</p>
-    </article><article class="refresh-card">
-      <div class="refresh-top"><span class="pill pill-accent">medium</span><span class="pill pill-soft">missing_h1</span></div>
-      <h3>https://www.ecohandel.nl/pages/contact</h3>
-      <p>Add a clear commercial-contact H1 and improve supporting headings.</p>
-    </article></div></section>
-      </div>
-    
+<div class="hero">
+  <div class="ey">Smart content queue</div>
+  <h1>Smart content queue</h1>
+  <div class="sub">Zelfde cockpitstijl als dashboard en partners: compacte lane-kaarten, duidelijke volgorde en alleen de content die nu telt.</div>
+  <div class="ts">Items in queue: 15 · Top 5: 5 · Next up: 5 · Watchlist: 5</div>
+  <div class="card-grid" style="margin-top:16px">
+    <div class="stat-card"><span class="k">Top 5 now</span><span class="v">5</span><span class="n">Artikelen met directe commerciële of SEO-prio.</span></div>
+    <div class="stat-card"><span class="k">Next up</span><span class="v">5</span><span class="n">Klaar om door te schuiven zodra lane 1 leeg is.</span></div>
+    <div class="stat-card"><span class="k">Watchlist</span><span class="v">5</span><span class="n">Nog volgen, nog niet pushen.</span></div>
+    <div class="stat-card"><span class="k">Published</span><span class="v">5</span><span class="n">Live kennisartikelen in de huidige stack.</span></div>
   </div>
-  <nav class="bottom-nav" aria-label="App navigatie">
-      <div class="bottom-nav-inner">
-        <a href="/" class=""><span class="icon">⌂</span><span>Dashboard</span></a>
-        <a href="/smart-content-queue.html" class="is-active"><span class="icon">◎</span><span>Queue</span></a>
-        <a href="/workflows.html" class=""><span class="icon">◈</span><span>Flows</span></a>
-        <a href="/partner-campaign.html" class=""><span class="icon">✉</span><span>Partners</span></a>
-      </div>
-    </nav>
-  
+</div>
+
+<div class="g g12">
+  <div class="p s12">
+    <div class="ph"><div><div class="ey">Aanbevolen</div><h2>Top 5 — nu schrijven</h2></div><span class="badge badge-ok">PRIORITEIT</span></div>
+    <div class="card-grid"><div class="list-card">
+  <strong>Refresh: missing title meta pattern</strong>
+  <div class="meta"><span class="pill pill-g">P1</span><span class="pill pill-s">refresh_task</span><span class="pill pill-s">score 76</span></div>
+  <div class="desc">Audit indicated standard title/meta tags were missing sitewide and likely need template-level recovery.</div>
+  <div class="desc">bron: refresh_scan</div>
+</div><div class="list-card">
+  <strong>Beste thuisbatterij voor dynamisch energiecontract</strong>
+  <div class="meta"><span class="pill pill-g">P1</span><span class="pill pill-s">money_page</span><span class="pill pill-s">score 89</span></div>
+  <div class="desc">Sterke koopintentie en direct relevant voor EcoHandel thuisbatterij-omzet.</div>
+  <div class="desc">bron: manual_milan, manual_jean, trend</div>
+</div><div class="list-card">
+  <strong>Deye vs Marstek: welke thuisbatterij past beter bij jouw situatie?</strong>
+  <div class="meta"><span class="pill pill-g">P1</span><span class="pill pill-s">money_page</span><span class="pill pill-s">score 89</span></div>
+  <div class="desc">Merkenvergelijking met directe koopintentie en sterk commercieel anker.</div>
+  <div class="desc">bron: manual_milan, competitor_serp</div>
+</div><div class="list-card">
+  <strong>Deye hybride omvormer met thuisbatterij: welke combinatie klopt?</strong>
+  <div class="meta"><span class="pill pill-g">P1</span><span class="pill pill-s">money_page</span><span class="pill pill-s">score 88</span></div>
+  <div class="desc">Sterke EcoHandel-fit door directe koppeling tussen omvormer en batterijkeuze.</div>
+  <div class="desc">bron: manual_milan, manual_jean</div>
+</div><div class="list-card">
+  <strong>Wat levert een thuisbatterij echt op in 2026?</strong>
+  <div class="meta"><span class="pill pill-g">P1</span><span class="pill pill-s">support_seo_page</span><span class="pill pill-s">score 87</span></div>
+  <div class="desc">Veel twijfel bij kopers zit op terugverdientijd en echte besparing.</div>
+  <div class="desc">bron: manual_jean, trend</div>
+</div></div>
+  </div>
+</div>
+
+<div class="g g12">
+  <div class="p s12"><div class="ph"><div><div class="ey">AI recommendations</div><h2>Advies voor contentprioriteit</h2></div></div><div class="sub" style="margin-bottom:12px">AI-duiding voor wat de queue nú moet doen om EcoHandel sneller te laten groeien.</div><div class="card-grid"><div class="list-card">
+  <strong>Zet direct druk op: Refresh: missing title meta pattern</strong>
+  <div class="meta"><span class="pill pill-g">p1</span></div>
+  <div class="desc">Audit indicated standard title/meta tags were missing sitewide and likely need template-level recovery.</div>
+</div><div class="list-card">
+  <strong>Bundel de battery buying-intent pages</strong>
+  <div class="meta"><span class="pill pill-c">cluster</span></div>
+  <div class="desc">De bovenste queue draait sterk om thuisbatterij-keuze, Deye/Marstek en combinaties. Bouw deze pages als een hechte commerciële cluster met onderlinge interne links.</div>
+</div><div class="list-card">
+  <strong>Refreshwerk alleen doen als het omzet of SEO-structuur raakt</strong>
+  <div class="meta"><span class="pill pill-w">guardrail</span></div>
+  <div class="desc">Laat de queue niet vollopen met onderhoudsruis. Alleen refresh-taken prioriteren als ze title/meta, ranking of een money page raken.</div>
+</div><div class="list-card">
+  <strong>Gebruik published lane als bewijs, niet als trofeeënkast</strong>
+  <div class="meta"><span class="pill pill-c">ops</span></div>
+  <div class="desc">Elke live kennispagina moet doorlinken naar een relevante product- of vergelijking-lane. Anders blijft het losse content in plaats van omzetmachine.</div>
+</div></div></div>
+</div>
+
+<div class="g g12">
+  <div class="p s7">
+    <div class="ph"><div><div class="ey">Volgende</div><h2>Next up</h2></div></div>
+    <div class="card-grid"><div class="list-card">
+  <strong>JA solar 450W N-Type Full Black Dual Glass: product focus en use-cases</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">money_page</span><span class="pill pill-s">score 79</span></div>
+  <div class="desc">Top product from Shopify revenue snapshot: 4 stuks · omzet €258,00</div>
+  <div class="desc">bron: shopify</div>
+</div><div class="list-card">
+  <strong>Marstek Venus E 5.12kWh Thuisbatterij – Plug &amp; Play, IP65, 2.5kVA Back-up: product focus en use-cases</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">money_page</span><span class="pill pill-s">score 79</span></div>
+  <div class="desc">Top product from Shopify revenue snapshot: 1 stuks · omzet €935,00</div>
+  <div class="desc">bron: shopify</div>
+</div><div class="list-card">
+  <strong>Deye SUN-25K-SG01HP3-EU: product focus en use-cases</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">money_page</span><span class="pill pill-s">score 79</span></div>
+  <div class="desc">Top product from Shopify revenue snapshot: 1 stuks · omzet €1.959,99</div>
+  <div class="desc">bron: shopify</div>
+</div><div class="list-card">
+  <strong>Thuisbatterij 5 Kwh Plug And Play</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">money_page</span><span class="pill pill-s">score 74</span></div>
+  <div class="desc">GSC opportunity spotted: 3 impressions · CTR 100,0% · Pos 6.7</div>
+  <div class="desc">bron: gsc</div>
+</div><div class="list-card">
+  <strong>Welke thuisbatterij past bij 1-fase of 3-fase?</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">support_seo_page</span><span class="pill pill-s">score 81</span></div>
+  <div class="desc">Praktische keuzevraag vlak voor aankoop of offerte-aanvraag.</div>
+  <div class="desc">bron: manual_jean, support_question</div>
+</div></div>
+  </div>
+  <div class="p s5">
+    <div class="ph"><div><div class="ey">Watchlist</div><h2>Later bekijken</h2></div></div>
+    <div class="card-grid"><div class="list-card">
+  <strong>Thuisbatterij zonder zonnepanelen: slim of niet?</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">support_seo_page</span><span class="pill pill-s">score 77</span></div>
+  <div class="desc">Lage instapvraag met potentie om nieuwe doelgroepen de funnel in te trekken.</div>
+  <div class="desc">bron: manual_jean, support_question</div>
+</div><div class="list-card">
+  <strong>Ecohandel</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">support_seo_page</span><span class="pill pill-s">score 74</span></div>
+  <div class="desc">GSC opportunity spotted: 10 impressions · CTR 70,0% · Pos 1.8</div>
+  <div class="desc">bron: gsc</div>
+</div><div class="list-card">
+  <strong>Eco Handel</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">support_seo_page</span><span class="pill pill-s">score 74</span></div>
+  <div class="desc">GSC opportunity spotted: 7 impressions · CTR 71,4% · Pos 2.3</div>
+  <div class="desc">bron: gsc</div>
+</div><div class="list-card">
+  <strong>Deye thuisbatterij voor installateurs: welke systemen verkopen het makkelijkst?</strong>
+  <div class="meta"><span class="pill pill-g">P2</span><span class="pill pill-s">authority_page</span><span class="pill pill-s">score 75</span></div>
+  <div class="desc">Sluit aan op EcoHandel B2B-groei en installateursfocus.</div>
+  <div class="desc">bron: manual_milan, manual_jean</div>
+</div><div class="list-card">
+  <strong>PMax-EcoHandel Deye: landingspagina en value-fit verbeteren</strong>
+  <div class="meta"><span class="pill pill-g">P3</span><span class="pill pill-s">support_seo_page</span><span class="pill pill-s">score 63</span></div>
+  <div class="desc">Ads campaign snapshot shows value pressure: PERFORMANCE_MAX · Spend €77,98 · Value €1.310,00</div>
+  <div class="desc">bron: ads</div>
+</div></div>
+  </div>
+</div>
+
+<div class="g g12">
+  <div class="p s12">
+    <div class="ph"><div><div class="ey">Gepubliceerd</div><h2>Geplaatste kennisartikelen</h2></div><span class="badge badge-ok">5 LIVE</span></div>
+    <div class="tw mobile-cards"><table><thead><tr><th>Artikel</th><th>Datum</th><th>Status</th></tr></thead><tbody><tr><td data-label="Artikel">Deye Smart Home Systeem: Alles Draadloos Aansturen via LoRa</td><td data-label="Datum">2026-03-23</td><td data-label="Status"><span class="pill pill-g">live</span></td></tr><tr><td data-label="Artikel">Deye Copilot: AI-gestuurd Energiebeheer voor je Thuisbatterij</td><td data-label="Datum">2026-03-23</td><td data-label="Status"><span class="pill pill-g">live</span></td></tr><tr><td data-label="Artikel">Deye Smart Wallbox: Slim Laden op Zonne-energie</td><td data-label="Datum">2026-03-23</td><td data-label="Status"><span class="pill pill-g">live</span></td></tr><tr><td data-label="Artikel">Deye vs Growatt: Vergelijking voor Installateurs</td><td data-label="Datum">2026-03-23</td><td data-label="Status"><span class="pill pill-g">live</span></td></tr><tr><td data-label="Artikel">Deye LV vs HV Batterijsysteem: Wanneer Kies je Wat?</td><td data-label="Datum">2026-03-23</td><td data-label="Status"><span class="pill pill-g">live</span></td></tr></tbody></table></div>
+  </div>
+</div>
+
+  </div>
+</div>
+<nav class="bnav"><div class="bnav-in"><a href="/" class=""><span class="ic">⌂</span><span>Dashboard</span></a>
+<a href="/smart-content-queue.html" class="on"><span class="ic">◎</span><span>Queue</span></a>
+<a href="/workflows.html" class=""><span class="ic">◈</span><span>Workflows</span></a>
+<a href="/partner-campaign.html" class=""><span class="ic">✉</span><span>Partners</span></a></div></nav>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(r=>r.forEach(w=>w.unregister()));
+</script>
 </body>
 </html>
