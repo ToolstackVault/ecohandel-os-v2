@@ -1,0 +1,2486 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecohandel × DEYE — Prijslijst 2025</title>
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --eco-green: #04be64;
+      --eco-dark: #00a651;
+      --eco-deeper: #006633;
+      --eco-light: #d4f5e4;
+      --eco-pale: #f0faf5;
+      --white: #ffffff;
+      --off-white: #f7fdf9;
+      --text-dark: #0a1f13;
+      --text-mid: #2a5c3a;
+      --text-light: #5a8c6e;
+      --border: #c0e8d0;
+      --shadow: rgba(11, 189, 101, 0.12);
+      --amber: #ffb800;
+      --amber-light: #fff8e1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 52px 64px;
+    }
+
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('cover.png');
+      background-size: cover;
+      background-position: center top;
+      z-index: 0;
+    }
+
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 1;
+    }
+
+    .cover>*:not(.cover-bg):not(.cover-overlay) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-img {
+      height: 42px;
+      filter: brightness(0) invert(1);
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .logo-deye-img {
+      height: 32px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .cover-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 100px;
+      padding: 8px 22px;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .cover-center {
+      text-align: center;
+    }
+
+    .cover-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 18px;
+    }
+
+    .cover-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(54px, 8vw, 96px);
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+
+    .cover-title em {
+      font-style: italic;
+      color: #ffe066;
+    }
+
+    .cover-subtitle {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 500px;
+      margin: 20px auto 0;
+      line-height: 1.6;
+    }
+
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .cover-stats {
+      display: flex;
+      gap: 52px;
+    }
+
+    .stat {
+      color: var(--white);
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      color: #ffe066;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .cover-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    .nav a {
+      padding: 18px 22px;
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .nav a:hover {
+      color: var(--eco-green);
+      border-bottom-color: var(--eco-green);
+    }
+
+    /* ── CATEGORY BAND ── */
+    .category-band {
+      background: linear-gradient(90deg, var(--eco-deeper) 0%, var(--eco-dark) 100%);
+      padding: 28px 64px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      scroll-margin-top: 60px;
+    }
+
+    .band-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .band-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #ffe066;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .band-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .band-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.55);
+      margin-top: 3px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 0 64px 60px;
+      scroll-margin-top: 60px;
+    }
+
+    .section-intro {
+      padding: 32px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .section-intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .section-intro-sub {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 64px;
+    }
+
+    /* ── TABLE ── */
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 48px;
+    }
+
+    .product-table thead tr {
+      background: var(--eco-pale);
+      border-bottom: 2px solid var(--eco-green);
+    }
+
+    .product-table th {
+      text-align: left;
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--eco-dark);
+    }
+
+    .product-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .product-table tbody tr:hover {
+      background: var(--eco-pale);
+    }
+
+    .product-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .product-table td {
+      padding: 16px 20px;
+      vertical-align: middle;
+    }
+
+    /* product image cell */
+    .img-cell {
+      width: 68px;
+      padding: 12px 16px;
+    }
+
+    .product-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--eco-pale);
+      border: 1px solid var(--border);
+      padding: 4px;
+    }
+
+    .product-img-placeholder {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      background: var(--eco-pale);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    /* model code */
+    .model-code {
+      font-family: 'Outfit', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--eco-light);
+      color: var(--eco-deeper);
+      padding: 3px 8px;
+      border-radius: 5px;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .product-name a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .product-name a:hover {
+      color: var(--eco-green);
+      text-decoration: underline;
+    }
+
+    .product-sub {
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .kw-badge {
+      display: inline-block;
+      background: #e8f5ff;
+      color: #0056a3;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .new-badge {
+      display: inline-block;
+      background: #fff0d4;
+      color: #b85c00;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 20px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .price-cell {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--eco-deeper);
+      letter-spacing: -0.3px;
+    }
+
+    .price-note {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .link-cell a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--eco-green);
+      text-decoration: none;
+      border: 1px solid var(--eco-green);
+      border-radius: 6px;
+      padding: 5px 10px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .link-cell a:hover {
+      background: var(--eco-green);
+      color: white;
+    }
+
+    .link-cell .no-link {
+      font-size: 12px;
+      color: var(--border);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--eco-deeper);
+      padding: 56px 64px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-logo-img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--eco-green);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-item a {
+      color: var(--eco-green);
+      text-decoration: none;
+    }
+
+    .footer-contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .footer-info-item {
+      font-size: 12.5px;
+    }
+
+    .footer-info-label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 2px;
+    }
+
+    .footer-info-val {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    .footer-legal {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.3);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section,
+    .category-band {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    .product-table tbody tr {
+      transition: all 0.2s ease;
+    }
+
+    .product-table tbody tr:hover {
+      background: var(--eco-pale);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .link-cell a {
+      transition: all 0.2s ease;
+    }
+
+    .link-cell a:hover {
+      background: var(--eco-green);
+      color: white;
+      transform: scale(1.04);
+      box-shadow: 0 2px 10px rgba(4, 190, 100, 0.3);
+    }
+
+    /* ── NAV SCROLL INDICATOR ── */
+    .nav::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 48px;
+      background: linear-gradient(90deg, transparent, rgba(247, 253, 249, 0.96));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 253, 249, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ── RESPONSIVE · TABLET (≤1024px) ── */
+    @media (max-width: 1024px) {
+      .cover {
+        padding: 40px 36px;
+      }
+
+      .section {
+        padding: 0 36px 40px;
+      }
+
+      .category-band {
+        padding: 22px 36px;
+      }
+
+      .nav {
+        padding: 0 24px;
+      }
+
+      .footer {
+        padding: 40px 36px;
+      }
+
+      .section-divider {
+        margin: 0 36px;
+      }
+    }
+
+    /* ── RESPONSIVE · MOBILE (≤768px) ── */
+    @media (max-width: 768px) {
+      .cover {
+        padding: 32px 24px;
+        min-height: 85vh;
+      }
+
+      .cover-title {
+        font-size: clamp(36px, 10vw, 54px);
+        letter-spacing: -1px;
+      }
+
+      .cover-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+      }
+
+      .cover-subtitle {
+        font-size: 14px;
+        margin-top: 14px;
+      }
+
+      .cover-stats {
+        gap: 28px;
+      }
+
+      .stat-num {
+        font-size: 24px;
+      }
+
+      .stat-label {
+        font-size: 9px;
+      }
+
+      .cover-bottom {
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+      }
+
+      .cover-note {
+        text-align: left;
+      }
+
+      .cover-badge {
+        font-size: 10px;
+        padding: 6px 16px;
+      }
+
+      .logo-img {
+        height: 32px;
+      }
+
+      .logo-deye-img {
+        height: 24px;
+      }
+
+      .nav {
+        padding: 0 16px;
+      }
+
+      .nav a {
+        padding: 14px 16px;
+        font-size: 12px;
+      }
+
+      .category-band {
+        padding: 20px 24px;
+      }
+
+      .band-title {
+        font-size: 17px;
+      }
+
+      .band-sub {
+        font-size: 12px;
+      }
+
+      .band-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .section {
+        padding: 0 16px 32px;
+      }
+
+      .section-divider {
+        margin: 0 16px;
+      }
+
+      .section-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      /* ── TABLE → CARD LAYOUT ── */
+      .product-table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+      }
+
+      .product-table thead {
+        display: none;
+      }
+
+      .product-table tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px;
+        gap: 8px;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      .product-table tbody tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px var(--shadow);
+      }
+
+      .product-table td {
+        padding: 0;
+        border: none;
+      }
+
+      .img-cell {
+        width: 60px !important;
+        padding: 0 !important;
+      }
+
+      .product-img {
+        width: 56px;
+        height: 56px;
+        border-radius: 10px;
+      }
+
+      /* model code cell */
+      .product-table td:nth-child(2) {
+        order: 3;
+        width: 100%;
+      }
+
+      /* product name/description cell */
+      .product-table td:nth-child(3) {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .product-name {
+        font-size: 13px;
+      }
+
+      .product-sub {
+        font-size: 11px;
+      }
+
+      .model-code {
+        font-size: 11px;
+        padding: 2px 6px;
+      }
+
+      /* vermogen/capaciteit badge */
+      .product-table td:nth-child(4) {
+        order: 4;
+      }
+
+      .kw-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+      }
+
+      /* price cell */
+      .price-cell {
+        text-align: left !important;
+        order: 5;
+        flex: 1;
+      }
+
+      .price {
+        font-size: 18px;
+        color: var(--eco-green);
+      }
+
+      /* link cell */
+      .link-cell {
+        order: 6;
+      }
+
+      .link-cell a {
+        padding: 8px 14px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      /* footer */
+      .footer {
+        padding: 36px 24px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 32px;
+        padding-bottom: 32px;
+      }
+
+      .footer-tagline {
+        max-width: 100%;
+      }
+
+      .footer-info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ── RESPONSIVE · SMALL MOBILE (≤480px) ── */
+    @media (max-width: 480px) {
+      .cover {
+        padding: 24px 16px;
+        min-height: 90vh;
+      }
+
+      .cover-top {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .cover-title {
+        font-size: clamp(30px, 12vw, 42px);
+      }
+
+      .cover-stats {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .product-table tbody tr {
+        padding: 14px;
+      }
+
+      .product-name {
+        font-size: 12.5px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+
+      .footer-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      .nav {
+        display: none !important;
+      }
+
+      .cover {
+        min-height: auto;
+        padding: 32px;
+        page-break-after: always;
+      }
+
+      .cover-bg {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .category-band {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-before: always;
+      }
+
+      .product-table tbody tr {
+        page-break-inside: avoid;
+      }
+
+      .link-cell {
+        display: none;
+      }
+
+      .footer {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-before: always;
+      }
+
+      body {
+        font-size: 12px;
+      }
+
+      .section {
+        padding: 0 32px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-bg"></div>
+    <div class="cover-overlay"></div>
+
+    <div class="cover-top">
+      <div class="logo-block">
+        <img class="logo-img" src="Wordmark-Groen-02.png-2.avif" alt="EcoHandel">
+        <div class="logo-divider"></div>
+        <img class="logo-deye-img" src="https://www.deyeinverter.com/template/en/images/logo.png" alt="DEYE">
+      </div>
+      <div class="cover-badge">B2B Prijslijst 2025</div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Officieel distributeur · Nederland & België</div>
+      <div class="cover-title">Prijs<em>lijst</em><br>2025</div>
+      <div class="cover-subtitle">Professionele inkoopprijzen voor installateurs en zakelijke afnemers. Alle prijzen
+        EXW, excl. BTW.</div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-stats">
+        <div class="stat">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Productcategorieën</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">80+</div>
+          <div class="stat-label">Modellen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">EXW</div>
+          <div class="stat-label">Alle prijzen</div>
+        </div>
+      </div>
+      <div class="cover-note">
+        info@EcoHandel.nl<br>
+        085-3332453<br>
+        Geldig: 2025
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#eenfasig-lv">1-fase LV Hybride</a>
+    <a href="#driefasig-lv">3-fase LV Hybride</a>
+    <a href="#driefasig-hv">3-fase HV Hybride</a>
+    <a href="#allinone">All-in-One</a>
+    <a href="#batterijen">Batterijen</a>
+    <a href="#commercieel">Commercieel & C&I</a>
+    <a href="#accessoires">Accessoires & EV</a>
+  </nav>
+
+  <!-- 1-FASE LV HYBRIDE -->
+  <div class="category-band" id="eenfasig-lv">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <path d="M13 2L4.09 12.6H11L9 20l8.91-10.6H12L14 2z" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Eenfasige Hybride Omvormers — Laagspanning (LV)</div>
+      <div class="band-sub">48V laagspanning · eenfasig · geschikt voor residentieel gebruik</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Vermogen</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600-2.jpg?v=1774533732&width=533"
+              alt="SUN-3.6K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-3.6K-SG05LP1-EU-AM2-PLUS</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-3-6k-sg05lp1-eu"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">3.6 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 600</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-3-6k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600.jpg?v=1767693621&width=533"
+              alt="SUN-5K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-5K-SG05LP1-EU-AM2-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-5k-sg05lp1-eu" target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">5 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 640</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-5k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1.jpg?v=1767693623&width=533" alt="SUN-6K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-6K-SG05LP1-EU-AM2-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-6k-sg05lp1-eu" target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">6 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 655</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-6k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300.webp?v=1763921089&width=533"
+              alt="SUN-8K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-8K-SG05LP1-EU-AM2-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp1-eu" target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">8 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 900</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_f531c147-4ab2-41f7-bf51-c488747d9ef8.webp?v=1763922805&width=533"
+              alt="SUN-10K-SG02LP1-EU-AM3"></td>
+          <td><span class="model-code">SUN-10K-SG02LP1-EU-AM3-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-10k-sg02lp1-eu-am3"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">10 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.300</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-10k-sg02lp1-eu-am3" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-12K-SG02LP1-EU-AM3"></td>
+          <td><span class="model-code">SUN-12K-SG02LP1-EU-AM3-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-12k-sg02lp1-eu-am3"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">12 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.330</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-12k-sg02lp1-eu-am3" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-16K-SG01LP1-EU"></td>
+          <td><span class="model-code">SUN-16K-SG01LP1-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-16k-sg01lp1-eu-16kw-single-phase-3-mppt-hybrid-inverter-low-voltage"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">16 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-16k-sg01lp1-eu-16kw-single-phase-3-mppt-hybrid-inverter-low-voltage"
+              target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 3-FASE LV -->
+  <div class="category-band" id="driefasig-lv">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <path d="M13 2L4.09 12.6H11L9 20l8.91-10.6H12L14 2z" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Driefasige Hybride Omvormers — Laagspanning (LV)</div>
+      <div class="band-sub">48V laagspanning · driefasig · voor grotere woningen & bedrijven</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Vermogen</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800.png?v=1764094748&width=533"
+              alt="SUN-5K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-5K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-5k-sg05lp3-eu-5kw-drie-fase-2-mppt-hybride-lv-batterij-ondersteund"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">5 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.270</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-5k-sg05lp3-eu-5kw-drie-fase-2-mppt-hybride-lv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/SUN-6K-SG05LP3-EU1.png?v=1767704069&width=533"
+              alt="SUN-6K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-6K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/sun-6k-sg01hp3-eu-am2-10kw-drie-fase-hybride-hv-batterij-ondersteund-kopie"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">6 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.290</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/sun-6k-sg01hp3-eu-am2-10kw-drie-fase-hybride-hv-batterij-ondersteund-kopie"
+              target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600_59c3d0d1-f0ac-4efa-9ed3-537ec88e15b1.jpg?v=1774518493&width=533"
+              alt="SUN-8K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-8K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp3-eu" target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">8 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.330</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600.png?v=1774278455&width=533"
+              alt="SUN-10K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-10K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-10k-sg05lp3-eu"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">10 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.395</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-10k-sg05lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-8-10-12k-2-300x300.webp?v=1763992091&width=533"
+              alt="SUN-12K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-12K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-12k-sg04lp3-eu"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">12 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.465</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-12k-sg04lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/SUN-15K-SG05LP3-EU1.png?v=1767704985&width=533"
+              alt="SUN-15K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-15K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-15k-sg05lp3-eu-15kw-driefase-hybride-lv-48v"
+                target="_blank">DEYE 3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">15 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.615</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-15k-sg05lp3-eu-15kw-driefase-hybride-lv-48v"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600_f16681e8-cf16-4cc1-bff7-aa46810566a7.png?v=1764002304&width=533"
+              alt="SUN-20K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-20K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-20k-sg05lp3-eu"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">20 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 2.175</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-20k-sg05lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 3-FASE HV -->
+  <div class="category-band" id="driefasig-hv">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <path d="M13 2L4.09 12.6H11L9 20l8.91-10.6H12L14 2z" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Driefasige Hybride Omvormers — Hoogspanning (HV)</div>
+      <div class="band-sub">160–800V hoogspanning · driefasig · voor professionele installaties</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Vermogen</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/6-800x800-1-600x600.jpg?v=1767693620&width=533"
+              alt="SUN-10K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-10K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-12kw-hybride-omvormer-driefase-sun-12k-hp3"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">10 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 925</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-12kw-hybride-omvormer-driefase-sun-12k-hp3" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-12K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-12K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-12k-sg01hp3-eu-am2-12kw-driefasig-hybride-hv-batterij-ondersteund"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">12 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.150</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-12k-sg01hp3-eu-am2-12kw-driefasig-hybride-hv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-15K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-15K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-15k-sg01hp3-eu-am2-15kw-driefasig-hybride-hv-batterij-ondersteund"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">15 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.250</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-15k-sg01hp3-eu-am2-15kw-driefasig-hybride-hv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/6-800x800-1-600x600.jpg?v=1767693620&width=533"
+              alt="SUN-20K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-20K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-20k-sg01hp3-eu-am2"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">20 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.450</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-20k-sg01hp3-eu-am2" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="SUN-25K-SG02HP3-EU-AM3"></td>
+          <td><span class="model-code">SUN-25K-SG02HP3-EU-AM3</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-25k-sg01hp3-eu-25kw-drie-fase-hybride-hv-batterij-ondersteund"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">25 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.600</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-25k-sg01hp3-eu-25kw-drie-fase-hybride-hv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="SUN-30K-SG02HP3-EU-AM3"></td>
+          <td><span class="model-code">SUN-30K-SG02HP3-EU-AM3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-30k-sg02hp3-eu-bm3"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">30 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 2.425</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-30k-sg02hp3-eu-bm3" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600_3db20277-099b-4910-a6ad-98883cfaad5e.jpg?v=1767693624&width=533"
+              alt="SUN-50K-SG01HP3-EU-BM4"></td>
+          <td><span class="model-code">SUN-50K-SG01HP3-EU-BM4</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-50k-sg01hp3-eu-bm4"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">50 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 3.500</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-50k-sg01hp3-eu-bm4" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-80K-SG02HP3-EU-EM6"></td>
+          <td><span class="model-code">SUN-80K-SG02HP3-EU-EM6</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-80k-hybride-omvormer-80kw-driefase-hv-batterijproducts-sun-80k-sg02hp3-eu-em6"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">80 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 5.250</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-80k-hybride-omvormer-80kw-driefase-hv-batterijproducts-sun-80k-sg02hp3-eu-em6"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-100K-SG02HP3-EU-GM10"></td>
+          <td><span class="model-code">SUN-100K-SG02HP3-EU-GM10</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/omvormers" target="_blank">DEYE
+                3-fase HV Hybride Omvormer <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">100 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 5.450</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/omvormers" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-125K-SG02HP3-EU-GM10"></td>
+          <td><span class="model-code">SUN-125K-SG02HP3-EU-GM10</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/omvormers" target="_blank">DEYE
+                3-fase HV Hybride Omvormer <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">125 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 5.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/omvormers" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ALL-IN-ONE -->
+  <div class="category-band" id="allinone">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <rect x="3" y="3" width="16" height="16" rx="3" />
+        <path d="M7 11l3 3 5-5" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">All-in-One Energiesystemen & Micro ESS</div>
+      <div class="band-sub">Geïntegreerde omvormer + batterij systemen</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table" style="margin-bottom:40px;">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Specificatie</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">RW-F5.3-1H3</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-rw-f5-3-1h3-5kw-all-in-one-hybride-omvormer-5-3kwh-batterij"
+                target="_blank">DEYE All-in-One Hybride + Batterij <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">5kW omvormer + 5,3 kWh batterij · eenfasig</div>
+          </td>
+          <td><span class="kw-badge">5 kW / 5.3 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-rw-f5-3-1h3-5kw-all-in-one-hybride-omvormer-5-3kwh-batterij"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/AE-FS2.0-2H2.jpg?v=1767874938&width=533" alt="AE-FS2.0"></td>
+          <td><span class="model-code">AE-FS2.0</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+                target="_blank">DEYE Micro Energieopslag</a></div>
+            <div class="product-sub">Micro ESS · noodstroom · draagbaar</div>
+          </td>
+          <td><span class="kw-badge">2 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 400</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/AE-FS2.0-2H2.jpg?v=1767874938&width=533" alt="AE-FS2.0-2H2">
+          </td>
+          <td><span class="model-code">AE-FS2.0-2H2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+                target="_blank">DEYE Micro Hybride ESS</a></div>
+            <div class="product-sub">On-grid, off-grid & draagbaar gebruik · micro hybrid</div>
+          </td>
+          <td><span class="kw-badge">2 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 600</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- BATTERIJEN -->
+  <div class="category-band" id="batterijen">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <rect x="2" y="7" width="16" height="10" rx="2" />
+        <path d="M20 11v2" />
+        <path d="M6 11h10" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Thuisbatterijen — LV & HV Opslag</div>
+      <div class="band-sub">Laagspanning (48V) en hoogspanning batterijmodules voor residentieel gebruik</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <!-- LV subsection -->
+    <div class="section-intro">
+      <div>
+        <div class="section-intro-title">Laagspanning Batterijen (LV · 48V)</div>
+        <div class="section-intro-sub">SE-serie wall/floor/stack · AI-serie gestapeld</div>
+      </div>
+    </div>
+    <table class="product-table" style="margin-bottom:40px;">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Capaciteit</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/Deye-RW-M6.1-Acumulator-Baterie-SolarTech-1.jpg?v=1767693638&width=533"
+              alt="SE-G5.1 Pro-B"></td>
+          <td><span class="model-code">SE-G5.1 Pro-B</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-6-14kwh-low-voltage-thuisbatterij"
+                target="_blank">DEYE LV Thuisbatterij 5.1 kWh</a></div>
+            <div class="product-sub">48V laagspanning · LFP</div>
+          </td>
+          <td><span class="kw-badge">5.1 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-6-14kwh-low-voltage-thuisbatterij"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/DeyeSE-F5Pro1.jpg?v=1767703343&width=533" alt="SE-F5Pro-C">
+          </td>
+          <td><span class="model-code">SE-F5Pro-C</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem-kopie"
+                target="_blank">DEYE LV Thuisbatterij 5.1 kWh <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Wall / Floor / Stack-mounted · 48V LFP</div>
+          </td>
+          <td><span class="kw-badge">5.1 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 660</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem-kopie"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/DeyeSE-F161.jpg?v=1767701793&width=533" alt="SE-F12-C"></td>
+          <td><span class="model-code">SE-F12-C</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+                target="_blank">DEYE LV Thuisbatterij 12 kWh <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Wall / Floor / Stack-mounted · 48V LFP</div>
+          </td>
+          <td><span class="kw-badge">12 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">Op aanvraag</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/DeyeSE-F161.jpg?v=1767701793&width=533" alt="SE-F16-C"></td>
+          <td><span class="model-code">SE-F16-C</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+                target="_blank">DEYE LV Thuisbatterij 16 kWh <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Wall / Floor / Stack-mounted · 48V LFP</div>
+          </td>
+          <td><span class="kw-badge">16 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.570</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/Deye5.12LV.png?v=1765286215&width=533"
+              alt="AI-W5.1-PDU1-B-BASE"></td>
+          <td><span class="model-code">AI-W5.1-PDU1-B-BASE</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+                target="_blank">DEYE LV Gestapeld Controller + Base</a></div>
+            <div class="product-sub">5 kWh controller + basis · 48V</div>
+          </td>
+          <td><span class="kw-badge">5 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 490</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/Deye5.12LV.png?v=1765286215&width=533" alt="AI-W5.1-B"></td>
+          <td><span class="model-code">AI-W5.1-B</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+                target="_blank">DEYE LV Gestapeld Batterijmodule</a></div>
+            <div class="product-sub">Uitbreidingsmodule gestapeld systeem · 48V</div>
+          </td>
+          <td><span class="kw-badge">5.1 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 890</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- HV subsection -->
+    <div class="section-intro">
+      <div>
+        <div class="section-intro-title">Hoogspanning Batterijen (HV · GB-serie & BOS-G)</div>
+        <div class="section-intro-sub">Gestapelde HV modules · rack systemen</div>
+      </div>
+    </div>
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Capaciteit</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/GB-LBS-PRO-GB-BASE.jpg?v=1774518493&width=533"
+              alt="GB-LBS+BASE"></td>
+          <td><span class="model-code">GB-LBS+BASE</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-gb-lbs-controller-and-base-hv"
+                target="_blank">DEYE HV Gestapeld Controller + Base</a></div>
+            <div class="product-sub">HV batterij controller + basisstation</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 510</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-gb-lbs-controller-and-base-hv"
+              target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">GB-L-Pro-Pack4.1-2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-gb-l-pro-hv-batterijtoren-8-18-kwh-tot-24-54-kwh"
+                target="_blank">DEYE HV Gestapeld Batterijmodule <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">HV gestapeld batterijmodule</div>
+          </td>
+          <td><span class="kw-badge">4 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 710</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-gb-l-pro-hv-batterijtoren-8-18-kwh-tot-24-54-kwh"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/GB-LM4.0.jpg?v=1774518493&width=533" alt="GB-W"></td>
+          <td><span class="model-code">GB-W</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/thuisbatterijen"
+                target="_blank">DEYE HV Batterij (30/50/80kW) <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Compatibel met 30kW, 50kW en 80kW omvormers</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">Op aanvraag</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/thuisbatterijen" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/800x800_5fe8b5f1-5609-4a9b-a7da-baae9eb1136c.jpg?v=1767693636&width=533"
+              alt="BOS-G-PDU-2"></td>
+          <td><span class="model-code">BOS-G-PDU-2</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-battery-control-box-hv"
+                target="_blank">DEYE HV Rack Batterij Control Box</a></div>
+            <div class="product-sub">HV rack batterij controlbox</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 590</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-battery-control-box-hv"
+              target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">BOS-G-pack 5.1</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-g-hv-batterij"
+                target="_blank">DEYE HV 5.12 kWh Batterijmodule</a></div>
+            <div class="product-sub">HV 5.12 kWh batterijmodule voor rack systeem</div>
+          </td>
+          <td><span class="kw-badge">5.12 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 655</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-g-hv-batterij" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800.jpg?v=1767693638&width=533" alt="3U-HRACK"></td>
+          <td><span class="model-code">3U-HRACK</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-19inch-rack-12st-hv"
+                target="_blank">Standaard 19" Rack (groot)</a></div>
+            <div class="product-sub">12 batterijen + 1 control box · For BOS-G</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 260</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-19inch-rack-12st-hv"
+              target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800.jpg?v=1767693638&width=533" alt="3U-LRACK"></td>
+          <td><span class="model-code">3U-LRACK</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/thuisbatterijen"
+                target="_blank">Standaard 19" Rack (klein)</a></div>
+            <div class="product-sub">8 batterijen + 1 control box · For BOS-G</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 240</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/thuisbatterijen" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- COMMERCIEEL -->
+  <div class="category-band" id="commercieel">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <rect x="2" y="8" width="18" height="12" rx="2" />
+        <path d="M6 8V6a5 5 0 0110 0v2" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Commercieel & C&I Energieopslag</div>
+      <div class="band-sub">BOS-B batterijen, kabinetten & grote opslag systemen</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table" style="margin-bottom:40px;">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Specificatie</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">BOS-B-PDU-2-A</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-b-hv-batterij"
+                target="_blank">BOS-B Controller Box (BMS) <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">C&I energieopslag BMS controller</div>
+          </td>
+          <td><span class="kw-badge">16 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 800</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-b-hv-batterij" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="BOS-B-Pack16-A3"></td>
+          <td><span class="model-code">BOS-B-Pack16-A3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/thuisbatterijen"
+                target="_blank">BOS-B Batterij Pro-A3 <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">C&I Energy Storage · 1 set = 240 kWh (15 stuks)</div>
+          </td>
+          <td><span class="kw-badge">16 kWh / stuk</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.600</div>
+            <div class="price-note">excl. BTW / stuk</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/thuisbatterijen" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="BOS-B Rack"></td>
+          <td><span class="model-code">BOS-B Rack</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/thuisbatterijen"
+                target="_blank">BOS-B Batterij Rack <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Rack voor BOS-B batterijsysteem</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 500</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/thuisbatterijen" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">GE-F60 (EU)</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-ge-f60" target="_blank">DEYE
+                Batterijkabinet</a></div>
+            <div class="product-sub">614.4V 100Ah · 61.44 kWh</div>
+          </td>
+          <td><span class="kw-badge">~60 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 12.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-ge-f60" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">GE-F120-2H2</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-ge-f120" target="_blank">DEYE
+                Batterijkabinet + 50kW Omvormer</a></div>
+            <div class="product-sub">Inclusief 1x 50kW hybride omvormer</div>
+          </td>
+          <td><span class="kw-badge">~120 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 26.450</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-ge-f120" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">Deye GE-F240</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-ge-f240" target="_blank">DEYE
+                Outdoor Batterijkabinet <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Small-Scale C&I ESS · Hybride outdoor systeem</div>
+          </td>
+          <td><span class="kw-badge">240 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 29.500</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-ge-f240" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">SUN-STS500L</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/all" target="_blank">Static Transfer
+                Switch</a></div>
+            <div class="product-sub">High-performance 500kW STS voor kritieke processen</div>
+          </td>
+          <td><span class="kw-badge">500 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 4.230</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/all" target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="SUN-MPPT-L01-EU-AM8"></td>
+          <td><span class="model-code">SUN-MPPT-L01-EU-AM8</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/all" target="_blank">DEYE MPPT
+                Module</a></div>
+            <div class="product-sub">Hoog-efficiënt voor C&I zonne-opslagsystemen</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 1.385</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/all" target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"></td>
+          <td><span class="model-code">SUN-125K-PCSL01HP3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/all" target="_blank">DEYE 125kW PCS
+                Module</a></div>
+            <div class="product-sub">Power conversion system · Grootschalige ESS</div>
+          </td>
+          <td><span class="kw-badge">125 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 3.225</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/all" target="_blank">↗ Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ACCESSOIRES -->
+  <div class="category-band" id="accessoires">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <circle cx="11" cy="11" r="3" />
+        <path d="M11 2v3M11 17v3M2 11h3M17 11h3M4.9 4.9l2.1 2.1M14.9 14.9l2.1 2.1M4.9 17.1l2.1-2.1M14.9 7.1l2.1-2.1" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Accessoires, Monitoring, Smart Home & EV Laadpalen</div>
+      <div class="band-sub">Loggers, meters, CT-sensoren, smart plugs & intelligente laadpalen</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Type</th>
+          <th style="text-align:right;">Prijs (EXW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="SUN-XL02-A"></td>
+          <td><span class="model-code">SUN-XL02-A</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">DEYE PV Module Optimizer <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Module-level power optimization</div>
+          </td>
+          <td>Optimizer</td>
+          <td class="price-cell">
+            <div class="price">€ 45</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="EASTRON SDM 630"></td>
+          <td><span class="model-code">EASTRON SDM 630 MCT-ETL</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">EASTRON Slimme Meter (3-fase)</a></div>
+            <div class="product-sub">Three phase smart meter</div>
+          </td>
+          <td>Smart meter</td>
+          <td class="price-cell">
+            <div class="price">€ 90</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="EASTRON SDM 230"></td>
+          <td><span class="model-code">EASTRON SDM 230 Modbus</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">EASTRON Slimme Meter (1-fase)</a></div>
+            <div class="product-sub">Single phase smart meter</div>
+          </td>
+          <td>Smart meter</td>
+          <td class="price-cell">
+            <div class="price">€ 60</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533" alt="LSE-3">
+          </td>
+          <td><span class="model-code">LSE-3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">DEYE LAN Ethernet Logger Module <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Bedraad monitoring via LAN</div>
+          </td>
+          <td>Logger</td>
+          <td class="price-cell">
+            <div class="price">€ 55</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533" alt="LSW-3">
+          </td>
+          <td><span class="model-code">LSW-3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">DEYE WiFi Logger Stick <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Draadloze monitoring via WiFi</div>
+          </td>
+          <td>Logger</td>
+          <td class="price-cell">
+            <div class="price">€ 35</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/CT-front_png.webp?v=1774518493&width=533"
+              alt="SUN-SMART-CT01"></td>
+          <td><span class="model-code">SUN-SMART-CT01</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-smart-wireless-ct-meter-lora"
+                target="_blank">DEYE Wireless CT Sensor <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Draadloze CT in verdeelkast · verbruiksmonitoring</div>
+          </td>
+          <td>Sensor</td>
+          <td class="price-cell">
+            <div class="price">€ 75</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-smart-wireless-ct-meter-lora"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="SUN-SMART-TX01"></td>
+          <td><span class="model-code">SUN-SMART-TX01</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">DEYE Data Collector <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Data aggregator module</div>
+          </td>
+          <td>Monitoring</td>
+          <td class="price-cell">
+            <div class="price">€ 35</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="SUN-SMART-PLUG01P1-F"></td>
+          <td><span class="model-code">SUN-SMART-PLUG01P1-F</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">DEYE Smart Plug <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Slimme stekker — apparaat upgraden naar smart device</div>
+          </td>
+          <td>Smart home</td>
+          <td class="price-cell">
+            <div class="price">€ 55</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600.jpg?v=1767693622&width=533"
+              alt="SUN-SMART-SWITCH01P3"></td>
+          <td><span class="model-code">SUN-SMART-SWITCH01P3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">DEYE Smart Switch <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Aan/uit logica voor smart plugs</div>
+          </td>
+          <td>Smart home</td>
+          <td class="price-cell">
+            <div class="price">€ 75</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/E6_AD_A3_E8_A7_86_E5_9B_BE-2_png.webp?v=1767789279&width=533"
+              alt="SUN-EVSE11K01-EU-AC"></td>
+          <td><span class="model-code">SUN-EVSE11K01-EU-AC</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren"
+                target="_blank">DEYE Intelligente Laadpaal EV</a></div>
+            <div class="product-sub">Intelligent electric vehicle charger · 11kW</div>
+          </td>
+          <td>EV Laadpaal</td>
+          <td class="price-cell">
+            <div class="price">€ 320</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/collections/accessoires-toebehoren" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/E6_AD_A3_E8_A7_86_E5_9B_BE-2_png.webp?v=1767789279&width=533"
+              alt="SUN-EVSE22K01-EU-AC"></td>
+          <td><span class="model-code">SUN-EVSE22K01-EU-AC</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-smart-wallbox-ac-charger-22-kw-slimme-ev-lader"
+                target="_blank">DEYE Intelligente Laadpaal EV 22kW <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Smart EV wallbox charger · 22kW · Type 2</div>
+          </td>
+          <td>EV Laadpaal</td>
+          <td class="price-cell">
+            <div class="price">€ 395</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-smart-wallbox-ac-charger-22-kw-slimme-ev-lader"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <img class="footer-logo-img" src="Wordmark-Groen-02.png-2.avif" alt="EcoHandel">
+        <div class="footer-tagline">Officieel DEYE distributeur voor Nederland en België. Duurzame energiesystemen voor
+          installateurs en zakelijke afnemers.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contactgegevens</div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <a href="mailto:info@EcoHandel.nl">info@EcoHandel.nl</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 10.74 19.79 19.79 0 01.67 2.18 2 2 0 012.65 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l.97-.97a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          <a href="tel:0853332453">085-3332453</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span>Compagnieweg 5<br>3771 NH Barneveld</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+          </svg>
+          <a href="https://www.ecohandel.nl" target="_blank">www.EcoHandel.nl</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Bedrijfsgegevens</div>
+        <div class="footer-info-grid">
+          <div class="footer-info-item">
+            <div class="footer-info-label">KvK</div>
+            <div class="footer-info-val">82557640</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">BTW Nr.</div>
+            <div class="footer-info-val">NL862518027B01</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Regio</div>
+            <div class="footer-info-val">NL & België</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Markt</div>
+            <div class="footer-info-val">B2B · Installateurs</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Prijzen</div>
+            <div class="footer-info-val">EXW, excl. BTW</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Geldig</div>
+            <div class="footer-info-val">2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      Alle prijzen zijn EXW (Ex Works) en exclusief BTW. Prijzen zijn indicatief en onder voorbehoud van
+      wijzigingen.<br>
+      Deze prijslijst is uitsluitend bestemd voor erkende installateurs en professionele afnemers.<br>
+      © 2025 Ecohandel — Alle rechten voorbehouden
+    </div>
+  </footer>
+
+</body>
+
+</html>

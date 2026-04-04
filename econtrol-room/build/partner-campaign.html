@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EcoHandel.nl — Partner Campaign</title>
+<meta name="theme-color" content="#07111d">
+<meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
+<link rel="manifest" href="/app.webmanifest?v=1775332996">
+<link rel="icon" href="/favicon.png?v=1775332996" type="image/png">
+<link rel="shortcut icon" href="/favicon.png?v=1775332996" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1775332996">
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=1775332996">
+<style>:root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.shell{max-width:1680px;margin:0 auto;padding:calc(10px + var(--safe-top)) 14px 0;overflow-x:hidden}
+.topbar{position:sticky;top:0;z-index:20;padding-top:4px;backdrop-filter:blur(20px)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.86);border-radius:20px;box-shadow:0 12px 36px rgba(0,0,0,.22)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{width:38px;height:38px;border-radius:12px;display:block;object-fit:cover;background:#0b1b2b;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.brand-copy{min-width:0}.brand-ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.brand-t{font-size:17px;font-weight:900;letter-spacing:-.03em}.brand-s{font-size:11px;color:var(--muted)}
+.pill-page{padding:6px 10px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.04em}
+.dnav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.dnav a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
+.dnav a.on{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 6px 16px rgba(22,163,74,.22)}
+.wrap{padding:14px 0 0}
+.hero{padding:22px;border-radius:24px;background:linear-gradient(180deg,rgba(15,34,54,.97),rgba(20,49,77,.93));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.28);margin-bottom:18px}
+.ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+h1{margin:8px 0 10px;font-size:clamp(30px,6vw,46px);line-height:.94;letter-spacing:-.05em}
+.sub{color:var(--muted);font-size:13px;line-height:1.6;max-width:920px}
+.ts{color:var(--muted);font-size:12px;margin-top:10px}
+.g{display:grid;gap:14px;margin-top:14px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g12{grid-template-columns:repeat(12,1fr)}
+.s6{grid-column:span 6}.s7{grid-column:span 7}.s5{grid-column:span 5}.s12{grid-column:span 12}.s4{grid-column:span 4}.s8{grid-column:span 8}
+.p{padding:18px;border-radius:22px;background:linear-gradient(180deg,rgba(15,34,54,.94),rgba(20,49,77,.88));border:1px solid rgba(255,255,255,.08);box-shadow:0 16px 50px rgba(0,0,0,.22)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:16px}
+h2{margin:2px 0 0;font-size:21px;letter-spacing:-.035em}
+.badge{padding:5px 10px;border-radius:999px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.badge-ok{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+.badge-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+.badge-off{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.08)}
+.sg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hero .sg{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:16px}
+.sc{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.sl{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.sv{display:block;margin-top:7px;font-size:24px;letter-spacing:-.045em;font-weight:900;line-height:1.05}
+.sn{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.45}
+.sc-g .sv{color:#86efac}.sc-w .sv{color:#fcd34d}.sc-c .sv{color:var(--cyan)}.sc-r .sv{color:#fca5a5}
+.tw{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(34,211,238,.35) transparent}
+.tw::-webkit-scrollbar{height:8px}
+.tw::-webkit-scrollbar-thumb{background:rgba(34,211,238,.28);border-radius:999px}
+table{width:100%;border-collapse:collapse}th,td{padding:8px 6px;border-top:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}
+th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.pill{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+.pill-g{background:rgba(34,197,94,.16);color:#86efac}.pill-w{background:rgba(245,158,11,.16);color:#fcd34d}
+.pill-c{background:rgba(34,211,238,.12);color:var(--cyan)}.pill-s{background:rgba(255,255,255,.05);color:var(--muted)}
+.pill-r{background:rgba(239,68,68,.16);color:#fca5a5}
+.note{padding:15px 16px;border-radius:18px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.14);margin-top:12px}
+.note ul,.note ol{margin:8px 0 0;padding-left:16px;display:grid;gap:6px}
+.stack{display:grid;gap:12px}.stack-tight{display:grid;gap:10px}.stretch{height:100%}
+.insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.insight-card{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06)}
+.insight-card strong{display:block;font-size:12px;letter-spacing:-.01em;margin-bottom:6px}.insight-card .mini{font-size:12px;color:var(--muted);line-height:1.45}
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat-card{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07)}
+.stat-card .k{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.stat-card .v{display:block;margin-top:8px;font-size:23px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
+.stat-card .n{display:block;margin-top:6px;font-size:12px;line-height:1.5;color:var(--muted)}
+.list-card{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);overflow:hidden}
+.list-card strong{display:block;font-size:14px;letter-spacing:-.01em;word-break:break-word}
+.list-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.list-card .desc{margin-top:8px;font-size:12px;line-height:1.55;color:var(--muted);word-break:break-word}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.muted{color:var(--muted)}
+.refresh-btn{position:fixed;top:calc(var(--safe-top) + 70px);right:16px;z-index:30;width:42px;height:42px;border-radius:50%;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.25);color:var(--cyan);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 6px 20px rgba(0,0,0,.3);transition:transform .2s}
+.refresh-btn:active{transform:scale(.9)}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + var(--safe-bottom));pointer-events:none}
+.bnav-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:20px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -8px 30px rgba(0,0,0,.28);pointer-events:auto}
+.bnav a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:14px;color:#cfe2f3;font-size:10px;font-weight:800;letter-spacing:.04em}
+.bnav a .ic{font-size:16px;line-height:1}
+.bnav a.on{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
+@media(max-width:1180px){.sg,.hero .sg,.g2,.g3,.g4,.insight-grid,.card-grid{grid-template-columns:1fr}.g12{grid-template-columns:1fr}.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 1}.dnav{display:none}.shell{padding:calc(8px + var(--safe-top)) 10px 0}.topbar{padding-top:2px}.topbar-inner{flex-direction:column;align-items:flex-start;padding:12px 12px 10px}.brand{width:100%}.brand-s{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4}.pill-page{width:100%;text-align:center;justify-content:center}.hero{padding:16px 14px 14px;border-radius:20px}.p{padding:14px;border-radius:20px}.ph{margin-bottom:12px}.refresh-btn{top:auto;bottom:calc(var(--safe-bottom) + 92px);right:12px;width:46px;height:46px}h1{font-size:clamp(28px,9vw,36px);line-height:1}h2{font-size:18px}.sub,.ts,.sn,.list-card .desc{font-size:12px}.sv{font-size:22px}.tw{margin:0 -4px;padding:0 4px 8px}.tw::after{content:'↔ swipe';display:block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-align:right}.tw table,table{min-width:680px}.mobile-cards{overflow:visible;margin:0;padding:0}.mobile-cards::after{display:none}.mobile-cards table{min-width:0}.mobile-cards thead{display:none}.mobile-cards tbody{display:grid;gap:10px}.mobile-cards tr{display:block;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)}.mobile-cards td{display:block;border-top:none;padding:0 0 8px;font-size:13px;word-break:break-word}.mobile-cards td:last-child{padding-bottom:0}.mobile-cards td::before{content:attr(data-label);display:block;margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.mobile-cards td .sub{margin-top:4px;font-size:12px;line-height:1.45}.mobile-cards .pill{margin-top:2px;max-width:100%;white-space:normal}.mobile-cards strong,.mobile-cards span,.mobile-cards div{word-break:break-word}}
+@media(min-width:1181px){.bnav{display:none}.shell{padding-left:24px;padding-right:24px}}</style>
+</head>
+<body>
+<button class="refresh-btn" onclick="location.reload(true)" title="Refresh">⟳</button>
+<div class="shell">
+  <div class="topbar"><div class="topbar-inner">
+    <div class="brand"><img class="brand-mark" src="/favicon.png?v=1775332996" alt="EcoHandel logo"><div class="brand-copy"><div class="brand-ey">Mission board</div><div class="brand-t">EcoHandel.nl</div><div class="brand-s">Brevo outreach + partner intelligence</div></div></div>
+    <span class="pill-page">Partners</span>
+  </div></div>
+  <div class="wrap">
+    <nav class="dnav"><a href="/" class="">Dashboard</a>
+<a href="/smart-content-queue.html" class="">Queue</a>
+<a href="/workflows.html" class="">Workflows</a>
+<a href="/partner-campaign.html" class="on">Partners</a></nav>
+    
+<div class="hero">
+  <div class="ey">Partner campaign cockpit</div>
+  <h1>Partners</h1>
+  <div class="sub">Live Brevo + lokale DB intelligence.</div>
+  <div class="ts">Brevo: live · DB: live · Ververst: 04-04-2026 20:03 <span class="badge badge-ok">LIVE</span></div>
+  <div class="sg"><div class="sc sc-c"><span class="sl">Campagnes</span><span class="sv">0</span><span class="sn">Echte campagnes na testfilter</span></div>
+<div class="sc sc-c"><span class="sl">Delivered</span><span class="sv">10</span><span class="sn">Tx fallback actief</span></div>
+<div class="sc sc-g"><span class="sl">Open rate</span><span class="sv">20.0%</span><span class="sn">2 unique opens</span></div>
+<div class="sc sc-c"><span class="sl">Click rate</span><span class="sv">—</span><span class="sn">0 clicks</span></div>
+<div class="sc sc-c"><span class="sl">Leads totaal</span><span class="sv">174</span><span class="sn">96 met email</span></div>
+<div class="sc sc-g"><span class="sl">Echte leads gebruikt</span><span class="sv">69</span><span class="sn">Unieke leads zonder tests/interne ruis</span></div>
+<div class="sc sc-g"><span class="sl">Contacteerbaar</span><span class="sv">174</span><span class="sn">Niet bounced/unsubscribed</span></div>
+<div class="sc sc-c"><span class="sl">Brevo subs</span><span class="sv">0</span><span class="sn">50 lijsten</span></div>
+<div class="sc sc-c"><span class="sl">Credits</span><span class="sv">255</span><span class="sn">free</span></div>
+<div class="sc sc-c"><span class="sl">Deliverability</span><span class="sv">Monitor</span><div class="stat-badges"><span class="pill pill-soft">Clicks 0</span><span class="pill pill-live">Unsubs 0</span><span class="pill pill-live">Bounces 0</span></div><span class="sn">Snelle deliverability-check</span></div></div>
+</div>
+
+<div class="g g12">
+  <div class="p s7">
+    <div class="ph"><div><div class="ey">Intelligence</div><h2>Hot prospects</h2></div></div>
+    <div class="tw mobile-cards"><table><thead><tr><th>Bedrijf</th><th>Contact</th><th>Engagement</th><th>Fit</th><th>Actie</th></tr></thead><tbody><tr><td data-label="Bedrijf"><strong>NKON.nl</strong><div class="sub">Sterke engagement — bel of mail vandaag</div></td><td data-label="Contact">info@nkon.nl</td><td data-label="Engagement">🔥 168.0</td><td data-label="Fit">37.0</td><td data-label="Actie"><span class="pill pill-g">HOT — OPVOLGEN</span></td></tr><tr><td data-label="Bedrijf"><strong>Zonnepaneel Zeeland</strong><div class="sub">Sterke engagement — bel of mail vandaag</div></td><td data-label="Contact">info@zonnepaneelzeeland.nl</td><td data-label="Engagement">🔥 79.0</td><td data-label="Fit">45.0</td><td data-label="Actie"><span class="pill pill-g">HOT — OPVOLGEN</span></td></tr><tr><td data-label="Bedrijf"><strong>Mensonides</strong><div class="sub">Sterke engagement — bel of mail vandaag</div></td><td data-label="Contact">info@mensonides.nl</td><td data-label="Engagement">🔥 64.0</td><td data-label="Fit">10.0</td><td data-label="Actie"><span class="pill pill-g">HOT — OPVOLGEN</span></td></tr><tr><td data-label="Bedrijf"><strong>Belinus</strong><div class="sub">Warm genoeg voor actieve monitoring</div></td><td data-label="Contact">info@belinus.com</td><td data-label="Engagement">🔥 46.0</td><td data-label="Fit">52.0</td><td data-label="Actie"><span class="pill pill-c">WARM — MONITOREN</span></td></tr><tr><td data-label="Bedrijf"><strong>BPath Energy</strong><div class="sub">Warm genoeg voor actieve monitoring</div></td><td data-label="Contact">info@bpathenergy.nl</td><td data-label="Engagement">🔥 31.0</td><td data-label="Fit">90.0</td><td data-label="Actie"><span class="pill pill-c">WARM — MONITOREN</span></td></tr><tr><td data-label="Bedrijf"><strong>Shift to Solar B.V.</strong><div class="sub">Warm genoeg voor actieve monitoring</div></td><td data-label="Contact">info@shifttosolar.nl</td><td data-label="Engagement">🔥 31.0</td><td data-label="Fit">85.0</td><td data-label="Actie"><span class="pill pill-c">WARM — MONITOREN</span></td></tr><tr><td data-label="Bedrijf"><strong>Intercel Services B.V.</strong><div class="sub">Warm genoeg voor actieve monitoring</div></td><td data-label="Contact">Dirk van Gogswaardt (BD Manager)</td><td data-label="Engagement">🔥 31.0</td><td data-label="Fit">83.0</td><td data-label="Actie"><span class="pill pill-c">WARM — MONITOREN</span></td></tr><tr><td data-label="Bedrijf"><strong>Bliq Energy</strong><div class="sub">Warm genoeg voor actieve monitoring</div></td><td data-label="Contact">info@bliq.energy</td><td data-label="Engagement">🔥 31.0</td><td data-label="Fit">72.0</td><td data-label="Actie"><span class="pill pill-c">WARM — MONITOREN</span></td></tr><tr><td data-label="Bedrijf"><strong>Schulte Energie &amp; Techniek</strong><div class="sub">Warm genoeg voor actieve monitoring</div></td><td data-label="Contact">Michiel Westerhof</td><td data-label="Engagement">🔥 31.0</td><td data-label="Fit">68.0</td><td data-label="Actie"><span class="pill pill-c">WARM — MONITOREN</span></td></tr><tr><td data-label="Bedrijf"><strong>Kuyt Verduurzaming B.V.</strong><div class="sub">Warm genoeg voor actieve monitoring</div></td><td data-label="Contact">Info@kuytverduurzaming.nl</td><td data-label="Engagement">🔥 31.0</td><td data-label="Fit">63.0</td><td data-label="Actie"><span class="pill pill-c">WARM — MONITOREN</span></td></tr></tbody></table></div>
+  </div>
+  <div class="p s5">
+    <div class="ph"><div><div class="ey">AI recommendations</div><h2>Partneradvies</h2></div></div>
+    <div class="sub" style="margin-bottom:12px">Korte AI-duiding voor de partnercampagne: waar zit nu de meeste kans op reply, click en opvolging?</div>
+    <div class="card-grid"><div class="list-card">
+  <strong>Eerste campagne versturen</strong>
+  <div class="meta"><span class="pill pill-w">high</span></div>
+  <div class="desc">Er zijn nog geen campagnes verstuurd. Start met testlijst → kleine warmte-batch → evaluatie.</div>
+</div><div class="list-card">
+  <strong>3 hot prospects wachten op opvolging</strong>
+  <div class="meta"><span class="pill pill-w">high</span></div>
+  <div class="desc">Top: NKON.nl, Zonnepaneel Zeeland, Mensonides</div>
+</div></div>
+  </div>
+</div>
+
+<div class="g g12">
+  <div class="p s7">
+    <div class="ph"><div><div class="ey">Campaigns</div><h2>Brevo campagnes</h2></div></div>
+    <div class="tw mobile-cards"><table><thead><tr><th>Naam</th><th>Subject</th><th>Status</th><th>Sent</th><th>Open%</th><th>Click%</th></tr></thead><tbody><tr><td data-label="Naam">partner-daily-2026-04-04-b1200</td><td data-label="Subject">Deye partnerprijzen voor installateurs — direct inzicht</td><td data-label="Status"><span class="pill pill-g">sent</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-daily-2026-04-04-a0900</td><td data-label="Subject">Partner worden voor Deye systemen? Bekijk onze prijslijst</td><td data-label="Status"><span class="pill pill-g">sent</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-daily-2026-04-03-b1200</td><td data-label="Subject">Deye partnerprijzen voor installateurs — direct inzicht</td><td data-label="Status"><span class="pill pill-g">sent</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-daily-2026-04-03-a0900</td><td data-label="Subject">Partner worden voor Deye systemen? Bekijk onze prijslijst</td><td data-label="Status"><span class="pill pill-g">sent</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-daily-2026-04-03-b1200</td><td data-label="Subject">Deye partnerprijzen voor installateurs — direct inzicht</td><td data-label="Status"><span class="pill pill-s">draft</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">direct</td><td data-label="Subject">Partner aanvraag via prijslijst</td><td data-label="Status"><span class="pill pill-s">active</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-launch-a-2026q1</td><td data-label="Subject">Partner aanvraag via prijslijst</td><td data-label="Status"><span class="pill pill-s">active</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-launch-b-2026q1</td><td data-label="Subject">Partner aanvraag via prijslijst</td><td data-label="Status"><span class="pill pill-s">active</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-launch-b3-challenger</td><td data-label="Subject">Interessant voor uw team: Deye prijzen en leverkansen</td><td data-label="Status"><span class="pill pill-g">sent</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr><tr><td data-label="Naam">partner-launch-b2-product</td><td data-label="Subject">Deye partnerprijzen voor installateurs — direct inzicht</td><td data-label="Status"><span class="pill pill-g">sent</span></td><td data-label="Sent">0</td><td data-label="Open%">—</td><td data-label="Click%">—</td></tr></tbody></table></div>
+  </div>
+  <div class="p s5">
+    <div class="ph"><div><div class="ey">Brevo</div><h2>Lijsten</h2></div></div>
+    <div class="tw mobile-cards"><table><thead><tr><th>Lijst</th><th>Subscribers</th></tr></thead><tbody><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-093006</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-093006</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-092358</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-092358</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-091835</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-091835</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-091537</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-091537</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-084450</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-084450</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-084145</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-084145</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-083449</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-083449</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-083358</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-083358</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1200-20260403-082319</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-A0900-20260403-082319</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - BATCH_B1200</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - BATCH_A0900</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B2-20260402-173447</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B2-20260402-172745</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260402-172742</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B2-20260402-172303</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260402-172300</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260402-171223</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B2-20260402-171212</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260402-171209</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Campaign B 2026-04-01 12:00</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Campaign A 2026-04-01 09:00</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Test Campaign - Milan Nova-Cell</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Test Campaign - Milan Test 2026Q2</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Test Mail Variant A</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Test Mail Variant B</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Partner Campaign - Version B 2026Q2</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">Partner Campaign - Version A 2026Q2</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">B4-installateurs-2026Q2</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - BATCH_B3</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B3-20260329-235647</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B2-20260329-121125</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260329-121117</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - BATCH_B2</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B2-20260328-184057</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260328-183713</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260328-183200</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260328-180154</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1-20260328-175550</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - TEST-B1</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Partner Campaign - BATCH_B1</td><td data-label="Subscribers">0</td></tr><tr><td data-label="Lijst">EcoHandel Installateurs - eerdere runs</td><td data-label="Subscribers">0</td></tr></tbody></table></div>
+    <div class="note" style="margin-top:0">
+<strong>🔄 Vast proces (model-agnostic)</strong>
+<ol style="margin:8px 0 0;padding-left:18px;display:grid;gap:4px">
+<li><strong>fetch_brevo_stats.py</strong> — Brevo + DB data</li>
+<li><strong>run_daily_cycle.py</strong> — Scores + reports</li>
+<li><strong>render_partner_campaign_page.py</strong> — Pagina</li>
+<li><strong>deploy_live.py</strong> — Push naar VPS</li>
+<li><strong>Daily handoff</strong> — Hot prospects → Telegram</li>
+</ol></div>
+  </div>
+</div>
+
+<div class="g g12">
+  <div class="p s5">
+    <div class="ph"><div><div class="ey">Pipeline</div><h2>Status</h2></div></div>
+    <div class="tw mobile-cards"><table><thead><tr><th>Status</th><th>Aantal</th></tr></thead><tbody><tr><td data-label="Status">validated</td><td data-label="Aantal"><strong>105</strong></td></tr><tr><td data-label="Status">sent</td><td data-label="Aantal"><strong>53</strong></td></tr><tr><td data-label="Status">engaged</td><td data-label="Aantal"><strong>13</strong></td></tr><tr><td data-label="Status">hot</td><td data-label="Aantal"><strong>3</strong></td></tr></tbody></table></div>
+  </div>
+  <div class="p s7">
+    <div class="ph"><div><div class="ey">Segmentatie</div><h2>Warmte</h2></div></div>
+    <div class="tw mobile-cards"><table><thead><tr><th>Warmte</th><th>Leads</th></tr></thead><tbody><tr><td data-label="Warmte">MIDDEL</td><td data-label="Leads"><strong>62</strong></td></tr><tr><td data-label="Warmte">WARM</td><td data-label="Leads"><strong>40</strong></td></tr><tr><td data-label="Warmte">WARM-MIDDEL</td><td data-label="Leads"><strong>23</strong></td></tr><tr><td data-label="Warmte">MIDDEL-WARM</td><td data-label="Leads"><strong>14</strong></td></tr><tr><td data-label="Warmte" class="muted">Overig</td><td data-label="Leads"><strong>32</strong></td></tr></tbody></table></div>
+  </div>
+</div>
+
+<div class="g g12">
+  <div class="p s12">
+    <div class="ph"><div><div class="ey">Events</div><h2>Webhook activity</h2></div></div>
+    <div class="tw mobile-cards"><table><thead><tr><th>Event</th><th>Email</th><th>Tijd</th></tr></thead><tbody><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@zonnepaneelzeeland.nl</td><td data-label="Tijd" class="muted">04-04-2026 07:06</td></tr><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@belinus.com</td><td data-label="Tijd" class="muted">04-04-2026 07:05</td></tr><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@zonnepaneelzeeland.nl</td><td data-label="Tijd" class="muted">03-04-2026 12:11</td></tr><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@zonnepaneelzeeland.nl</td><td data-label="Tijd" class="muted">03-04-2026 12:10</td></tr><tr><td data-label="Event"><span class="pill pill-s">opened</span></td><td data-label="Email">info@durasolar.nl</td><td data-label="Tijd" class="muted">02-04-2026 15:13</td></tr><tr><td data-label="Event"><span class="pill pill-s">opened</span></td><td data-label="Email">info@durasolar.nl</td><td data-label="Tijd" class="muted">02-04-2026 15:13</td></tr><tr><td data-label="Event"><span class="pill pill-s">opened</span></td><td data-label="Email">info@durasolar.nl</td><td data-label="Tijd" class="muted">2026-04-02T17:13:22.57+02:00</td></tr><tr><td data-label="Event"><span class="pill pill-s">partner_request</span></td><td data-label="Email">info@nkon.nl</td><td data-label="Tijd" class="muted">02-04-2026 15:04</td></tr><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@pelenergie.nl</td><td data-label="Tijd" class="muted">01-04-2026 07:20</td></tr><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@pelenergie.nl</td><td data-label="Tijd" class="muted">01-04-2026 07:20</td></tr><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@kuytverduurzaming.nl</td><td data-label="Tijd" class="muted">01-04-2026 07:20</td></tr><tr><td data-label="Event"><span class="pill pill-s">clicked</span></td><td data-label="Email">info@kuytverduurzaming.nl</td><td data-label="Tijd" class="muted">01-04-2026 07:20</td></tr><tr><td data-label="Event"><span class="pill pill-s">delivered</span></td><td data-label="Email">info@groenopgewekt.nl</td><td data-label="Tijd" class="muted">31-03-2026 07:44</td></tr><tr><td data-label="Event"><span class="pill pill-s">opened</span></td><td data-label="Email">info@mensonides.nl</td><td data-label="Tijd" class="muted">31-03-2026 07:42</td></tr><tr><td data-label="Event"><span class="pill pill-s">delivered</span></td><td data-label="Email">info@solar-drenthe.nl</td><td data-label="Tijd" class="muted">31-03-2026 07:42</td></tr></tbody></table></div>
+  </div>
+</div>
+
+  </div>
+</div>
+<nav class="bnav"><div class="bnav-in"><a href="/" class=""><span class="ic">⌂</span><span>Dashboard</span></a>
+<a href="/smart-content-queue.html" class=""><span class="ic">◎</span><span>Queue</span></a>
+<a href="/workflows.html" class=""><span class="ic">◈</span><span>Workflows</span></a>
+<a href="/partner-campaign.html" class="on"><span class="ic">✉</span><span>Partners</span></a></div></nav>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(r=>r.forEach(w=>w.unregister()));
+</script>
+</body>
+</html>

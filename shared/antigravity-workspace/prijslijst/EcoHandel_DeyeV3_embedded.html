@@ -1,0 +1,2764 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecohandel × DEYE — Prijslijst 2026</title>
+  <link rel="icon" type="image/png" href="https://www.ecohandel.nl/cdn/shop/files/Favicon.png?v=1747316371">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --eco-green: #04be64;
+      --eco-dark: #00a651;
+      --eco-deeper: #006633;
+      --eco-light: #d4f5e4;
+      --eco-pale: #f0faf5;
+      --white: #ffffff;
+      --off-white: #f7fdf9;
+      --text-dark: #0a1f13;
+      --text-mid: #2a5c3a;
+      --text-light: #5a8c6e;
+      --border: #c0e8d0;
+      --shadow: rgba(11, 189, 101, 0.12);
+      --amber: #ffb800;
+      --amber-light: #fff8e1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 52px 64px;
+      background: #00a651 !important;
+      background-image: linear-gradient(135deg, #006633 0%, #00a651 58%, #04be64 100%) !important;
+      color: #ffffff;
+    }
+
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background: transparent !important;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.02);
+      z-index: 1;
+    }
+
+    .cover>*:not(.cover-bg):not(.cover-overlay) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-img {
+      height: 80px;
+      filter: brightness(0) invert(1);
+    }
+
+    .logo-divider {
+      width: 2px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .logo-deye-img {
+      height: 48px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .cover-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 100px;
+      padding: 8px 22px;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .cover-center {
+      text-align: center;
+    }
+
+    .cover-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 18px;
+    }
+
+    .cover-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(54px, 8vw, 96px);
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+
+    .cover-title em {
+      font-style: italic;
+      color: #ffe066;
+    }
+
+    .cover-subtitle {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 500px;
+      margin: 20px auto 0;
+      line-height: 1.6;
+    }
+
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .cover-stats {
+      display: flex;
+      gap: 52px;
+    }
+
+    .stat {
+      color: var(--white);
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      color: #ffe066;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .cover-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    .nav a {
+      padding: 18px 22px;
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .nav a:hover {
+      color: var(--eco-green);
+      border-bottom-color: var(--eco-green);
+    }
+
+    /* ── CATEGORY BAND ── */
+    .category-band {
+      background: linear-gradient(90deg, var(--eco-deeper) 0%, var(--eco-dark) 100%);
+      padding: 28px 64px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      scroll-margin-top: 60px;
+    }
+
+    .band-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .band-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #ffe066;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .band-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .band-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.55);
+      margin-top: 3px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 0 64px 60px;
+      scroll-margin-top: 60px;
+    }
+
+    .section-intro {
+      padding: 32px 0 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .section-intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .section-intro-sub {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 64px;
+    }
+
+    /* ── TABLE ── */
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 48px;
+    }
+
+    .product-table thead tr {
+      background: var(--eco-pale);
+      border-bottom: 2px solid var(--eco-green);
+    }
+
+    .product-table th {
+      text-align: left;
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--eco-dark);
+    }
+
+    .product-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .product-table tbody tr:hover {
+      background: var(--eco-pale);
+    }
+
+    .product-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .product-table td {
+      padding: 16px 20px;
+      vertical-align: middle;
+    }
+
+    /* product image cell */
+    .img-cell {
+      width: 68px;
+      padding: 12px 16px;
+    }
+
+    .product-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--eco-pale);
+      border: 1px solid var(--border);
+      padding: 4px;
+    }
+
+    .product-img-placeholder {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      background: var(--eco-pale);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    /* model code */
+    .model-code {
+      font-family: 'DM Sans', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--eco-light);
+      color: var(--eco-deeper);
+      padding: 3px 8px;
+      border-radius: 5px;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .product-name a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .product-name a:hover {
+      color: var(--eco-green);
+      text-decoration: underline;
+    }
+
+    .product-sub {
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .kw-badge {
+      display: inline-block;
+      background: #e8f5ff;
+      color: #0056a3;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .new-badge {
+      display: inline-block;
+      background: #fff0d4;
+      color: #b85c00;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 20px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .price-cell {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--eco-deeper);
+      letter-spacing: -0.3px;
+    }
+
+    .price-note {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .link-cell a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--eco-green);
+      text-decoration: none;
+      border: 1px solid var(--eco-green);
+      border-radius: 6px;
+      padding: 5px 10px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .link-cell a:hover {
+      background: var(--eco-green);
+      color: white;
+    }
+
+    .link-cell .no-link {
+      font-size: 12px;
+      color: var(--border);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--eco-deeper);
+      padding: 56px 64px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-logo-img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--eco-green);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-item a {
+      color: var(--eco-green);
+      text-decoration: none;
+    }
+
+    .footer-contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .footer-info-item {
+      font-size: 12.5px;
+    }
+
+    .footer-info-label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 2px;
+    }
+
+    .footer-info-val {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    .footer-legal {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.3);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-sticky {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--eco-green), var(--eco-dark));
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(4, 190, 100, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.3px;
+      text-transform: none;
+      animation: ctaPulse 3s ease-in-out infinite;
+    }
+
+    .cta-sticky:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 12px 40px rgba(4, 190, 100, 0.5), 0 4px 12px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, var(--eco-dark), var(--eco-deeper));
+    }
+
+    .cta-sticky svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes ctaPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 8px 32px rgba(4, 190, 100, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 8px 48px rgba(4, 190, 100, 0.55), 0 2px 12px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    /* ── MODAL POPUP ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      animation: modalFadeIn 0.3s ease-out;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-box {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+      animation: modalSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes modalSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--eco-pale);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      font-size: 18px;
+      color: var(--text-mid);
+    }
+
+    .modal-close:hover {
+      background: var(--eco-light);
+      color: var(--eco-deeper);
+    }
+
+    .modal-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--eco-light), var(--eco-pale));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .modal-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--eco-green);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .modal-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .modal-text {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .modal-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--eco-green), var(--eco-dark));
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 32px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-btn:hover {
+      background: linear-gradient(135deg, var(--eco-dark), var(--eco-deeper));
+      transform: translateY(-1px);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section,
+    .category-band {
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    .product-table tbody tr {
+      transition: all 0.2s ease;
+    }
+
+    .product-table tbody tr:hover {
+      background: var(--eco-pale);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .link-cell a {
+      transition: all 0.2s ease;
+    }
+
+    .link-cell a:hover {
+      background: var(--eco-green);
+      color: white;
+      transform: scale(1.04);
+      box-shadow: 0 2px 10px rgba(4, 190, 100, 0.3);
+    }
+
+    /* ── NAV SCROLL INDICATOR ── */
+    .nav::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 48px;
+      background: linear-gradient(90deg, transparent, rgba(247, 253, 249, 0.96));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 253, 249, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ── RESPONSIVE · TABLET (≤1024px) ── */
+    @media (max-width: 1024px) {
+      .cover {
+        padding: 40px 36px;
+      }
+
+      .section {
+        padding: 0 36px 40px;
+      }
+
+      .category-band {
+        padding: 22px 36px;
+      }
+
+      .nav {
+        padding: 0 24px;
+      }
+
+      .footer {
+        padding: 40px 36px;
+      }
+
+      .section-divider {
+        margin: 0 36px;
+      }
+    }
+
+    /* ── RESPONSIVE · MOBILE (≤768px) ── */
+    @media (max-width: 768px) {
+      .cover {
+        padding: 32px 24px;
+        min-height: 85vh;
+      }
+
+      .cover-title {
+        font-size: clamp(36px, 10vw, 54px);
+        letter-spacing: -1px;
+      }
+
+      .cover-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+      }
+
+      .cover-subtitle {
+        font-size: 14px;
+        margin-top: 14px;
+      }
+
+      .cover-stats {
+        gap: 28px;
+      }
+
+      .stat-num {
+        font-size: 24px;
+      }
+
+      .stat-label {
+        font-size: 9px;
+      }
+
+      .cover-bottom {
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+      }
+
+      .cover-note {
+        text-align: left;
+      }
+
+      .cover-badge {
+        font-size: 10px;
+        padding: 6px 16px;
+      }
+
+      .logo-img {
+        height: 52px;
+      }
+
+      .logo-deye-img {
+        height: 34px;
+      }
+
+      .cta-sticky {
+        bottom: 16px;
+        right: 16px;
+        font-size: 14px;
+        padding: 14px 24px;
+      }
+
+      .modal-box {
+        padding: 36px 24px;
+        border-radius: 20px;
+      }
+
+      .modal-title {
+        font-size: 22px;
+      }
+
+      .nav {
+        padding: 0 16px;
+      }
+
+      .nav a {
+        padding: 14px 16px;
+        font-size: 12px;
+      }
+
+      .category-band {
+        padding: 20px 24px;
+      }
+
+      .band-title {
+        font-size: 17px;
+      }
+
+      .band-sub {
+        font-size: 12px;
+      }
+
+      .band-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .section {
+        padding: 0 16px 32px;
+      }
+
+      .section-divider {
+        margin: 0 16px;
+      }
+
+      .section-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      /* ── TABLE → CARD LAYOUT ── */
+      .product-table {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+      }
+
+      .product-table thead {
+        display: none;
+      }
+
+      .product-table tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px;
+        gap: 8px;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      .product-table tbody tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px var(--shadow);
+      }
+
+      .product-table td {
+        padding: 0;
+        border: none;
+      }
+
+      .img-cell {
+        width: 60px !important;
+        padding: 0 !important;
+      }
+
+      .product-img {
+        width: 56px;
+        height: 56px;
+        border-radius: 10px;
+      }
+
+      /* model code cell */
+      .product-table td:nth-child(2) {
+        order: 3;
+        width: 100%;
+      }
+
+      /* product name/description cell */
+      .product-table td:nth-child(3) {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .product-name {
+        font-size: 13px;
+      }
+
+      .product-sub {
+        font-size: 11px;
+      }
+
+      .model-code {
+        font-size: 11px;
+        padding: 2px 6px;
+      }
+
+      /* vermogen/capaciteit badge */
+      .product-table td:nth-child(4) {
+        order: 4;
+      }
+
+      .kw-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+      }
+
+      /* price cell */
+      .price-cell {
+        text-align: left !important;
+        order: 5;
+        flex: 1;
+      }
+
+      .price {
+        font-size: 18px;
+        color: var(--eco-green);
+      }
+
+      /* link cell */
+      .link-cell {
+        order: 6;
+      }
+
+      .link-cell a {
+        padding: 8px 14px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      /* footer */
+      .footer {
+        padding: 36px 24px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 32px;
+        padding-bottom: 32px;
+      }
+
+      .footer-tagline {
+        max-width: 100%;
+      }
+
+      .footer-info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ── RESPONSIVE · SMALL MOBILE (≤480px) ── */
+    @media (max-width: 480px) {
+      .cover {
+        padding: 24px 16px;
+        min-height: 90vh;
+      }
+
+      .cover-top {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .cover-title {
+        font-size: clamp(30px, 12vw, 42px);
+      }
+
+      .cover-stats {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .product-table tbody tr {
+        padding: 14px;
+      }
+
+      .product-name {
+        font-size: 12.5px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+
+      .footer-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      .nav {
+        display: none !important;
+      }
+
+      .cover {
+        min-height: auto;
+        padding: 32px;
+        page-break-after: always;
+      }
+
+      .cover-bg {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .category-band {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-before: always;
+      }
+
+      .product-table tbody tr {
+        page-break-inside: avoid;
+      }
+
+      .link-cell {
+        display: none;
+      }
+
+      .footer {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-before: always;
+      }
+
+      body {
+        font-size: 12px;
+      }
+
+      .section {
+        padding: 0 32px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-bg"></div>
+    <div class="cover-overlay"></div>
+
+    <div class="cover-top">
+      <div class="logo-block">
+        <img class="logo-img" src="https://www.ecohandel.nl/cdn/shop/files/Wordmark-Groen-02.png?v=1748461856&width=600"
+          alt="EcoHandel">
+        <div class="logo-divider"></div>
+        <img class="logo-deye-img" src="https://www.deyeinverter.com/template/en/images/logo.png" alt="DEYE">
+      </div>
+      <div class="cover-badge">B2B Prijslijst 2026</div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Officieel distributeur · Nederland & België</div>
+      <div class="cover-title">Prijs<em>lijst</em><br>2026</div>
+      <div class="cover-subtitle">Professionele inkoopprijzen voor installateurs en zakelijke afnemers. Alle prijzen
+        Excl. BTW.</div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-stats">
+        <div class="stat">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Productcategorieën</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">80+</div>
+          <div class="stat-label">Modellen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">EX BTW</div>
+          <div class="stat-label">Alle prijzen</div>
+        </div>
+      </div>
+      <div class="cover-note">
+        info@EcoHandel.nl<br>
+        085-3332453<br>
+        Geldig: 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#eenfasig-lv">1-fase LV Hybride</a>
+    <a href="#driefasig-lv">3-fase LV Hybride</a>
+    <a href="#driefasig-hv">3-fase HV Hybride</a>
+    <a href="#allinone">All-in-One</a>
+    <a href="#batterijen">Batterijen</a>
+    <a href="#commercieel">Commercieel & C&I</a>
+    <a href="#accessoires">Accessoires & EV</a>
+  </nav>
+
+  <!-- 1-FASE LV HYBRIDE -->
+  <div class="category-band" id="eenfasig-lv">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <path d="M13 2L4.09 12.6H11L9 20l8.91-10.6H12L14 2z" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Eenfasige Hybride Omvormers — Laagspanning (LV)</div>
+      <div class="band-sub">48V laagspanning · eenfasig · geschikt voor residentieel gebruik</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Vermogen</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600-2.jpg?v=1774533732&width=533"
+              alt="SUN-3.6K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-3.6K-SG05LP1-EU-AM2-PLUS</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-3-6k-sg05lp1-eu"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">3.6 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 600</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-3-6k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600.jpg?v=1767693621&width=533"
+              alt="SUN-5K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-5K-SG05LP1-EU-AM2-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-5k-sg05lp1-eu" target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">5 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 640</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-5k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1.jpg?v=1767693623&width=533" alt="SUN-6K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-6K-SG05LP1-EU-AM2-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-6k-sg05lp1-eu" target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">6 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 655</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-6k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300.webp?v=1763921089&width=533"
+              alt="SUN-8K-SG05LP1-EU"></td>
+          <td><span class="model-code">SUN-8K-SG05LP1-EU-AM2-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp1-eu" target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">8 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 900</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp1-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_f531c147-4ab2-41f7-bf51-c488747d9ef8.webp?v=1763922805&width=533"
+              alt="SUN-10K-SG02LP1-EU-AM3"></td>
+          <td><span class="model-code">SUN-10K-SG02LP1-EU-AM3-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-10k-sg02lp1-eu-am3"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">10 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.300</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-10k-sg02lp1-eu-am3" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-12K-SG02LP1-EU-AM3"></td>
+          <td><span class="model-code">SUN-12K-SG02LP1-EU-AM3-P</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-12k-sg02lp1-eu-am3"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">12 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.330</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-12k-sg02lp1-eu-am3" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-16K-SG01LP1-EU"></td>
+          <td><span class="model-code">SUN-16K-SG01LP1-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-16k-sg01lp1-eu-16kw-single-phase-3-mppt-hybrid-inverter-low-voltage"
+                target="_blank">DEYE
+                1-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Eenfasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">16 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-16k-sg01lp1-eu-16kw-single-phase-3-mppt-hybrid-inverter-low-voltage"
+              target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 3-FASE LV -->
+  <div class="category-band" id="driefasig-lv">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <path d="M13 2L4.09 12.6H11L9 20l8.91-10.6H12L14 2z" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Driefasige Hybride Omvormers — Laagspanning (LV)</div>
+      <div class="band-sub">48V laagspanning · driefasig · voor grotere woningen & bedrijven</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Vermogen</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800.png?v=1764094748&width=533"
+              alt="SUN-5K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-5K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-5k-sg05lp3-eu-5kw-drie-fase-2-mppt-hybride-lv-batterij-ondersteund"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">5 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.270</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-5k-sg05lp3-eu-5kw-drie-fase-2-mppt-hybride-lv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/SUN-6K-SG05LP3-EU1.png?v=1767704069&width=533"
+              alt="SUN-6K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-6K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/sun-6k-sg01hp3-eu-am2-10kw-drie-fase-hybride-hv-batterij-ondersteund-kopie"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">6 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.290</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/sun-6k-sg01hp3-eu-am2-10kw-drie-fase-hybride-hv-batterij-ondersteund-kopie"
+              target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600_59c3d0d1-f0ac-4efa-9ed3-537ec88e15b1.jpg?v=1774518493&width=533"
+              alt="SUN-8K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-8K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp3-eu" target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">8 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.330</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-8k-sg05lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600.png?v=1774278455&width=533"
+              alt="SUN-10K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-10K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-10k-sg05lp3-eu"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">10 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.395</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-10k-sg05lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-8-10-12k-2-300x300.webp?v=1763992091&width=533"
+              alt="SUN-12K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-12K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-12k-sg04lp3-eu"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">12 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.465</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-12k-sg04lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/SUN-15K-SG05LP3-EU1.png?v=1767704985&width=533"
+              alt="SUN-15K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-15K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-15k-sg05lp3-eu-15kw-driefase-hybride-lv-48v"
+                target="_blank">DEYE 3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">15 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.615</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-15k-sg05lp3-eu-15kw-driefase-hybride-lv-48v"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-600x600_f16681e8-cf16-4cc1-bff7-aa46810566a7.png?v=1764002304&width=533"
+              alt="SUN-20K-SG05LP3-EU"></td>
+          <td><span class="model-code">SUN-20K-SG05LP3-EU</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-20k-sg05lp3-eu"
+                target="_blank">DEYE
+                3-fase LV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig laagspanning hybride · 48V</div>
+          </td>
+          <td><span class="kw-badge">20 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 2.175</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-20k-sg05lp3-eu" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 3-FASE HV -->
+  <div class="category-band" id="driefasig-hv">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <path d="M13 2L4.09 12.6H11L9 20l8.91-10.6H12L14 2z" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Driefasige Hybride Omvormers — Hoogspanning (HV)</div>
+      <div class="band-sub">160–800V hoogspanning · driefasig · voor professionele installaties</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Vermogen</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/6-800x800-1-600x600.jpg?v=1767693620&width=533"
+              alt="SUN-10K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-10K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-12kw-hybride-omvormer-driefase-sun-12k-hp3"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">10 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 925</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-12kw-hybride-omvormer-driefase-sun-12k-hp3" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-12K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-12K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-12k-sg01hp3-eu-am2-12kw-driefasig-hybride-hv-batterij-ondersteund"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">12 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.150</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-12k-sg01hp3-eu-am2-12kw-driefasig-hybride-hv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/sun-5-6-7-6-8k-300x300_1a55ca08-e60b-4b43-bc75-be896c99045f.webp?v=1763925844&width=533"
+              alt="SUN-15K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-15K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-15k-sg01hp3-eu-am2-15kw-driefasig-hybride-hv-batterij-ondersteund"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">15 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.250</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-15k-sg01hp3-eu-am2-15kw-driefasig-hybride-hv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/6-800x800-1-600x600.jpg?v=1767693620&width=533"
+              alt="SUN-20K-SG01HP3-EU-AM2"></td>
+          <td><span class="model-code">SUN-20K-SG01HP3-EU-AM2</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-20k-sg01hp3-eu-am2"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">20 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.450</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-20k-sg01hp3-eu-am2" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/webp;base64,UklGRhgVAABXRUJQVlA4WAoAAAAoAAAAVwIAVwIASUNDUKgBAAAAAAGobGNtcwIQAABtbnRyUkdCIFhZWiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAF9jcHJ0AAABTAAAAAx3dHB0AAABWAAAABRyWFlaAAABbAAAABRnWFlaAAABgAAAABRiWFlaAAABlAAAABRyVFJDAAABDAAAAEBnVFJDAAABDAAAAEBiVFJDAAABDAAAAEBkZXNjAAAAAAAAAAVjMmNpAAAAAAAAAAAAAAAAY3VydgAAAAAAAAAaAAAAywHJA2MFkghrC/YQPxVRGzQh8SmQMhg7kkYFUXdd7WtwegWJsZp8rGm/fdPD6TD//3RleHQAAAAAQ0MwAFhZWiAAAAAAAAD21gABAAAAANMtWFlaIAAAAAAAAG+iAAA49QAAA5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPVlA4IIgSAACwnwCdASpYAlgCPj0ejUUiIaERGSxUIAPEtLdwup8quQHd8GFOrK79nHH2+7h9/WO672A+gj4fui3/7TPrk+3/MH5TdnvAI/If6f/p9/Bs96AXtn9s88X8Pzv7cb2A8Gv0vz/frr7Pend6+/8oJklr8sSAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAYx3WU03gIkelJ62M3HWcD1ZdanP/AL2viSIQQt/CBMcYB8L7cb6NH7MWDXD+CU6DMKMc45xzjnFpabWuAd+bfuvxzb3I0yLOEwPYONo9gHQrbMi8Occ442DvGgJASAkBIBmH/vDnHOOcc2iLMGJASAkBICMxJmReHOOcc4t2UgJASAkBICPz1B/eHOOcc442Dr8sSAkBICQDMP/eHOOcc45sH3MLeicn+ZRlsyLw5xzYXgUh/KlQf3hzjnHOOMhXu6D3yxICQEgJAMF2aLsyLw5xzjjYOvyw3jTsiE2+kuzIXgmkwYkBICQDMP/eF3TGT60AwdZFg18Lp7DrCKD+0wdfliQEgJARmJMyJyGnOgShtoUovWiDz96C4oXjstNLwxL1oZo4Y42Dr8sSAkBICMxJmRL/+3SKbcRd4OIZ8ZCYgq/VQ5tEWYMSAkBICPw+zM93DJa+SBx+FdnaJss9gwvOrPmIByhmND4LN/qhNJgxICQEfhM9qIC4Q+mAI5UhSCbs1rl9e3pVHTdsltGhBZGRHXkrco2XQ1Rn+LhjnHOOcc4r1qcZ4B4e6h1sHqs+QpMcvORKJYdR4I9pya2hFZzC5ulSAZh/7w5xzjnHFZAewdWtbySmwh+RebMj9XtzS7TItMHX5YkBICQEZs21+VMkeTxXYj9flhmH/vDnHOOcc2iLMGJASAkBICMxJmReHOOcc4rrG54LjAGVsTX5LU5/4QFuK/nw//hAmMRNh1giocDO4QJjjAPAVnfaQlYmf+8Occ45xzYgBd4Zwb1J4FVRAmOMA9H3O9m1rU5/bBUB0QAc54RRWECY4s0VAXwuzh7ouzIvDnHOOMegwevzD3UaEGRd0RZgxICQEgI/Lu4OdZLEgJASAj9JEmZF4c45xzi3ZSAkBICQEgIzpn/vDnHOOcc2iLMGJASAkBIBn/oP7w5xzjnHFaXB/WFNrbZkXhzjnHFQHZcRouzIvDnHOOK3DuMSdcSbZEXhzjnHOOLJwMAxJmReHOOcc4t2UgJASAkBICPz1B/eHOOcc442HGi8Occ45xzlOkgVr8sSAkBGYq+JASAkBICP1oNqT/3hzjnHOObRJ7MxeHOOcc47x6D+8Occ45xxgrvIrATA1hQo2VMBLWrX/JHSecOZO8dLjiIQv3lsYZ5UWnSzcQclho7kyliQEgJASAYsmmkzXICzk2YsCQeNZVus8NYR1OuxRe/EFQ8KiqPMS/l3HCz2W26AIoNQc2V7DpQewWRoO8f1wJ/L/DeFXPAScdXVZSswj/psxW4ew4HXQZcQoTuKv6NImOVqoeon/tW3ZkXhzjnHOK9O3vhEC075pIooznQYUiHUxyEHR8ice2ciQCHy7ivkXzDmD124h3aH3ZfuQdHK3uGomg6bLCjASYQSyXplwPU4gR2j//ddjnHOOcc45xzjnOAXcMv7Tbc/TDi3DBkoHibLhp8izIvDnHOOcc45xzjnHOOLdVlICQEgJASAkBICQEgJASAjFEZ/7w5xzjnFYAD+/iXAAAPPBFmP3RrfFL9cvo/IN2Mmk+Sy3u+Jh5KTb6jwmBOTK2QcMZzbM8ygF/Fgm9CFUuwPOmZMmDRVYVCKtnlvze3oI48t7yDyJRI1MhNes3qpLymhaVe5GSbWGz0ssyZtcQ1eHkiR6KhsimBU+dfFf+ZlsPGZrZD4DTj/t8ksX6OdaECtq9WAxMlTGxfoGXx3j/CNX6m4wRkEzBdg8TaPDranq9uA/g15o1ObqwW8AAAAAhDi9cBIIOvn+tgAlX6giRYIcRVSgvhS8X08qhwqmUcKcTQN/PfoKJ8LUUVm3TmFQTDlkZzovkUkp8gGfkXVFE5u6ldkrOPIAAEdoQxzA8RkzNpMDAA1f3u3hAIDBh0dPU4ihv4t8DFaJF7WYHV7QT9mbUhTwLajQT1ZjVVPip+h2Upy3Hs6BpMo6KYHkpamqQclUQ/YfCv1BO41hyJOEYXjf6Zk2dXGtik1pA79fCDt/kES63daEG0ctZeS6PXEg4jypC7A0Gd5M+PvVHtYIkbolsfJn1mL8JmxY6jerDbGZz9pnnQLmBe7iDrnSY3/qbnq+ren6fl/qZ3hgb7xq2lBgOt3WGkUQsUYJH0AQSes/V5ZpepWmAhaob9Wio1Ly0OAhIzldd0o9n95QdAIYYeiYTBry3RH5RB+41l8XRBPtwX5nRVZYEt0iVnTIXFpp9yWbzyddYNn7wSWsyIcZZyhFnEG9xKw6N1P1s5Xg1927LAp2aDUyMM7fKR9/GVutGeJqDWCaiHFemWbzabNRhaMzkwgvAoXWJ2Dmf3kmUId63lO47SHoFcdQHd5a+9r9Jf53dYd1uhGFNdQrMZh2wB9IYZ9cE1yv0fOIju1bAcIDCYA+5p4lD+f/02JddbyfocAq4gtaz6nqe8fiL7HrtPClhSNc2CU3pAw6fOhX9Ex4w73kxBxd8buM7QuEPOdrrdNj3Qos9nqaGjjJf51FHMoeatkPtHz2Ojz2DW3AVAe21sUruSKSJw9I9Y8Bn55q+qNQZCj00uM3wvFQcCE01Qmel7LOPWFX1NcRUHEXiQU41GCnRez1m/WWnS65dWO2u5Nb9v4Nej5fygmnz/IprKSu078FAEFpr2EYMT/ePY/8tp5m3gUEhS7doe4XwHWrOjPVIsNhFqXaFKT9h2juzjcz6swnSxuKo0vTW/Ynv3veMCLy0Wvaci9HD75nZCcjlnk2HvCO1rOERXJgestflKsv9xOJpehOhzP/gzb1/V3zfuHSwExe2el77vwEFVpbh7yI9xqNQIKLACMB350w2bZJs5KsEPBU1/vRO5C3SPT0jr2qdYBSQj+c+U+flR/bDhRaNRu4/DeHPnQyD2CUnYBbgG/M+jI+MuXCHqBoHUING7l9T2JRIe8VqPTgZ4GP9FZ8wRK4JNpN59McZAAk4+ky/fpiLns6C17lsDZ3+zBP5uR6hvE+/uOTcPThdeUg3tMuFmMeQ9cryuEeAP1ExCiMAQH/m6HwuvEWpWmeHOUZTLKkuLF8RBYdP0PM6XVICLVxpD2C0OKAAcrCyjBT6AMpGS7H07U8qfCx3pLwr992PgB540BoqlpckJ2WpHTK/epBn2tMQxG07EbbmexGsM4EdQb/loqMlrq6dfN6ZJRcmBQGAYUXnDdSh8kWM020Eo8qOm4nzBQkJkIbLy8EHTT6gN1NBGXc5T2eudbXCw8WH+4WXVb7SKs/BREl3MnIyABnZT5QK3wsE067OgoN89vMnmQDNIk4Xgvv5MO0yIhC92QONRFmRrwm62wJxg3P/dzK2QZgzNWP65cSccLNLxQ4BK+fDBowzuq8uF+xqIIVMkhV+JvyKnxYvchKj3bT22nR5ve125i1dCy3eF/vUxly0JnzAtfaJtC/+f0PaoszHB74AI1Ng8skzSMLKRJSOg6rgPk2YAWkCnwxDptYiv8d005EBBpG/v4E57zQHzFCS7cYAAMwkhFNGeingXOBmq0Hssz0yXBt6vdHIklxFQWxp+zoqOtHyO9XWZRQ6scH1/5r8IYBICASaAcKzEBrTNgDfMUb9Ptml7r4cDe7VdkBGz7sur1b+gotHlUN9pOIhlZtoJxkI2X2BTnhnb/SJgu1MPQRxme46nuwbvsByjhIyvJDFVSBE5MLSoRQToBjMgBvAGHTz2sqrvZymBz2mk3FBr/AUbGDoVaf7u5lGBngcif8hJmN+0bmsL9FxdLKoOZxm2AmVVAeh4kyw2DD5ovn2KafMl5JfSKgllgoyUtqI7Pn2tMEyLhzLVSvieOWzwJ0yyKdYJ1f+EaRc6UM4ND3fOemGYu3W4RpYFIot6SA67fprQ3vGR156RH0zegpJzdBAOwsz9WlvllQlizSqnzX6Dg8UVDnPPsDUNy4ShHh1YFiSM6ydt/KGuYKFE8iSETzBfy2COEF15z1qdS7KcAKzzc7fKmRgO5/yAE/w/OPz9rOP+XxeyvHgJqU3o2S/PmWAjQVkZ4XQxKeQvc05GDdkGA8UoK0+TPWv5xld/wade5ct/SslWWX3jRebK/zKg3VJ3llvNHq5TTlh9SOnBFVSJXtpbYQAkBYnYqAAA0BAKABHaAANff8EmROS5ExTlhlsjibYNH713FGUzYfzqR1qpm+VL8WvkGJV7CoS+wN6YkSNWatAR58Of0lxt44Ts5s17k6EsU6tDYZtz2Vo0a8pVGoqUQFpDT7WbpA2UweEQXOwlio0KtfAHwOAKK9AQQAXrTGKieDCEaR7LgJQ2pmpSQjTcyoXF8LMbO8xlMyXWhs7R/btDp53IseiUqOf9rFslxh24ZQKDeryiORq3cKqy4mxzoyZM24zPWcrZpHCk8SPYPo866MSAHtpIx/R+cB5gjA4NCro4Q1hvWBMVsMJJV8aPxGprEfUVwlQGd36jIGoAvQLyXgsizTH+p9q8ND9ZopuYtNE0X9+xnz3tqkmz9eO1B88P0F22jzbwq7nU37tjiV8rL2Z5bIq79QSwLB41GjDGmFum6+7FEFAOC+f/FD3x0RfmIzXrDzQGN9u5tfyOW1IrfHnX5zEqlveSqi1aukr/2mn51NNP/XJO7tYa959Es2LRsNVKmrwVjhz1R4bajVoS9trml2lo/YW7gpUiOaPQujN/ZeVuOPJiNt7jpy9YhHYbzzr/2bK0bG4N4Su1qOpVKvyTJADZ9At4i2j9kgYCVLICBKoxBC/66W3XPue9ZcFpgrnD7qU2XwE31JsNFfjfzyDXDkdJGUNZBec8DVDQ4B6CusoIPED9D/7UX3Hq7BNOu3qODOERivvY/t3za9nVuAKiiHTa8kHvA+SIwMM4YJ+ZTdv83HYIjEnnB5vZMF6fSWaeAG1EK9PTdcLmH+f/6HTX78YRuWR9pdwTxFG6ozNZ6ycTFc5aEoQPsrSnBQCwzQti5EgRSnOgXRXMp2qYv4xn73narlQrKMJnTY4QcXclSsyWX+cXV7FiTZdr1w+uS+BVdRPsa8cP/TmnjN/aE7TQjc7iNIWvasvPtxTpqylLwJ8hC3a5xtTi7zB/2N1CZ0kfNCwXp+gCw4Rp26+l4DE1Bwjm83IhjlZKS7RP8h1yjRkmb/jHUYW8uk55nA3i77cqsQS/n0GuPZXbYozHeK04idmwyv9O2nxSGQHN45mP+NjV9WUhGL+QQ+U+OPdHEf2snscV44AHYs5e8zfbLcyapH7FKdHadBJ3b2GIuZqjKaD29vkUacGyi2uagP+0tcwDfdw2AQgSsG8x69xoob4dl5dzyWDKMfpNFmry6ZRWPeX4+Bgx/qOGFzjs3xXGQxfHvNbSkUy6XbTONkNPbdGElmaOj2pgTfyBXgmhaXKV6g0n8S0DRfuoBTDFYiiGOvD6MDKWXeN3Rn5gl6VXQyv1zdrGY0YE/i1pzKIBdgD4tAIt/MJOcnid8FBCZkXOPwkQjRS1MxgSaWnGRJkXlN7yV0rpA8JvyYgdXR9UKwSkNiaqP0IwWEH0OmP1SQO6v3ahkTmHPjmEeGnFeu61TKzAuKBloI7jk1pdoEgOJy1U48nmEWXFGgqEr1yvo0khnSoX1LTc12zkmMiZlAjT7BI5gVIIQM2HTPLG+kVgENVC/DQVEIhsIMZwz2soFcwHXJ7LzFyMZc9L7fUrHVZND0EuwgwIrFLQRtHFpwg9xt7lgwGnHdVzu+e3TgjOt3v8wNvI3lvRs2LBHqI+MFd+NszpW6f43vHvuUXtMaI1fYTZ2GJJ87FZfFK1CdofKwfxi0fBI+zzmvUYvpM1UjkZiqKMWlRDWKVWOce/zD45XWdKr9hBXvbm8/nw8eAnRO8yF0CmxeRQ7WktzlFUlxNh5DdP/etQ4yzPQGWa7k2/r5/UE65l6wtkuss+fYMK+OInAjEYh/zndUo5+G69yN3wxn3dsKrNkxqKcZLHcao3CVJ2T1X5wcHjs9eK6xOfZPuza21M7p25cnQqVabhTMkq9M8uA4iXqlj2Z7XCdtR53f9hhr7gTtp+qdJGJv2BpnlOYRGqFmUNmwCRQp9nNFGCZq5eMuP8AAFGzFjpWBRLhA3ur2QGfZh8idCwnpkHC22G+cmcgnwBPK61kHNuBzbkkpHGHkyn7QS9OKxjGT8lAoyoTvACes3UhyNX9DwwAAAAARVhJRroAAABFeGlmAABJSSoACAAAAAYAEgEDAAEAAAABAAAAGgEFAAEAAABWAAAAGwEFAAEAAABeAAAAKAEDAAEAAAACAAAAEwIDAAEAAAABAAAAaYcEAAEAAABmAAAAAAAAAAB3AQDoAwAAAHcBAOgDAAAGAACQBwAEAAAAMDIxMAGRBwAEAAAAAQIDAACgBwAEAAAAMDEwMAGgAwABAAAA//8AAAKgBAABAAAAWAIAAAOgBAABAAAAWAIAAAAAAAA="
+              alt="SUN-25K-SG02HP3-EU-AM3"></td>
+          <td><span class="model-code">SUN-25K-SG02HP3-EU-AM3</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-25k-sg01hp3-eu-25kw-drie-fase-hybride-hv-batterij-ondersteund"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">25 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.600</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-25k-sg01hp3-eu-25kw-drie-fase-hybride-hv-batterij-ondersteund"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/webp;base64,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"
+              alt="SUN-30K-SG02HP3-EU-AM3"></td>
+          <td><span class="model-code">SUN-30K-SG02HP3-EU-AM3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-30k-sg02hp3-eu-bm3"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">30 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 2.425</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-30k-sg02hp3-eu-bm3" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/2-800x800-1-600x600_3db20277-099b-4910-a6ad-98883cfaad5e.jpg?v=1767693624&width=533"
+              alt="SUN-50K-SG01HP3-EU-BM4"></td>
+          <td><span class="model-code">SUN-50K-SG01HP3-EU-BM4</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/sun-50k-sg01hp3-eu-bm4"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">50 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 3.500</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/sun-50k-sg01hp3-eu-bm4" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-80K-SG02HP3-EU-EM6"></td>
+          <td><span class="model-code">SUN-80K-SG02HP3-EU-EM6</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-sun-80k-hybride-omvormer-80kw-driefase-hv-batterijproducts-sun-80k-sg02hp3-eu-em6"
+                target="_blank">DEYE 3-fase HV Hybride Omvormer</a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">80 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 5.250</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-sun-80k-hybride-omvormer-80kw-driefase-hv-batterijproducts-sun-80k-sg02hp3-eu-em6"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-100K-SG02HP3-EU-GM10"></td>
+          <td><span class="model-code">SUN-100K-SG02HP3-EU-GM10</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                3-fase HV Hybride Omvormer <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">100 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 5.450</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-125K-SG02HP3-EU-GM10"></td>
+          <td><span class="model-code">SUN-125K-SG02HP3-EU-GM10</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                3-fase HV Hybride Omvormer <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Driefasig hoogspanning hybride</div>
+          </td>
+          <td><span class="kw-badge">125 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 5.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ALL-IN-ONE -->
+  <div class="category-band" id="allinone">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <rect x="3" y="3" width="16" height="16" rx="3" />
+        <path d="M7 11l3 3 5-5" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">All-in-One Energiesystemen & Micro ESS</div>
+      <div class="band-sub">Geïntegreerde omvormer + batterij systemen</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table" style="margin-bottom:40px;">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Specificatie</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/webp;base64,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"
+              alt="RW-F5.3-1H3">
+          </td>
+          <td><span class="model-code">RW-F5.3-1H3</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-rw-f5-3-1h3-5kw-all-in-one-hybride-omvormer-5-3kwh-batterij"
+                target="_blank">DEYE All-in-One Hybride + Batterij <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">5kW omvormer + 5,3 kWh batterij · eenfasig</div>
+          </td>
+          <td><span class="kw-badge">5 kW / 5.3 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-rw-f5-3-1h3-5kw-all-in-one-hybride-omvormer-5-3kwh-batterij"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/AE-FS2.0-2H2.jpg?v=1767874938&width=533" alt="AE-FS2.0"></td>
+          <td><span class="model-code">AE-FS2.0</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+                target="_blank">DEYE Micro Energieopslag</a></div>
+            <div class="product-sub">Micro ESS · noodstroom · draagbaar</div>
+          </td>
+          <td><span class="kw-badge">2 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 400</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/AE-FS2.0-2H2.jpg?v=1767874938&width=533" alt="AE-FS2.0-2H2">
+          </td>
+          <td><span class="model-code">AE-FS2.0-2H2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+                target="_blank">DEYE Micro Hybride ESS</a></div>
+            <div class="product-sub">On-grid, off-grid & draagbaar gebruik · micro hybrid</div>
+          </td>
+          <td><span class="kw-badge">2 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 600</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ae-fs2-0-2h2-energieopslag-noodstroom-systeem-2-kwh"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- BATTERIJEN -->
+  <div class="category-band" id="batterijen">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <rect x="2" y="7" width="16" height="10" rx="2" />
+        <path d="M20 11v2" />
+        <path d="M6 11h10" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Thuisbatterijen — LV & HV Opslag</div>
+      <div class="band-sub">Laagspanning (48V) en hoogspanning batterijmodules voor residentieel gebruik</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <!-- LV subsection -->
+    <div class="section-intro">
+      <div>
+        <div class="section-intro-title">Laagspanning Batterijen (LV · 48V)</div>
+        <div class="section-intro-sub">SE-serie wall/floor/stack · AI-serie gestapeld</div>
+      </div>
+    </div>
+    <table class="product-table" style="margin-bottom:40px;">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Capaciteit</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/Deye-RW-M6.1-Acumulator-Baterie-SolarTech-1.jpg?v=1767693638&width=533"
+              alt="SE-G5.1 Pro-B"></td>
+          <td><span class="model-code">SE-G5.1 Pro-B</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-6-14kwh-low-voltage-thuisbatterij"
+                target="_blank">DEYE LV Thuisbatterij 5.1 kWh</a></div>
+            <div class="product-sub">48V laagspanning · LFP</div>
+          </td>
+          <td><span class="kw-badge">5.1 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-6-14kwh-low-voltage-thuisbatterij"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/DeyeSE-F5Pro1.jpg?v=1767703343&width=533" alt="SE-F5Pro-C">
+          </td>
+          <td><span class="model-code">SE-F5Pro-C</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem-kopie"
+                target="_blank">DEYE LV Thuisbatterij 5.1 kWh <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Wall / Floor / Stack-mounted · 48V LFP</div>
+          </td>
+          <td><span class="kw-badge">5.1 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 660</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem-kopie"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/DeyeSE-F161.jpg?v=1767701793&width=533" alt="SE-F12-C"></td>
+          <td><span class="model-code">SE-F12-C</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+                target="_blank">DEYE LV Thuisbatterij 12 kWh <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Wall / Floor / Stack-mounted · 48V LFP</div>
+          </td>
+          <td><span class="kw-badge">12 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">Op aanvraag</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/DeyeSE-F161.jpg?v=1767701793&width=533" alt="SE-F16-C"></td>
+          <td><span class="model-code">SE-F16-C</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+                target="_blank">DEYE LV Thuisbatterij 16 kWh <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Wall / Floor / Stack-mounted · 48V LFP</div>
+          </td>
+          <td><span class="kw-badge">16 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.670</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-se-f16-c-16kwh-thuisbatterij-48v-lfp-modulair-systeem"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/Deye5.12LV.png?v=1765286215&width=533"
+              alt="AI-W5.1-PDU1-B-BASE"></td>
+          <td><span class="model-code">AI-W5.1-PDU1-B-BASE</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+                target="_blank">DEYE LV Gestapeld Controller + Base</a></div>
+            <div class="product-sub">5 kWh controller + basis · 48V</div>
+          </td>
+          <td><span class="kw-badge">5 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 490</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/Deye5.12LV.png?v=1765286215&width=533" alt="AI-W5.1-B"></td>
+          <td><span class="model-code">AI-W5.1-B</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+                target="_blank">DEYE LV Gestapeld Batterijmodule</a></div>
+            <div class="product-sub">Uitbreidingsmodule gestapeld systeem · 48V</div>
+          </td>
+          <td><span class="kw-badge">5.1 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 890</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-ai-w5-1-b-lv-10-24-kw-batterijset-met-controller-en-base"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- HV subsection -->
+    <div class="section-intro">
+      <div>
+        <div class="section-intro-title">Hoogspanning Batterijen (HV · GB-serie & BOS-G)</div>
+        <div class="section-intro-sub">Gestapelde HV modules · rack systemen</div>
+      </div>
+    </div>
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Capaciteit</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/webp;base64,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" alt="GB-LBS+BASE">
+          </td>
+          <td><span class="model-code">GB-LBS+BASE</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-gb-lbs-controller-and-base-hv"
+                target="_blank">DEYE HV Gestapeld Controller + Base</a></div>
+            <div class="product-sub">HV batterij controller + basisstation</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 510</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-gb-lbs-controller-and-base-hv"
+              target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/jpeg;base64,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"
+              alt="GB-L-Pro-Pack4.1-2">
+          </td>
+          <td><span class="model-code">GB-L-Pro-Pack4.1-2</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-gb-l-pro-hv-batterijtoren-8-18-kwh-tot-24-54-kwh"
+                target="_blank">DEYE HV Gestapeld Batterijmodule <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">HV gestapeld batterijmodule</div>
+          </td>
+          <td><span class="kw-badge">4 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 710</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-gb-l-pro-hv-batterijtoren-8-18-kwh-tot-24-54-kwh"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/GB-LM4.0.jpg?v=1774518493&width=533" alt="GB-W"></td>
+          <td><span class="model-code">GB-W</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                HV Batterij (30/50/80kW) <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Compatibel met 30kW, 50kW en 80kW omvormers</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">Op aanvraag</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/800x800_5fe8b5f1-5609-4a9b-a7da-baae9eb1136c.jpg?v=1767693636&width=533"
+              alt="BOS-G-PDU-2"></td>
+          <td><span class="model-code">BOS-G-PDU-2</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-battery-control-box-hv"
+                target="_blank">DEYE HV Rack Batterij Control Box</a></div>
+            <div class="product-sub">HV rack batterij controlbox</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 590</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-battery-control-box-hv"
+              target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/jpeg;base64,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"
+              alt="BOS-G-pack 5.1">
+          </td>
+          <td><span class="model-code">BOS-G-pack 5.1</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-g-hv-batterij"
+                target="_blank">DEYE HV 5.12 kWh Batterijmodule</a></div>
+            <div class="product-sub">HV 5.12 kWh batterijmodule voor rack systeem</div>
+          </td>
+          <td><span class="kw-badge">5.12 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 655</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-g-hv-batterij" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800.jpg?v=1767693638&width=533" alt="3U-HRACK"></td>
+          <td><span class="model-code">3U-HRACK</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-19inch-rack-12st-hv"
+                target="_blank">Standaard 19" Rack (groot)</a></div>
+            <div class="product-sub">12 batterijen + 1 control box · For BOS-G</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 260</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-g-pro-19inch-rack-12st-hv"
+              target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800.jpg?v=1767693638&width=533" alt="3U-LRACK"></td>
+          <td><span class="model-code">3U-LRACK</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners"
+                target="_blank">Standaard 19" Rack (klein)</a></div>
+            <div class="product-sub">8 batterijen + 1 control box · For BOS-G</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 240</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- COMMERCIEEL -->
+  <div class="category-band" id="commercieel">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <rect x="2" y="8" width="18" height="12" rx="2" />
+        <path d="M6 8V6a5 5 0 0110 0v2" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Commercieel & C&I Energieopslag</div>
+      <div class="band-sub">BOS-B batterijen, kabinetten & grote opslag systemen</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table" style="margin-bottom:40px;">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Specificatie</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/800x800_5fe8b5f1-5609-4a9b-a7da-baae9eb1136c.jpg?v=1767693636&width=533"
+              alt="BOS-B-PDU-2-A"></td>
+          <td><span class="model-code">BOS-B-PDU-2-A</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-bos-b-hv-batterij"
+                target="_blank">BOS-B Controller Box (BMS) <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">C&I energieopslag BMS controller</div>
+          </td>
+          <td><span class="kw-badge">16 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 800</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-bos-b-hv-batterij" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/800x800_5fe8b5f1-5609-4a9b-a7da-baae9eb1136c.jpg?v=1767693636&width=533"
+              alt="BOS-B-Pack16-A3"></td>
+          <td><span class="model-code">BOS-B-Pack16-A3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners"
+                target="_blank">BOS-B Batterij Pro-A3 <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">C&I Energy Storage · 1 set = 240 kWh (15 stuks)</div>
+          </td>
+          <td><span class="kw-badge">16 kWh / stuk</span></td>
+          <td class="price-cell">
+            <div class="price">€ 1.600</div>
+            <div class="price-note">excl. BTW / stuk</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/800x800_5fe8b5f1-5609-4a9b-a7da-baae9eb1136c.jpg?v=1767693636&width=533"
+              alt="BOS-B Rack"></td>
+          <td><span class="model-code">BOS-B Rack</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners"
+                target="_blank">BOS-B Batterij Rack <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Rack voor BOS-B batterijsysteem</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 500</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/jpeg;base64,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"
+              alt="GE-F60"></td>
+          <td><span class="model-code">GE-F60 (EU)</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-ge-f60" target="_blank">DEYE
+                Batterijkabinet</a></div>
+            <div class="product-sub">614.4V 100Ah · 61.44 kWh</div>
+          </td>
+          <td><span class="kw-badge">~60 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 12.650</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-ge-f60" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/jpeg;base64,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"
+              alt="GE-F120"></td>
+          <td><span class="model-code">GE-F120-2H2</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-ge-f120" target="_blank">DEYE
+                Batterijkabinet + 50kW Omvormer</a></div>
+            <div class="product-sub">Inclusief 1x 50kW hybride omvormer</div>
+          </td>
+          <td><span class="kw-badge">~120 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 26.450</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-ge-f120" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/jpeg;base64,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"
+              alt="GE-F240"></td>
+          <td><span class="model-code">Deye GE-F240</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-ge-f240" target="_blank">DEYE
+                Outdoor Batterijkabinet <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Small-Scale C&I ESS · Hybride outdoor systeem</div>
+          </td>
+          <td><span class="kw-badge">240 kWh</span></td>
+          <td class="price-cell">
+            <div class="price">€ 29.500</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-ge-f240" target="_blank">↗ Bekijk</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533" alt="SUN-STS500L">
+          </td>
+          <td><span class="model-code">SUN-STS500L</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners"
+                target="_blank">Static Transfer
+                Switch</a></div>
+            <div class="product-sub">High-performance 500kW STS voor kritieke processen</div>
+          </td>
+          <td><span class="kw-badge">500 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 4.230</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-MPPT-L01-EU-AM8"></td>
+          <td><span class="model-code">SUN-MPPT-L01-EU-AM8</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                MPPT
+                Module</a></div>
+            <div class="product-sub">Hoog-efficiënt voor C&I zonne-opslagsystemen</div>
+          </td>
+          <td>—</td>
+          <td class="price-cell">
+            <div class="price">€ 1.385</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/1-800x800-2.png?v=1764158275&width=533"
+              alt="SUN-125K-PCSL01HP3"></td>
+          <td><span class="model-code">SUN-125K-PCSL01HP3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                125kW PCS
+                Module</a></div>
+            <div class="product-sub">Power conversion system · Grootschalige ESS</div>
+          </td>
+          <td><span class="kw-badge">125 kW</span></td>
+          <td class="price-cell">
+            <div class="price">€ 3.225</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ACCESSOIRES -->
+  <div class="category-band" id="accessoires">
+    <div class="band-icon">
+      <svg viewBox="0 0 22 22">
+        <circle cx="11" cy="11" r="3" />
+        <path d="M11 2v3M11 17v3M2 11h3M17 11h3M4.9 4.9l2.1 2.1M14.9 14.9l2.1 2.1M4.9 17.1l2.1-2.1M14.9 7.1l2.1-2.1" />
+      </svg>
+    </div>
+    <div>
+      <div class="band-title">Accessoires, Monitoring, Smart Home & EV Laadpalen</div>
+      <div class="band-sub">Loggers, meters, CT-sensoren, smart plugs & intelligente laadpalen</div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:48px;">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th style="width:52px;">Foto</th>
+          <th>Model</th>
+          <th>Product</th>
+          <th>Type</th>
+          <th style="text-align:right;">Prijs (EX BTW)</th>
+          <th>Webshop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="img-cell"><img class="product-img" src="data:image/png;base64,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"
+              alt="SUN-XL02-A"></td>
+          <td><span class="model-code">SUN-XL02-A</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                PV Module Optimizer <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Module-level power optimization</div>
+          </td>
+          <td>Optimizer</td>
+          <td class="price-cell">
+            <div class="price">€ 45</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/401333214-1-jpg.png?v=1769793856&width=533"
+              alt="EASTRON SDM 630"></td>
+          <td><span class="model-code">EASTRON SDM 630 MCT-ETL</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners"
+                target="_blank">EASTRON Slimme Meter (3-fase)</a></div>
+            <div class="product-sub">Three phase smart meter</div>
+          </td>
+          <td>Smart meter</td>
+          <td class="price-cell">
+            <div class="price">€ 90</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/401333214-1-jpg.png?v=1769793856&width=533"
+              alt="EASTRON SDM 230"></td>
+          <td><span class="model-code">EASTRON SDM 230 Modbus</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners"
+                target="_blank">EASTRON Slimme Meter (1-fase)</a></div>
+            <div class="product-sub">Single phase smart meter</div>
+          </td>
+          <td>Smart meter</td>
+          <td class="price-cell">
+            <div class="price">€ 60</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/CT-front_png.webp?v=1774518493&width=533" alt="LSE-3">
+          </td>
+          <td><span class="model-code">LSE-3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                LAN Ethernet Logger Module <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Bedraad monitoring via LAN</div>
+          </td>
+          <td>Logger</td>
+          <td class="price-cell">
+            <div class="price">€ 55</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/CT-front_png.webp?v=1774518493&width=533" alt="LSW-3">
+          </td>
+          <td><span class="model-code">LSW-3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                WiFi Logger Stick <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Draadloze monitoring via WiFi</div>
+          </td>
+          <td>Logger</td>
+          <td class="price-cell">
+            <div class="price">€ 35</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/CT-front_png.webp?v=1774518493&width=533"
+              alt="SUN-SMART-CT01"></td>
+          <td><span class="model-code">SUN-SMART-CT01</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/products/deye-smart-wireless-ct-meter-lora"
+                target="_blank">DEYE Wireless CT Sensor <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Draadloze CT in verdeelkast · verbruiksmonitoring</div>
+          </td>
+          <td>Sensor</td>
+          <td class="price-cell">
+            <div class="price">€ 75</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/products/deye-smart-wireless-ct-meter-lora"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/CT-front_png.webp?v=1774518493&width=533"
+              alt="SUN-SMART-TX01"></td>
+          <td><span class="model-code">SUN-SMART-TX01</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                Data Collector <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Data aggregator module</div>
+          </td>
+          <td>Monitoring</td>
+          <td class="price-cell">
+            <div class="price">€ 35</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/E6_AD_A3_E8_A7_86_E5_9B_BE-2_png.webp?v=1767789279&width=533"
+              alt="SUN-SMART-PLUG01P1-F"></td>
+          <td><span class="model-code">SUN-SMART-PLUG01P1-F</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                Smart Plug <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Slimme stekker — apparaat upgraden naar smart device</div>
+          </td>
+          <td>Smart home</td>
+          <td class="price-cell">
+            <div class="price">€ 55</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/E6_AD_A3_E8_A7_86_E5_9B_BE-2_png.webp?v=1767789279&width=533"
+              alt="SUN-SMART-SWITCH01P3"></td>
+          <td><span class="model-code">SUN-SMART-SWITCH01P3</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                Smart Switch <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Aan/uit logica voor smart plugs</div>
+          </td>
+          <td>Smart home</td>
+          <td class="price-cell">
+            <div class="price">€ 75</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/E6_AD_A3_E8_A7_86_E5_9B_BE-2_png.webp?v=1767789279&width=533"
+              alt="SUN-EVSE11K01-EU-AC"></td>
+          <td><span class="model-code">SUN-EVSE11K01-EU-AC</span></td>
+          <td>
+            <div class="product-name"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">DEYE
+                Intelligente Laadpaal EV</a></div>
+            <div class="product-sub">Intelligent electric vehicle charger · 11kW</div>
+          </td>
+          <td>EV Laadpaal</td>
+          <td class="price-cell">
+            <div class="price">€ 320</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a href="https://www.ecohandel.nl/pages/installatie-partners" target="_blank">↗
+              Bekijk</a></td>
+        </tr>
+        <tr>
+          <td class="img-cell"><img class="product-img"
+              src="https://www.ecohandel.nl/cdn/shop/files/E6_AD_A3_E8_A7_86_E5_9B_BE-2_png.webp?v=1767789279&width=533"
+              alt="SUN-EVSE22K01-EU-AC"></td>
+          <td><span class="model-code">SUN-EVSE22K01-EU-AC</span></td>
+          <td>
+            <div class="product-name"><a
+                href="https://www.ecohandel.nl/products/deye-smart-wallbox-ac-charger-22-kw-slimme-ev-lader"
+                target="_blank">DEYE Intelligente Laadpaal EV 22kW <span class="new-badge">NEW</span></a></div>
+            <div class="product-sub">Smart EV wallbox charger · 22kW · Type 2</div>
+          </td>
+          <td>EV Laadpaal</td>
+          <td class="price-cell">
+            <div class="price">€ 395</div>
+            <div class="price-note">excl. BTW</div>
+          </td>
+          <td class="link-cell"><a
+              href="https://www.ecohandel.nl/products/deye-smart-wallbox-ac-charger-22-kw-slimme-ev-lader"
+              target="_blank">↗ Bekijk</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <img class="footer-logo-img"
+          src="https://www.ecohandel.nl/cdn/shop/files/Wordmark-Groen-02.png?v=1748461856&width=600" alt="EcoHandel">
+        <div class="footer-tagline">Officieel DEYE distributeur voor Nederland en België. Duurzame energiesystemen voor
+          installateurs en zakelijke afnemers.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contactgegevens</div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <a href="mailto:info@EcoHandel.nl">info@EcoHandel.nl</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 10.74 19.79 19.79 0 01.67 2.18 2 2 0 012.65 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l.97-.97a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          <a href="tel:0853332453">085-3332453</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span>Compagnieweg 5<br>3771 NH Barneveld</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+          </svg>
+          <a href="https://www.ecohandel.nl" target="_blank">www.EcoHandel.nl</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Bedrijfsgegevens</div>
+        <div class="footer-info-grid">
+          <div class="footer-info-item">
+            <div class="footer-info-label">KvK</div>
+            <div class="footer-info-val">82557640</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">BTW Nr.</div>
+            <div class="footer-info-val">NL862518027B01</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Regio</div>
+            <div class="footer-info-val">NL & België</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Markt</div>
+            <div class="footer-info-val">B2B · Installateurs</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Prijzen</div>
+            <div class="footer-info-val">Excl. BTW</div>
+          </div>
+          <div class="footer-info-item">
+            <div class="footer-info-label">Geldig</div>
+            <div class="footer-info-val">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      Alle prijzen zijn exclusief BTW. Prijzen zijn indicatief en onder voorbehoud van
+      wijzigingen.<br>
+      Deze prijslijst is uitsluitend bestemd voor erkende installateurs en professionele afnemers.<br>
+      © 2026 Ecohandel — Alle rechten voorbehouden
+    </div>
+  </footer>
+
+  <!-- CTA BUTTON -->
+  <button class="cta-sticky" id="ctaButton" onclick="handleCTA()">
+    <svg viewBox="0 0 24 24">
+      <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 00-3-3.87" />
+      <path d="M16 3.13a4 4 0 010 7.75" />
+    </svg>
+    Word Installatie Partner
+  </button>
+
+  <!-- POPUP MODAL -->
+  <div class="modal-overlay" id="thankYouModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+          <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+      </div>
+      <div class="modal-title">Bedankt voor de aanvraag!</div>
+      <div class="modal-text">We nemen zo snel mogelijk contact met je op om de mogelijkheden te bespreken. Je ontvangt
+        binnenkort meer informatie over het EcoHandel installateursnetwerk.</div>
+      <button class="modal-btn" onclick="closeModal()">Sluiten</button>
+    </div>
+  </div>
+
+  <script>
+    function handleCTA() {
+      // Show popup immediately
+      document.getElementById('thankYouModal').classList.add('active');
+
+      // Send email notification via FormSubmit.co
+      fetch('https://formsubmit.co/ajax/info@EcoHandel.nl', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: 'Nieuwe Installatie Partner Aanvraag — Prijslijst',
+          bericht: 'Er is een nieuwe aanvraag binnengekomen via de interactieve prijslijst (mailcampagne). Iemand heeft op "Word Installatie Partner" geklikt.',
+          bron: 'EcoHandel Prijslijst 2026 — Mailcampagne',
+          datum: new Date().toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam' })
+        })
+      }).catch(function () {
+        // Silently fail — popup is already shown
+      });
+    }
+
+    function closeModal() {
+      document.getElementById('thankYouModal').classList.remove('active');
+    }
+
+    // Close modal on backdrop click
+    document.getElementById('thankYouModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+batch,priority_rank,company_name,email,phone,website,contact_person,role,warmth,deye_knowledge,battery_experience,lead_score,hot_score,launch_angle,notes
+B1,1,HT Solar Nederland Projects B.V.,info@htsolarnederland.nl,,htsolarnederland.nl,,,WARM,JA (Deye dealer),JA - Deye dealer,92.0,0.0,Wholesale/Deye-fit,Van den Bergsweg 3 7442CK Nijverdal - groothandel + installateur - potentieel voor Deye wholesale partnership
+B1,2,Offgridcentrum.nl,info@offgridcentrum.nl,,offgridcentrum.nl,,,WARM,JA (verkoopt Deye),JA - Victron + Deye,90.0,0.0,Deye/Victron-cross-sell,Officieel Victron dealer die ook Deye verkoopt - ideale prospect
+B1,3,BPath Energy,info@bpathenergy.nl,,bpathenergy.nl,,,WARM,JA (Deye shop),JA - Deye shop,90.0,0.0,Deye-depth/assortiment,Verkoopt Deye batterijen en hybride omvormers - levert NL + buitenland
+B1,4,OnzeStroom B.V.,info@onzestroom.nl,085-620 04 77,onzestroom.nl,Mick Bakker,Oprichter,WARM,,JA,78.0,24.0,Landelijke installateur + bestaande engagement,Landelijke dekking
+B1,5,Bliq Energy,info@bliq.energy,,bliq.energy,,,WARM,JA (Deye handleidingen),JA - Energiemanagement,72.0,0.0,EMS + Deye-combinatie,Deye+Sofar dealer met focus op dynamisch energiehandelen
+B1,6,Schulte Energie & Techniek,info@schulte-energie-techniek.nl,,schulte-energie-techniek.nl,,,WARM,,JA - Slimmerik systeem,68.0,0.0,Support-first familiebedrijf,Familiebedrijf met thuisbatterij focus - goede supportstructuur
+B1,7,KUKO Energy Solutions,info@ex.comkuko.nl,,kuko.nl,,,WARM,,JA - Deye All-in-1 systemen,60.0,0.0,All-in-1/Deye specialist,Deye Sun-10K-SG04LP3 dealer - NL + België - B2B groothandel portal
+B1,8,Bonk Elektro B.V.,info@bonkelektro.nl,,bonkelektro.nl,,,WARM-MIDDEL,,JA - thuisbatterij + dynamische energiehandel,45.0,0.0,Dynamische energiehandel + batterij,Finsestraat 1 Deventer - actief op EPEX/onbalansmarkt
+B1,9,NKON.nl,info@nkon.nl,,nkon.nl,,,Google Deye Nederland,WARMMIDDEL,JA - Deye dealer,37.0,0.0,Deye-conversie handelspartner,Pylontech + Deye dealer
+B1,10,InstallPro Fix,info@installprofix.nl,,installprofix.nl,,,Google zoekopdracht,WARM,JA - thuisbatterij,35.0,0.0,Deye-intentie test,Recente research hit 2026-03-22
+B2,11,Recharged Zakelijk,info@recharged.nl,,recharged.nl,,,WARM,,JA - zakelijk,67.0,0.0,Zakelijke batterijpropositie,Zakelijke focus - goede prospect
+B2,12,Soltecs Zonnepanelen,info@soltecs.nl,,soltecs.nl,,,WARM-MIDDEL,NIET,JA - thuisbatterij,65.0,0.0,Regionale volume-installateur,Sinds 2011 - 93.500+ panelen geïnstalleerd
+B2,13,Altilia,info@altilia.nl,,altilia.nl,,,WARM,,JA - slimme batterij + congestie,62.0,0.0,Netcongestie/slimme batterij,250+ installateurs netwerk - landelijke dekking
+B2,14,Eco Energy Solutions B.V.,info@ecoenergysolutions.nl,,ecoenergysolutions.nl,,,WARM,NIET,JA - thuisbatterij specialist,60.0,0.0,Noord-Holland dekking,15+ jaar ervaring - 9.7 klantwaardering
+B2,15,e-WNDR B.V.,info@e-wndr.nl,,e-wndr.nl,,,WARM,NIET,JA - thuisbatterij + zonnepanelen,60.0,0.0,Zuid-Holland dekking,Regio Rotterdam/ZH - 8.9 klantwaardering
+B2,16,AddSolar B.V.,hallo@addsolar.nl,,addsolar.nl,,,WARM,NIET,JA - zonnepanelen/thuisbatterijen/laadpalen/airco's/hybride warmtepompen,60.0,0.0,Friesland dekking + breed pakket,8 jaar in bedrijf - 90 reviews
+B2,17,Solar Garant,info@solargarant.nl,,solargarant.nl,,,MIDDEL-WARM,,JA - thuisbatterijen,55.0,0.0,Dealernetwerk installateur,Landelijke dekking via dealer netwerk
+B2,18,Zonnepanelen Brabant B.V.,info@zonnepanelen-brabant.nl,,zonnepanelen-brabant.nl,,,WARM-MIDDEL,NIET,JA - thuisbatterij,55.0,0.0,Brabant volume-partner,Erkende installateur - landelijke dekking
+B2,19,Energreen (voormalig Innodura),rotterdam@energreen.com,,energreen.com,,,WARM-MIDDEL,NIET,JA - thuisbatterij + zonnepanelen,55.0,0.0,Dealer/switch prospect Rotterdam,Landelijke dekking via dealer netwerk
+B2,20,Connect Techniek B.V.,info@connect-techniek.nl,,connect-techniek.nl,,,MIDDEL-WARM,NIET,JA - Pylontech H3X,53.0,0.0,Zuid-Nederland switch prospect,Showroom Roermond - dagelijks actief in Limburg/Brabant
+B3,21,Soly,info@soly.nl,,soly.nl,,,MIDDEL,NIET,JA - zonnepanelen + thuisbatterij,67.0,0.0,Challenger/national brand,Groot landelijk bedrijf - mogelijke partner of concurrentconversie
+B3,22,BatterijNet,info@batterijnet.nl,,batterijnet.nl,,,MIDDEL,NIET,JA - thuisbatterij,67.0,0.0,Aggregator/netwerkmodel,Landelijk netwerk van batterijinstallateurs
+B3,23,Thuisbatterij Baas,klanten@thuisbatterijbaas.nl,,thuisbatterijbaas.nl,,,WARM-MIDDEL,NIET,JA,65.0,0.0,Concurrent-conversie test,Marstek partner - goede reviews
+B3,24,Eco Solar Energy B.V.,info@ecosolarenergy.nl,,ecosolarenergy.nl,,,WARM,NIET,JA - 2.5-2510 kWh batterijopslag,60.0,0.0,Batterijspecialist switch test,Merken: SolarEdge
+B3,25,Sollit,info@sollit.com,,sollit.com,,,MIDDEL-WARM,NIET,JA - duurzame energie installaties,55.0,0.0,Thought-leadership/regeling-haakje,Nieuws rond Energiewet 2026
+B3,26,Greenworld,info@greenworld.nl,,greenworld.nl,,,MIDDEL-WARM,NIET,JA - Pylontech/Enphase/Huawei/Growatt,53.0,0.0,Multi-brand switch test,Sinds 2014 ervaring met thuisbatterijen in Limburg
+B3,27,FDB Techniek,info@fdbtechniek.nl,,fdbtechniek.nl,,,MIDDEL-WARM,NIET,JA - zonnepanelen + thuisbatterij,53.0,0.0,Noord-Nederland niche installateur,Noordwest Friesland + Noord-Nederland dekking
+B3,28,PureSolar,info@puresolar.nl,,puresolar.nl,,,MIDDEL,NIET,JA - thuisbatterij,53.0,0.0,South-region battery installateur,Limburg focus
+B3,29,Belinus,info@belinus.com,,belinus.com,,,WARM-MIDDEL,NIET,JA - batterijopslag residentieel+zakelijk,52.0,0.0,Benelux scale player,Actief in NL + BE - potentieel partnership
+B3,30,Synergroen,info@synergroen.nl,,synergroen.nl,,,WARM,NIET,JA - batterij + zonnepanelen,52.0,0.0,Timing/EPBD angle,Goede timing voor Deye conversie

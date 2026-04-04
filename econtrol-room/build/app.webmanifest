@@ -1,0 +1,25 @@
+{
+  "name": "EcoHandel.nl",
+  "short_name": "EcoHandel",
+  "description": "Econtrol Room mission board voor EcoHandel.nl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#06111d",
+  "theme_color": "#06111d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "150x150",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "150x150",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

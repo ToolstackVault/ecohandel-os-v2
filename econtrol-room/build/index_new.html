@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EcoHandel.nl — Dashboard</title>
+<meta name="theme-color" content="#07111d">
+<meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
+<link rel="manifest" href="/app.webmanifest?v=1775126816">
+<link rel="icon" href="/favicon.png?v=1775126816" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1775126816">
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=1775126816">
+<style>:root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.shell{max-width:1680px;margin:0 auto;padding:calc(12px + var(--safe-top)) 16px 0;overflow-x:hidden}
+.topbar{position:sticky;top:0;z-index:20;padding-top:6px;backdrop-filter:blur(20px)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.82);border-radius:18px;box-shadow:0 12px 36px rgba(0,0,0,.22)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{width:38px;height:38px;border-radius:12px;display:block;object-fit:cover;background:#0b1b2b;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.brand-copy{min-width:0}.brand-ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.brand-t{font-size:17px;font-weight:900;letter-spacing:-.03em}.brand-s{font-size:11px;color:var(--muted)}
+.pill-page{padding:6px 10px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.04em}
+.dnav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.dnav a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
+.dnav a.on{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 6px 16px rgba(22,163,74,.22)}
+.wrap{padding:14px 0 0}
+.hero{padding:20px;border-radius:var(--radius);background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);box-shadow:0 16px 50px rgba(0,0,0,.25);margin-bottom:16px}
+.ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+h1{margin:6px 0 8px;font-size:clamp(28px,6vw,44px);line-height:.96;letter-spacing:-.04em}
+.sub{color:var(--muted);font-size:13px;line-height:1.55}
+.ts{color:var(--muted);font-size:12px;margin-top:8px}
+.g{display:grid;gap:14px;margin-top:14px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g12{grid-template-columns:repeat(12,1fr)}
+.s6{grid-column:span 6}.s7{grid-column:span 7}.s5{grid-column:span 5}.s12{grid-column:span 12}.s4{grid-column:span 4}.s8{grid-column:span 8}
+.p{padding:16px;border-radius:var(--radius);background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);box-shadow:0 16px 50px rgba(0,0,0,.25)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:14px}
+h2{margin:2px 0 0;font-size:20px;letter-spacing:-.03em}
+.badge{padding:5px 10px;border-radius:999px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.badge-ok{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+.badge-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+.badge-off{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.08)}
+.sg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sc{padding:14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.sl{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.sv{display:block;margin-top:6px;font-size:24px;letter-spacing:-.04em;font-weight:900}
+.sn{margin-top:4px;color:var(--muted);font-size:12px;line-height:1.4}
+.sc-g .sv{color:#86efac}.sc-w .sv{color:#fcd34d}.sc-c .sv{color:var(--cyan)}.sc-r .sv{color:#fca5a5}
+.tw{overflow:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse}th,td{padding:8px 6px;border-top:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}
+th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.pill{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+.pill-g{background:rgba(34,197,94,.16);color:#86efac}.pill-w{background:rgba(245,158,11,.16);color:#fcd34d}
+.pill-c{background:rgba(34,211,238,.12);color:var(--cyan)}.pill-s{background:rgba(255,255,255,.05);color:var(--muted)}
+.pill-r{background:rgba(239,68,68,.16);color:#fca5a5}
+.note{padding:14px;border-radius:16px;background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.18);margin-top:12px}
+.note ul,.note ol{margin:8px 0 0;padding-left:16px;display:grid;gap:6px}
+.muted{color:var(--muted)}
+.refresh-btn{position:fixed;top:calc(var(--safe-top) + 70px);right:16px;z-index:30;width:42px;height:42px;border-radius:50%;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.25);color:var(--cyan);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 6px 20px rgba(0,0,0,.3);transition:transform .2s}
+.refresh-btn:active{transform:scale(.9)}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + var(--safe-bottom));pointer-events:none}
+.bnav-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:20px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -8px 30px rgba(0,0,0,.28);pointer-events:auto}
+.bnav a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:14px;color:#cfe2f3;font-size:10px;font-weight:800;letter-spacing:.04em}
+.bnav a .ic{font-size:16px;line-height:1}
+.bnav a.on{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
+.loading-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(6,17,29,.9);display:flex;justify-content:center;align-items:center;z-index:999;font-size:20px;color:var(--cyan);flex-direction:column;gap:12px;opacity:1;transition:opacity .3s ease-in-out}
+.loading-overlay.hidden{opacity:0;pointer-events:none}
+.spinner{border:4px solid rgba(34,211,238,.2);border-top:4px solid var(--cyan);border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@media(max-width:1180px){.sg,.g2,.g3,.g4{grid-template-columns:1fr}.g12{grid-template-columns:1fr}.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 1}.dnav{display:none}h2{font-size:18px}.topbar-inner{flex-direction:column;align-items:flex-start}}
+@media(min-width:1181px){.bnav{display:none}.shell{padding-left:24px;padding-right:24px}}</style>
+</head>
+<body>
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div><span>Laden...</span></div>
+<button class="refresh-btn" onclick="fetchData(true)" title="Refresh">⟳</button>
+<div class="shell">
+  <div class="topbar"><div class="topbar-inner">
+    <div class="brand"><img class="brand-mark" src="/favicon.png?v=1775126816" alt="EcoHandel logo"><div class="brand-copy"><div class="brand-ey">Mission board</div><div class="brand-t">EcoHandel.nl</div><div class="brand-s">Centrale cockpit</div></div></div>
+    <span class="pill-page">Dashboard</span>
+  </div></div>
+  <div class="wrap">
+    <nav class="dnav"><a href="/" class="on">Dashboard</a>
+<a href="/smart-content-queue.html" class="">Queue</a>
+<a href="/workflows.html" class="">Workflows</a>
+<a href="/partner-campaign.html" class="">Partners</a></nav>
+    
+<div class="hero">
+  <div class="ey">Dashboard</div>
+  <h1>Econtrol Room</h1>
+  <div class="sub">Centrale cockpit — verkeer, zoekvraag, finance, partner campaign en stijgende lijn.</div>
+  <div class="ts" id="last-refresh">Laatst ververst: <span id="refresh-time">--</span> · Ops: <span class="badge badge-ok">ok</span></div>
+  <div class="sg" id="kpi-grid">
+    <!-- KPIs will be injected here -->
+  </div>
+</div>
+
+<div class="g g12">
+  <div class="p s8" id="activity-log-panel">
+    <div class="ph"><div><div class="ey">Recente activiteiten</div><h2>Laatste acties en agent runs</h2></div></div>
+    <div class="tw">
+      <h3>Activiteiten</h3>
+      <table id="activity-table"><thead><tr><th>Actie</th><th>Type</th><th>ID</th><th>Tijd</th></tr></thead><tbody></tbody></table>
+      <h3 style="margin-top: 20px;">Agent Runs</h3>
+      <table id="agent-runs-table"><thead><tr><th>Agent</th><th>Status</th><th>Gestart</th><th>Voltooid</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+  <div class="p s4" id="queue-health-panel">
+    <div class="ph"><div><div class="ey">Queue Health</div><h2>Score &amp; status</h2></div></div>
+    <div class="sg" style="grid-template-columns:1fr">
+      <div class="sc sc-g"><span class="sl">Health Score</span><span class="sv" id="health-score">--</span><span class="sn"></span></div>
+      <div class="sc sc-c"><span class="sl">Totaal items</span><span class="sv" id="total-queue-items">--</span><span class="sn"></span></div>
+      <div class="sc sc-w"><span class="sl">P1 Items</span><span class="sv" id="p1-items">--</span><span class="sn">Top 5 nu</span></div>
+      <div class="sc sc-w"><span class="sl">P2 Items</span><span class="sv" id="p2-items">--</span><span class="sn">Next up</span></div>
+    </div>
+    <div class="note" style="margin-top:12px"><strong>Queue Lanes</strong><ul id="queue-lane-summary"></ul></div>
+  </div>
+</div>
+
+<div class="g g12">
+  <div class="p s12" id="ops-log-panel">
+    <div class="ph"><div><div class="ey">Operaties</div><h2>Laatste 24u Ops Log</h2></div></div>
+    <div class="tw"><table id="ops-log-table"><thead><tr><th>Level</th><th>Count</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</div>
+
+  </div>
+</div>
+<nav class="bnav"><div class="bnav-in"><a href="/" class="on"><span class="ic">⌂</span><span>Dashboard</span></a>
+<a href="/smart-content-queue.html" class=""><span class="ic">◎</span><span>Queue</span></a>
+<a href="/workflows.html" class=""><span class="ic">◈</span><span>Workflows</span></a>
+<a href="/partner-campaign.html" class=""><span class="ic">✉</span><span>Partners</span></a></div></nav>
+<script>
+const API_BASE = "https://control.ecohandel.nl/api/v1";
+const AUTH_HEADER = "Basic " + btoa("milan:ecohandel2026");
+
+function showLoading() { document.getElementById('loadingOverlay').classList.remove('hidden'); }
+function hideLoading() { document.getElementById('loadingOverlay').classList.add('hidden'); }
+
+async function fetchData(forceRefresh = false) {
+  showLoading();
+  const lastRefreshTime = document.getElementById('refresh-time');
+  lastRefreshTime.textContent = 'Laden...';
+
+  try {
+    const dashboardData = await (await fetch(`${API_BASE}/dashboard`, { headers: { 'Authorization': AUTH_HEADER } })).json();
+    console.log("Dashboard data:", dashboardData);
+
+    if (dashboardData.ok) {
+      const data = dashboardData.data;
+      const meta = dashboardData.meta;
+
+      // Last Refresh
+      lastRefreshTime.textContent = new Date(meta.generated_at).toLocaleString('nl-NL', { dateStyle: 'short', timeStyle: 'short' });
+
+      // KPI Grid
+      const kpiGrid = document.getElementById('kpi-grid');
+      kpiGrid.innerHTML = `
+        <div class="sc sc-g"><span class="sl">Health Score</span><span class="sv">${data.queue.health.score || '--'}</span><span class="sn">Laatste refresh: ${new Date(data.queue.health.generated_at).toLocaleDateString('nl-NL') || '--'}</span></div>
+        <div class="sc sc-c"><span class="sl">Totaal Items</span><span class="sv">${data.queue.health.total_items || '--'}</span><span class="sn">P1: ${data.queue.health.p1_count || 0}, P2: ${data.queue.health.p2_count || 0}</span></div>
+        <div class="sc sc-g"><span class="sl">Campagnes Totaal</span><span class="sv">${data.campaign.total || '--'}</span><span class="sn">Verzonden: ${data.campaign.sent || '--'}</span></div>
+        <div class="sc sc-c"><span class="sl">Hot Events</span><span class="sv">${data.hot_events || '--'}</span><span class="sn">In queue</span></div>
+      `;
+
+      // Activity Log
+      const activityTableBody = document.querySelector('#activity-table tbody');
+      activityTableBody.innerHTML = '';
+      data.activity.forEach(item => {
+        const row = activityTableBody.insertRow();
+        row.innerHTML = `<td>${item.action}</td><td>${item.resource_type}</td><td>${item.resource_id}</td><td>${new Date(item.created_at).toLocaleString('nl-NL', { timeStyle: 'short' })}</td>`;
+      });
+
+      // Agent Runs
+      const agentRunsTableBody = document.querySelector('#agent-runs-table tbody');
+      agentRunsTableBody.innerHTML = '';
+      data.agent_runs.forEach(item => {
+        const row = agentRunsTableBody.insertRow();
+        row.innerHTML = `<td>${item.agent_name}</td><td>${item.status}</td><td>${new Date(item.started_at).toLocaleString('nl-NL', { timeStyle: 'short' })}</td><td>${item.completed_at ? new Date(item.completed_at).toLocaleString('nl-NL', { timeStyle: 'short' }) : '--'}</td>`;
+      });
+
+      // Ops Log Summary
+      const opsLogTableBody = document.querySelector('#ops-log-table tbody');
+      opsLogTableBody.innerHTML = '';
+      data.ops_summary_24h.forEach(item => {
+        const row = opsLogTableBody.insertRow();
+        row.innerHTML = `<td>${item.level}</td><td>${item.count}</td>`;
+      });
+
+      // Queue Health Panel
+      document.getElementById('health-score').textContent = data.queue.health.score || '--';
+      document.getElementById('total-queue-items').textContent = data.queue.health.total_items || '--';
+      document.getElementById('p1-items').textContent = data.queue.health.p1_count || '--';
+      document.getElementById('p2-items').textContent = data.queue.health.p2_count || '--';
+
+      const queueLaneSummary = document.getElementById('queue-lane-summary');
+      queueLaneSummary.innerHTML = '';
+      for (const lane in data.queue.by_lane) {
+        const li = document.createElement('li');
+        li.textContent = `${lane}: ${data.queue.by_lane[lane]}`;
+        queueLaneSummary.appendChild(li);
+      }
+
+    } else {
+      console.error("Error fetching dashboard data:", dashboardData.error);
+      lastRefreshTime.textContent = 'Fout bij laden';
+    }
+
+  } catch (error) {
+    console.error("Network or parsing error:", error);
+    lastRefreshTime.textContent = 'Fout bij laden';
+  }
+  hideLoading();
+}
+
+fetchData();
+setInterval(fetchData, 300000); // Refresh every 5 minutes (300000 ms)
+
+if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(r=>r.forEach(w=>w.unregister()));
+</script>
+</body>
+</html>

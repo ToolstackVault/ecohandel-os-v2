@@ -1,0 +1,11 @@
+batch,rank,company_name,email,phone,website,province,contact_person,warmth,deye_knowledge,battery_experience,lead_score,hot_score,segment,notes
+B1200,1,stroomloods.nl,info@stroomloods.nl,0294700203,stroomloods.nl,Utrecht,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Utrecht search
+B1200,2,jp-installaties.nl,info@jp-install.nl,08433532714,jp-installaties.nl,Utrecht,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Utrecht search
+B1200,3,thuisbatterijmh.nl,info@thuisbatterijmh.nl,0612345678,thuisbatterijmh.nl,Maastricht,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Maastricht search
+B1200,4,sterkstroom.nl,info@sterkstroom.nl,0814578484,sterkstroom.nl,Maastricht,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Maastricht search
+B1200,5,Thuisbatterij Leeuwarden,info@installatieservicevanderveen.nl,058 8811800,installatieservicevanderveen.nl,Leeuwarden,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Leeuwarden search
+B1200,6,energiehuisvanburen.nl,info@energiehuisvanburen.nl,022539426,energiehuisvanburen.nl,Leeuwarden,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Leeuwarden search
+B1200,7,Thuisbatterij Breda,info@volters.nl,+31850609498,volters.nl,Breda,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Breda search
+B1200,8,geldbesparen.nu,info@geldbesparen.nu,08651410072,geldbesparen.nu,Arnhem,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Arnhem search
+B1200,9,Thuisbatterij in Arnhem,info@energiebesparendirect.nl,0850066840,energiebesparendirect.nl,Arnhem,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Arnhem search
+B1200,10,verantwoordduurzaam.nl,info@petersbv.nl,0552034224,verantwoordduurzaam.nl,Arnhem,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Arnhem search

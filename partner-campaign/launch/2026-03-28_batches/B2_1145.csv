@@ -1,0 +1,11 @@
+batch,priority_rank,company_name,email,phone,website,contact_person,role,warmth,deye_knowledge,battery_experience,lead_score,hot_score,launch_angle,notes
+B2,11,Recharged Zakelijk,info@recharged.nl,,recharged.nl,,,WARM,,JA - zakelijk,67.0,0.0,Zakelijke batterijpropositie,Zakelijke focus - goede prospect
+B2,12,Soltecs Zonnepanelen,info@soltecs.nl,,soltecs.nl,,,WARM-MIDDEL,NIET,JA - thuisbatterij,65.0,0.0,Regionale volume-installateur,Sinds 2011 - 93.500+ panelen geïnstalleerd
+B2,13,Altilia,info@altilia.nl,,altilia.nl,,,WARM,,JA - slimme batterij + congestie,62.0,0.0,Netcongestie/slimme batterij,250+ installateurs netwerk - landelijke dekking
+B2,14,Eco Energy Solutions B.V.,info@ecoenergysolutions.nl,,ecoenergysolutions.nl,,,WARM,NIET,JA - thuisbatterij specialist,60.0,0.0,Noord-Holland dekking,15+ jaar ervaring - 9.7 klantwaardering
+B2,15,e-WNDR B.V.,info@e-wndr.nl,,e-wndr.nl,,,WARM,NIET,JA - thuisbatterij + zonnepanelen,60.0,0.0,Zuid-Holland dekking,Regio Rotterdam/ZH - 8.9 klantwaardering
+B2,16,AddSolar B.V.,hallo@addsolar.nl,,addsolar.nl,,,WARM,NIET,JA - zonnepanelen/thuisbatterijen/laadpalen/airco's/hybride warmtepompen,60.0,0.0,Friesland dekking + breed pakket,8 jaar in bedrijf - 90 reviews
+B2,17,Solar Garant,info@solargarant.nl,,solargarant.nl,,,MIDDEL-WARM,,JA - thuisbatterijen,55.0,0.0,Dealernetwerk installateur,Landelijke dekking via dealer netwerk
+B2,18,Zonnepanelen Brabant B.V.,info@zonnepanelen-brabant.nl,,zonnepanelen-brabant.nl,,,WARM-MIDDEL,NIET,JA - thuisbatterij,55.0,0.0,Brabant volume-partner,Erkende installateur - landelijke dekking
+B2,19,Energreen (voormalig Innodura),rotterdam@energreen.com,,energreen.com,,,WARM-MIDDEL,NIET,JA - thuisbatterij + zonnepanelen,55.0,0.0,Dealer/switch prospect Rotterdam,Landelijke dekking via dealer netwerk
+B2,20,Connect Techniek B.V.,info@connect-techniek.nl,,connect-techniek.nl,,,MIDDEL-WARM,NIET,JA - Pylontech H3X,53.0,0.0,Zuid-Nederland switch prospect,Showroom Roermond - dagelijks actief in Limburg/Brabant

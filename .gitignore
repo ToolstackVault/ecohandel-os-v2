@@ -1,0 +1,30 @@
+
+# Runtime data (local only)
+data/
+*.json
+!README.json
+
+# VPS sync
+dashboard-data/
+.vps_sync
+
+# Logs
+*.log
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive
+*.pem
+*.key
+*.htpasswd

@@ -1,0 +1,20 @@
+[Unit]
+Description=EcoHandel OS API (Gunicorn)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/html/control.ecohandel.nl/api/v1
+Environment=HOME=/var/www/html/control.ecohandel.nl/api/v1
+Environment=ECOHANDEL_DB=/var/www/html/control.ecohandel.nl/data/ecohandel.db
+Environment=ECOHANDEL_API_MILAN_PASSWORD=clawd
+ExecStart=/opt/ecohandel-venv/bin/gunicorn -w 2 -b 127.0.0.1:5555 --worker-tmp-dir /tmp app:app
+Restart=always
+RestartSec=3
+StandardOutput=append:/var/log/ecohandel-api.log
+StandardError=append:/var/log/ecohandel-api.log
+
+[Install]
+WantedBy=multi-user.target

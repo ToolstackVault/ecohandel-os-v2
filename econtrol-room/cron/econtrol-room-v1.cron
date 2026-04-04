@@ -1,0 +1,11 @@
+# EcoHandel Econtrol Room — v1 cron voorstel
+# Pas frequenties later aan op basis van echte usage en waarde.
+
+# Elke 2 uur: source refresh + scoring + state
+0 */2 * * * cd /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room && /usr/bin/python3 scripts/ops_cycle.py >> /tmp/econtrol-room-ops.log 2>&1
+
+# Dagelijks 07:10: extra ochtendrun na briefing/tactische checks
+10 7 * * * cd /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room && /usr/bin/python3 scripts/ops_cycle.py >> /tmp/econtrol-room-ops.log 2>&1
+
+# Dagelijks 03:40: refresh/health audit (placeholder, later eigen script)
+40 3 * * * cd /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room && /usr/bin/python3 scripts/ops_cycle.py >> /tmp/econtrol-room-audit.log 2>&1
