@@ -1,278 +1,515 @@
 <!doctype html>
 <html lang="nl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>EcoHandel.nl — Workflows</title>
-<meta name="theme-color" content="#07111d">
-<meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
-<link rel="manifest" href="/app.webmanifest?v=1775338984">
-<link rel="icon" href="/favicon.png?v=1775338984" type="image/png">
-<link rel="shortcut icon" href="/favicon.png?v=1775338984" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1775338984">
-<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=1775338984">
-<style>:root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:20px}
-*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-.shell{max-width:1680px;margin:0 auto;padding:calc(10px + var(--safe-top)) 14px 0;overflow-x:hidden}
-.topbar{position:sticky;top:0;z-index:20;padding-top:4px;backdrop-filter:blur(20px)}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.86);border-radius:20px;box-shadow:0 12px 36px rgba(0,0,0,.22)}
-.brand{display:flex;align-items:center;gap:10px;min-width:0}
-.brand-mark{width:38px;height:38px;border-radius:12px;display:block;object-fit:cover;background:#0b1b2b;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 20px rgba(0,0,0,.22)}
-.brand-copy{min-width:0}.brand-ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
-.brand-t{font-size:17px;font-weight:900;letter-spacing:-.03em}.brand-s{font-size:11px;color:var(--muted)}
-.pill-page{padding:6px 10px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.04em}
-.dnav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
-.dnav a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
-.dnav a.on{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 6px 16px rgba(22,163,74,.22)}
-.wrap{padding:14px 0 0}
-.hero{padding:22px;border-radius:24px;background:linear-gradient(180deg,rgba(15,34,54,.97),rgba(20,49,77,.93));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.28);margin-bottom:18px}
-.ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
-h1{margin:8px 0 10px;font-size:clamp(30px,6vw,46px);line-height:.94;letter-spacing:-.05em}
-.sub{color:var(--muted);font-size:13px;line-height:1.6;max-width:920px}
-.ts{color:var(--muted);font-size:12px;margin-top:10px}
-.g{display:grid;gap:14px;margin-top:14px}
-.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g12{grid-template-columns:repeat(12,1fr)}
-.s6{grid-column:span 6}.s7{grid-column:span 7}.s5{grid-column:span 5}.s12{grid-column:span 12}.s4{grid-column:span 4}.s8{grid-column:span 8}
-.p{padding:18px;border-radius:22px;background:linear-gradient(180deg,rgba(15,34,54,.94),rgba(20,49,77,.88));border:1px solid rgba(255,255,255,.08);box-shadow:0 16px 50px rgba(0,0,0,.22)}
-.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:16px}
-h2{margin:2px 0 0;font-size:21px;letter-spacing:-.035em}
-.badge{padding:5px 10px;border-radius:999px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
-.badge-ok{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
-.badge-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
-.badge-off{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.08)}
-.sg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.hero .sg{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:16px}
-.sc{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-.sl{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.sv{display:block;margin-top:7px;font-size:24px;letter-spacing:-.045em;font-weight:900;line-height:1.05}
-.sn{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.45}
-.sc-g .sv{color:#86efac}.sc-w .sv{color:#fcd34d}.sc-c .sv{color:var(--cyan)}.sc-r .sv{color:#fca5a5}
-.tw{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(34,211,238,.35) transparent}
-.tw::-webkit-scrollbar{height:8px}
-.tw::-webkit-scrollbar-thumb{background:rgba(34,211,238,.28);border-radius:999px}
-table{width:100%;border-collapse:collapse}th,td{padding:8px 6px;border-top:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}
-th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-.pill{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
-.pill-g{background:rgba(34,197,94,.16);color:#86efac}.pill-w{background:rgba(245,158,11,.16);color:#fcd34d}
-.pill-c{background:rgba(34,211,238,.12);color:var(--cyan)}.pill-s{background:rgba(255,255,255,.05);color:var(--muted)}
-.pill-r{background:rgba(239,68,68,.16);color:#fca5a5}
-.note{padding:15px 16px;border-radius:18px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.14);margin-top:12px}
-.note ul,.note ol{margin:8px 0 0;padding-left:16px;display:grid;gap:6px}
-.stack{display:grid;gap:12px}.stack-tight{display:grid;gap:10px}.stretch{height:100%}
-.insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
-.insight-card{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06)}
-.insight-card strong{display:block;font-size:12px;letter-spacing:-.01em;margin-bottom:6px}.insight-card .mini{font-size:12px;color:var(--muted);line-height:1.45}
-.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.stat-card{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07)}
-.stat-card .k{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.stat-card .v{display:block;margin-top:8px;font-size:23px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
-.stat-card .n{display:block;margin-top:6px;font-size:12px;line-height:1.5;color:var(--muted)}
-.list-card{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);overflow:hidden}
-.list-card strong{display:block;font-size:14px;letter-spacing:-.01em;word-break:break-word}
-.list-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.list-card .desc{margin-top:8px;font-size:12px;line-height:1.55;color:var(--muted);word-break:break-word}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.muted{color:var(--muted)}
-.refresh-btn{position:fixed;top:calc(var(--safe-top) + 70px);right:16px;z-index:30;width:42px;height:42px;border-radius:50%;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.25);color:var(--cyan);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 6px 20px rgba(0,0,0,.3);transition:transform .2s}
-.refresh-btn:active{transform:scale(.9)}
-.bnav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + var(--safe-bottom));pointer-events:none}
-.bnav-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:20px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -8px 30px rgba(0,0,0,.28);pointer-events:auto}
-.bnav a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:14px;color:#cfe2f3;font-size:10px;font-weight:800;letter-spacing:.04em}
-.bnav a .ic{font-size:16px;line-height:1}
-.bnav a.on{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
-@media(max-width:1180px){.sg,.hero .sg,.g2,.g3,.g4,.insight-grid,.card-grid{grid-template-columns:1fr}.g12{grid-template-columns:1fr}.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 1}.dnav{display:none}.shell{padding:calc(8px + var(--safe-top)) 10px 0}.topbar{padding-top:2px}.topbar-inner{flex-direction:column;align-items:flex-start;padding:12px 12px 10px}.brand{width:100%}.brand-s{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4}.pill-page{width:100%;text-align:center;justify-content:center}.hero{padding:16px 14px 14px;border-radius:20px}.p{padding:14px;border-radius:20px}.ph{margin-bottom:12px}.refresh-btn{top:auto;bottom:calc(var(--safe-bottom) + 92px);right:12px;width:46px;height:46px}h1{font-size:clamp(28px,9vw,36px);line-height:1}h2{font-size:18px}.sub,.ts,.sn,.list-card .desc{font-size:12px}.sv{font-size:22px}.tw{margin:0 -4px;padding:0 4px 8px}.tw::after{content:'↔ swipe';display:block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-align:right}.tw table,table{min-width:680px}.mobile-cards{overflow:visible;margin:0;padding:0}.mobile-cards::after{display:none}.mobile-cards table{min-width:0}.mobile-cards thead{display:none}.mobile-cards tbody{display:grid;gap:10px}.mobile-cards tr{display:block;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)}.mobile-cards td{display:block;border-top:none;padding:0 0 8px;font-size:13px;word-break:break-word}.mobile-cards td:last-child{padding-bottom:0}.mobile-cards td::before{content:attr(data-label);display:block;margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.mobile-cards td .sub{margin-top:4px;font-size:12px;line-height:1.45}.mobile-cards .pill{margin-top:2px;max-width:100%;white-space:normal}.mobile-cards strong,.mobile-cards span,.mobile-cards div{word-break:break-word}}
-@media(min-width:1181px){.bnav{display:none}.shell{padding-left:24px;padding-right:24px}}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>EcoHandel.nl — Workflows</title>
+  <meta name="description" content="Workflows cockpit voor EcoHandel.nl">
+  <meta name="theme-color" content="#07111d">
+  <meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
+  <link rel="manifest" href="/app.webmanifest">
+  <link rel="icon" href="/favicon.png?v=3" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=3">
+  <style>
+    :root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--panel3:#0b1b2b;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:24px;}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
+    a{color:inherit}
+    .app-shell{max-width:1680px;margin:0 auto;padding:calc(16px + var(--safe-top)) 18px 0;overflow-x:hidden}
+    .topbar{position:sticky;top:0;z-index:20;padding-top:8px;backdrop-filter:blur(20px)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.78);border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.22)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#22d3ee,#8b5cf6 55%,#ec4899);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:0 10px 24px rgba(34,211,238,.25)}
+    .brand-copy{min-width:0}
+    .brand-eyebrow{font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+    .brand-title{font-size:18px;font-weight:900;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand-sub{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .top-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .page-pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.04em}
+    .wrap{padding:18px 0 0}
+    .desktop-nav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+    .desktop-nav a{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
+    .desktop-nav a.is-active{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 8px 20px rgba(22,163,74,.22)}
+    .hero-card,.panel{background:linear-gradient(180deg,var(--panel) 0,var(--panel2) 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 20px 70px rgba(0,0,0,.28)}
+    .hero-card{padding:22px}
+    .eyebrow{font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+    h1{margin:8px 0 10px;font-size:clamp(34px,7vw,54px);line-height:.96;letter-spacing:-.05em}
+    .subhead{color:var(--muted);line-height:1.6;max-width:900px}
+    .timestamp{color:var(--muted);font-size:13px;line-height:1.6}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:18px}
+    .span-4{grid-column:span 4} .span-5{grid-column:span 5} .span-6{grid-column:span 6} .span-7{grid-column:span 7} .span-8{grid-column:span 8} .span-12{grid-column:span 12}
+    .panel{padding:18px 18px 16px}
+    .panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
+    h2{margin:4px 0 0;font-size:24px;letter-spacing:-.03em}
+    .status{padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+    .status-live{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+    .status-seed{background:rgba(34,211,238,.12);color:var(--cyan);border:1px solid rgba(34,211,238,.25)}
+    .status-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+    .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .hero-metric,.kpi-card{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .label,.kpi-label,.mini-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+    .value,.kpi-value{font-size:26px;font-weight:900;margin-top:7px;letter-spacing:-.04em}
+    .muted{color:var(--muted)}
+    .sub{color:var(--muted);font-size:14px;line-height:1.55;margin-top:4px}
+    .stack{display:grid;gap:10px;margin:0;padding-left:18px}
+    .table-wrap,.tw{position:relative;overflow-x:auto;overflow-y:hidden;margin:0 -4px;padding:0 4px 6px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(34,211,238,.35) transparent}
+    .table-wrap::-webkit-scrollbar,.tw::-webkit-scrollbar{height:8px}
+    .table-wrap::-webkit-scrollbar-thumb,.tw::-webkit-scrollbar-thumb{background:rgba(34,211,238,.28);border-radius:999px}
+    .table-wrap table,.tw table,table{width:100%;border-collapse:collapse;min-width:0}
+    th,td{padding:10px 8px;border-top:1px solid var(--line);text-align:left;vertical-align:top;word-break:break-word}
+    th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    .pill{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+    .pill-soft{background:rgba(255,255,255,.05);color:var(--muted)}
+    .pill-live{background:rgba(34,197,94,.16);color:#86efac}
+    .pill-warn{background:rgba(245,158,11,.16);color:#fcd34d}
+    .pill-accent{background:rgba(34,211,238,.12);color:var(--cyan)}
+    .stat-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .empty{color:var(--muted)}
+    .bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 14px calc(10px + var(--safe-bottom));pointer-events:none}
+    .bottom-nav-inner{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px;border-radius:24px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.28);pointer-events:auto}
+    .bottom-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 8px;border-radius:16px;text-decoration:none;color:#cfe2f3;font-size:11px;font-weight:800;letter-spacing:.04em}
+    .bottom-nav a .icon{font-size:18px;line-height:1}
+    .bottom-nav a.is-active{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
+    .install-hint{display:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    
+    .health-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
+    .health-card{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .health-card.tone-good{background:rgba(34,197,94,.10);border-color:rgba(34,197,94,.26)}
+    .health-card.tone-warn{background:rgba(245,158,11,.10);border-color:rgba(245,158,11,.28)}
+    .health-card.tone-danger{background:rgba(239,68,68,.10);border-color:rgba(239,68,68,.30)}
+    .health-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+    .health-value{display:block;margin-top:8px;font-size:26px;letter-spacing:-.04em;color:var(--cyan);overflow-wrap:anywhere}
+    .tone-good .health-value{color:#86efac}
+    .tone-warn .health-value{color:#fcd34d}
+    .tone-danger .health-value{color:#fca5a5}
+    .health-note{margin-top:6px;color:var(--muted);font-size:13px;line-height:1.5}
+    .hero-note{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.6}
+    .workflow-grid,.action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .meta-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .meta-grid-tight{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .workflow-card,.action-card,.meta-card{padding:16px;border-radius:18px;background:linear-gradient(180deg,rgba(7,19,31,.8),rgba(10,24,40,.95));border:1px solid rgba(255,255,255,.07);min-width:0}
+    .workflow-top,.action-top,.meta-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .workflow-meta{display:flex;gap:8px;flex-wrap:wrap}
+    .workflow-card h3,.action-card h3,.meta-card h3{margin:12px 0 8px;font-size:20px;letter-spacing:-.03em;overflow-wrap:anywhere}
+    .workflow-card p,.action-card p,.meta-card p{margin:0;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
+    .workflow-foot,.meta-foot{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
+    .cmd-box{margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.5;word-break:break-word}
+    .alert-item{list-style:none;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.03)}
+    .alert-item.tone-good{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.22)}
+    .alert-item.tone-warn{background:rgba(245,158,11,.10);border-color:rgba(245,158,11,.24)}
+    .alert-item.tone-danger{background:rgba(239,68,68,.10);border-color:rgba(239,68,68,.26)}
+    @media (max-width:1180px){.health-grid,.workflow-grid,.action-grid,.meta-grid,.meta-grid-tight,.workflow-foot,.meta-foot{grid-template-columns:1fr}.workflow-card,.action-card,.meta-card{padding:14px;border-radius:16px}.workflow-card h3,.action-card h3,.meta-card h3{font-size:18px}.panel{padding:16px 14px 14px}.stack{gap:8px}}
+    
+    @media (max-width:1180px){.grid,.hero-grid{grid-template-columns:1fr} .span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 1} .desktop-nav{display:none} h2{font-size:22px} .topbar-inner{align-items:flex-start;flex-direction:column} .brand-sub{white-space:normal;overflow:visible;text-overflow:clip} .top-actions{width:100%} .page-pill{width:100%;justify-content:center} .table-wrap,.tw{margin:0 -8px;padding:0 8px 10px} .table-wrap::after,.tw::after{content:'↔ swipe';display:block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-align:right} .table-wrap table,.tw table,table{min-width:680px} th,td{font-size:13px;padding:10px 6px} .mobile-cards{overflow:visible;margin:0;padding:0} .mobile-cards::after{display:none} .mobile-cards table{min-width:0} .mobile-cards thead{display:none} .mobile-cards tbody{display:grid;gap:10px} .mobile-cards tr{display:block;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)} .mobile-cards td{display:flex;justify-content:space-between;gap:12px;border-top:none;padding:6px 0;font-size:13px} .mobile-cards td::before{content:attr(data-label);display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;flex:0 0 38%}}
+    @media (min-width:1181px){.bottom-nav{display:none} .app-shell{padding-left:28px;padding-right:28px}}
+  </style>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js').catch(function(){}); });
+    }
+  </script>
 </head>
 <body>
-<button class="refresh-btn" onclick="location.reload(true)" title="Refresh">⟳</button>
-<div class="shell">
-  <div class="topbar"><div class="topbar-inner">
-    <div class="brand"><img class="brand-mark" src="/favicon.png?v=1775338984" alt="EcoHandel logo"><div class="brand-copy"><div class="brand-ey">Mission board</div><div class="brand-t">EcoHandel.nl</div><div class="brand-s">Operaties &amp; automatisering</div></div></div>
-    <span class="pill-page">Workflows</span>
-  </div></div>
-  <div class="wrap">
-    <nav class="dnav"><a href="/" class="">Dashboard</a>
-<a href="/smart-content-queue.html" class="">Queue</a>
-<a href="/workflows.html" class="on">Workflows</a>
-<a href="/partner-campaign.html" class="">Partners</a></nav>
+  <div class="app-shell">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">EH</div>
+          <div class="brand-copy">
+            <div class="brand-eyebrow">Mission board</div>
+            <div class="brand-title">EcoHandel.nl</div>
+            <div class="brand-sub">Scripts, runs, controls en dependencies</div>
+          </div>
+        </div>
+        <div class="top-actions"><span class="page-pill">Workflows</span></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+        <a href="/" class="">Dashboard</a>
+        <a href="/smart-content-queue.html" class="">Queue</a>
+        <a href="/workflows.html" class="is-active">Workflows</a>
+        <a href="/partner-campaign.html" class="">Partners</a>
+      </nav>
     
-<div class="hero">
-  <div class="ey">Workflows</div>
-  <h1>Machine overzicht</h1>
-  <div class="sub">Clean overzicht van wat de Econtrol Room-machine echt draait: kernworkflows, live cronritme, partner slots en wat nog legacy of paused is.</div>
-  <div class="ts">Ops cycle: <span class="badge badge-ok">ok</span> · Laatste run: 02-04-2026 22:24 · Stappen: 14/14</div>
-  <div class="card-grid" style="margin-top:16px">
-    <div class="stat-card"><span class="k">Actieve workflows</span><span class="v">15</span><span class="n">Alles wat nu enabled staat in de registry.</span></div>
-    <div class="stat-card"><span class="k">Manual / guarded</span><span class="v">3</span><span class="n">Flows met bewuste handmatige of approval-gate.</span></div>
-    <div class="stat-card"><span class="k">Blocked / error</span><span class="v">0</span><span class="n">Alleen echte aandachtspunten, geen oude ruis.</span></div>
-    <div class="stat-card"><span class="k">Paused workflows</span><span class="v">0</span><span class="n">Bekend maar nu niet actief in de machine.</span></div>
+      <section class="hero-card">
+        <div class="eyebrow">Workflows</div>
+        <h1>Workflows</h1>
+        <div class="subhead">De operationele laag van de machine: scripts, crons, controls, dependencies en reruns. Niet als technisch dumpveld, maar als overzicht van wat draait, blokkeert en actie vraagt.</div>
+        <div class="health-grid"><article class="health-card tone-good"><span class="health-label">Active</span><strong class="health-value">15</strong><div class="health-note">Workflows live</div></article><article class="health-card tone-good"><span class="health-label">Blocked</span><strong class="health-value">0</strong><div class="health-note">Vraagt aandacht</div></article><article class="health-card tone-warn"><span class="health-label">Approvals</span><strong class="health-value">4</strong><div class="health-note">Menselijke gates</div></article><article class="health-card tone-good"><span class="health-label">Overall</span><strong class="health-value">healthy</strong><div class="health-note">Machine gezondheid</div></article></div>
+        <div class="hero-note">Built 2026-04-04 18:00 UTC · Ops mode active · lane spread volgt hieronder.</div>
+      </section>
+      <div class="grid">
+        <section class="panel span-12"><div class="panel-head"><div><div class="eyebrow">Registry</div><h2>Workflow registry</h2></div><span class="status status-live">healthy</span></div><div class="workflow-grid"><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Review &amp; Learn</span><span class="pill pill-live">ok</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Ops Cycle Orchestration</h3>
+      <p>Orkestreert de volledige deterministic Econtrol Room run.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>source_refresh, queue_scoring, state_update, dashboard_rend…</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/ops-status.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Ingest</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Source Refresh</h3>
+      <p>Haalt source signals en snapshotdata binnen of ververst bestaande brondata.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>gsc, ads, shopify, ga4, manual_inputs, business_rules</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/source-signals.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Decide</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Queue Scoring</h3>
+      <p>Zet signalen om naar Top 5, Next Up, Refresh en Watchlist.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>source_refresh</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>queue/SMART_CONTENT_QUEUE.json, queue/REFRESH_QUEUE.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Interpret</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>State Update</h3>
+      <p>Berekt queue health, source mix, cron readiness en learning summary.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>queue_scoring</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/queue-health.json, state/source-mix.json, state/learn…</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Execute</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Dashboard Render</h3>
+      <p>Bouwt de homepage van Econtrol Room.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>state_update</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>build/index.html</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Execute</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Queue Page Render</h3>
+      <p>Bouwt de Smart Content Queue pagina.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>queue_scoring</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>build/smart-content-queue.html</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Interpret</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Workflow State Build</h3>
+      <p>Combineert bestaande states tot workflow-registry, runs, alerts en recommendations.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>state_update, specialist_trigger_generation</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/workflow-registry.json, state/workflow-runs.json, sta…</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Execute</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Workflows Page Render</h3>
+      <p>Bouwt de nieuwe Workflows cockpitpagina op /agents.html.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>workflow_state_build</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>build/agents.html</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Execute</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Partner Campaign Page Render</h3>
+      <p>Bouwt de partner outreach cockpitpagina voor leads, hot prospects en campaign readiness.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>content_system</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>build/partner-campaign.html</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Decide</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Specialist Trigger Generation</h3>
+      <p>Genereert triggeradviezen voor specialist-agents.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>hybrid</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>queue_scoring</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/specialist-triggers.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Execute</span><span class="pill pill-soft">dry_run</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Deploy Sync</h3>
+      <p>Schrijft deploy status terug en blijft nu bewust in dry-run.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>manual</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>dashboard_render, queue_render, workflow_render</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/deploy-status.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Review &amp; Learn</span><span class="pill pill-live">ready</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Publish Readiness</h3>
+      <p>Controleert of publish-flow technisch klaarstaat.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>hybrid</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>publish_execute, content_system</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/publish-status.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Execute</span><span class="pill pill-live">ok</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Publish Execute</h3>
+      <p>Gecontroleerde Shopify publish subflow voor EcoHandel.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>manual</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>publish_readiness</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/publish-status.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Ingest</span><span class="pill pill-soft">live</span></div><span class="pill pill-soft">script</span></div>
+      <h3>Finance Sync (Wefact)</h3>
+      <p>Read-only finance truth layer voor facturen, offertes en omzetvalidatie.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>manual</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>wefact</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/finance-status.json</strong></div>
+      </div>
+    </article><article class="workflow-card">
+      <div class="workflow-top"><div class="workflow-meta"><span class="pill pill-accent">Review &amp; Learn</span><span class="pill pill-live">success</span></div><span class="pill pill-soft">state</span></div>
+      <h3>Cron Health Check</h3>
+      <p>Meet script- en cron-readiness van de machine.</p>
+      <div class="workflow-foot">
+        <div><span class="mini-label">Mode</span><strong>auto</strong></div>
+        <div><span class="mini-label">Owner</span><strong>ops_agent</strong></div>
+        <div><span class="mini-label">Dependencies</span><strong>-</strong></div>
+        <div><span class="mini-label">Outputs</span><strong>state/cron-status.json</strong></div>
+      </div>
+    </article></div></section>
+        <section class="panel span-7"><div class="panel-head"><div><div class="eyebrow">Runs</div><h2>Live run monitor</h2></div></div><div class="meta-grid"><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">ok</span></div>
+      <h3>Ops Cycle Orchestration</h3>
+      <p>Hoofdorkestratie voor de machine.</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Source Refresh</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/source-signals.json</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Queue Scoring</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/queue/SMART_CONTENT_QUEUE.json Wrote /Users/ecoha…</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>State Update</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/queue-health.json Wrote /Users/ecohandel.nl…</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Dashboard Render</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/index.html</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Queue Page Render</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/smart-content-queue.html</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Workflow State Build</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/workflow-registry.json Wrote /Users/ecohand…</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Workflows Page Render</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/agents.html Wrote /Users/ecohandel.nl/.open…</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Partner Campaign Page Render</h3>
+      <p>✅ Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/partner-campaign.html (30,898 bytes)</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">manual</span><span class="pill pill-live">success</span></div>
+      <h3>Specialist Trigger Generation</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/specialist-triggers.json</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">manual</span><span class="pill pill-soft">dry_run</span></div>
+      <h3>Deploy Sync</h3>
+      <p>Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/deploy-status.json</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:14Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">manual</span><span class="pill pill-soft">ready</span></div>
+      <h3>Publish Readiness</h3>
+      <p>Wrapper staat klaar, linked aan de EcoHandel content system playbook/template stack.</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-03-26T22:48:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">manual</span><span class="pill pill-live">ok</span></div>
+      <h3>Publish Execute</h3>
+      <p>Publish wrapper finished.</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-03-26T22:48:01Z</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">manual</span><span class="pill pill-soft">live</span></div>
+      <h3>Finance Sync (Wefact)</h3>
+      <p>Read-only finance truth layer is live via Wefact API.</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-04T18:00:00.933601+00:00</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron</span><span class="pill pill-live">success</span></div>
+      <h3>Cron Health Check</h3>
+      <p>Cron status reflects script availability and most recent generated state files. Econtrol Room is self-contained and no …</p>
+      <div class="meta-foot"><div><span class="mini-label">Last run</span><strong>2026-04-02T22:24:09Z</strong></div></div>
+    </article></div></section>
+        <section class="panel span-5"><div class="panel-head"><div><div class="eyebrow">Actions</div><h2>Run & retry</h2></div></div><div class="action-grid"><article class="action-card"><div class="action-top"><span class="pill pill-accent">source_refresh</span><span class="pill pill-live">safe rerun</span></div><h3>Source Refresh</h3><p>Use from workspace root. Deploy remains guarded; other listed actions are safe reruns.</p><div class="cmd-box">python3 ecohandel/econtrol-room/scripts/run_workflow.py source_refresh</div></article><article class="action-card"><div class="action-top"><span class="pill pill-accent">queue_scoring</span><span class="pill pill-live">safe rerun</span></div><h3>Queue Scoring</h3><p>Use from workspace root. Deploy remains guarded; other listed actions are safe reruns.</p><div class="cmd-box">python3 ecohandel/econtrol-room/scripts/run_workflow.py queue_scoring</div></article><article class="action-card"><div class="action-top"><span class="pill pill-accent">state_update</span><span class="pill pill-live">safe rerun</span></div><h3>State Update</h3><p>Use from workspace root. Deploy remains guarded; other listed actions are safe reruns.</p><div class="cmd-box">python3 ecohandel/econtrol-room/scripts/run_workflow.py state_update</div></article><article class="action-card"><div class="action-top"><span class="pill pill-accent">dashboard_render</span><span class="pill pill-live">safe rerun</span></div><h3>Dashboard Render</h3><p>Use from workspace root. Deploy remains guarded; other listed actions are safe reruns.</p><div class="cmd-box">python3 ecohandel/econtrol-room/scripts/run_workflow.py dashboard_render</div></article><article class="action-card"><div class="action-top"><span class="pill pill-accent">queue_render</span><span class="pill pill-live">safe rerun</span></div><h3>Queue Page Render</h3><p>Use from workspace root. Deploy remains guarded; other listed actions are safe reruns.</p><div class="cmd-box">python3 ecohandel/econtrol-room/scripts/run_workflow.py queue_render</div></article><article class="action-card"><div class="action-top"><span class="pill pill-accent">workflow_state_build</span><span class="pill pill-live">safe rerun</span></div><h3>Workflow State Build</h3><p>Use from workspace root. Deploy remains guarded; other listed actions are safe reruns.</p><div class="cmd-box">python3 ecohandel/econtrol-room/scripts/run_workflow.py workflow_state_build</div></article></div></section>
+        <section class="panel span-12"><div class="panel-head"><div><div class="eyebrow">Controls</div><h2>Controls & gates</h2></div></div><div class="meta-grid meta-grid-tight"><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">ops_cycle</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">source_refresh</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">queue_scoring</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">state_update</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dashboard_render</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">queue_render</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">workflow_state_build</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">workflow_render</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">partner_campaign_render</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">specialist_trigger_generation</span><span class="pill pill-live">direct</span></div>
+      <h3>hybrid</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">deploy_sync</span><span class="pill pill-warn">approval</span></div>
+      <h3>manual</h3>
+      <p>Live mode: dry_run</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">publish_readiness</span><span class="pill pill-warn">approval</span></div>
+      <h3>hybrid</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">publish_execute</span><span class="pill pill-warn">approval</span></div>
+      <h3>manual</h3>
+      <p>Live mode: gated_live</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">finance_sync</span><span class="pill pill-warn">approval</span></div>
+      <h3>manual</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">cron_health</span><span class="pill pill-live">direct</span></div>
+      <h3>auto</h3>
+      <p>Live mode: safe</p>
+      <div class="meta-foot"><div><span class="mini-label">Enabled</span><strong>yes</strong></div></div>
+    </article></div></section>
+        <section class="panel span-7"><div class="panel-head"><div><div class="eyebrow">Dependencies</div><h2>Dependencies & data sources</h2></div></div><div class="meta-grid"><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Google Search Console</h3>
+      <p>Used by: source_refresh, queue_scoring</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>43.6h</strong></div><div><span class="mini-label">Fallback</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Google Ads</h3>
+      <p>Used by: source_refresh, queue_scoring</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>43.6h</strong></div><div><span class="mini-label">Fallback</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>GA4</h3>
+      <p>Used by: source_refresh</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>43.6h</strong></div><div><span class="mini-label">Fallback</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Shopify Snapshots</h3>
+      <p>Used by: source_refresh, queue_scoring, publish_execute</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>43.6h</strong></div><div><span class="mini-label">Fallback</span><strong>yes</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Wefact</h3>
+      <p>Used by: finance_sync</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>0.0h</strong></div><div><span class="mini-label">Fallback</span><strong>no</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Manual Topics &amp; Business Rules</h3>
+      <p>Used by: source_refresh, queue_scoring</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>Noneh</strong></div><div><span class="mini-label">Fallback</span><strong>no</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Business Rules</h3>
+      <p>Used by: source_refresh, queue_scoring</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>Noneh</strong></div><div><span class="mini-label">Fallback</span><strong>no</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Render Stack</h3>
+      <p>Used by: dashboard_render, queue_render, workflow_render</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>Noneh</strong></div><div><span class="mini-label">Fallback</span><strong>no</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>EcoHandel Content System</h3>
+      <p>Used by: publish_readiness, publish_execute</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>Noneh</strong></div><div><span class="mini-label">Fallback</span><strong>no</strong></div></div>
+    </article><article class="meta-card">
+      <div class="meta-top"><span class="pill pill-accent">dependency</span><span class="pill pill-live">ready</span></div>
+      <h3>Partner Campaign System</h3>
+      <p>Used by: partner_campaign_render</p>
+      <div class="meta-foot"><div><span class="mini-label">Freshness</span><strong>Noneh</strong></div><div><span class="mini-label">Fallback</span><strong>no</strong></div></div>
+    </article></div></section>
+        <section class="panel span-5"><div class="panel-head"><div><div class="eyebrow">Alerts</div><h2>Alerts & opportunities</h2></div></div><ul class="stack"><li class='alert-item tone-neutral'><strong>deploy</strong><div class='sub'>Deploy staat bewust nog op dry-run.</div></li><li class='alert-item tone-neutral'><strong>specialists</strong><div class='sub'>15 specialist triggers klaar voor review.</div></li><li class='alert-item tone-warn'><strong>Specialist review backlog</strong><div class='sub'>Review 15 triggeradviezen en bepaal welke echt waarde toevoegen.</div></li><li class='alert-item tone-warn'><strong>Bronmix verbreden</strong><div class='sub'>Maak live bronpulls belangrijker zodat de queue minder leunt op handmatige input.</div></li></ul><div class="sub" style="margin-top:12px">Ops mode: active · Lane spread: Ingest 2 · Interpret 2 · Decide 2 · Execute 6 · Review 3</div></section>
+      </div>
+    
   </div>
-</div>
-
-<div class="p" style="margin-bottom:14px">
-<div class="ph"><div><div class="ey">Workflow lane</div><h2>Core loop</h2></div></div>
-<div class="card-grid"><div class="list-card">
-  <strong>Ops Cycle Orchestration</strong>
-  <div class="meta"><span class="pill pill-g">ok</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Orkestreert de volledige deterministic Econtrol Room run.</div>
-  <div class="desc"><span class="mono">ops_cycle</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Source Refresh</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Haalt source signals en snapshotdata binnen of ververst bestaande brondata.</div>
-  <div class="desc"><span class="mono">source_refresh</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>State Update</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Berekt queue health, source mix, cron readiness en learning summary.</div>
-  <div class="desc"><span class="mono">state_update</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Dashboard Render</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Bouwt de homepage van Econtrol Room.</div>
-  <div class="desc"><span class="mono">dashboard_render</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Queue Page Render</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Bouwt de Smart Content Queue pagina.</div>
-  <div class="desc"><span class="mono">queue_render</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Workflow State Build</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Combineert bestaande states tot workflow-registry, runs, alerts en recommendations.</div>
-  <div class="desc"><span class="mono">workflow_state_build</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Workflows Page Render</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Bouwt de nieuwe Workflows cockpitpagina op /agents.html.</div>
-  <div class="desc"><span class="mono">workflow_render</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Cron Health Check</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Meet script- en cron-readiness van de machine.</div>
-  <div class="desc"><span class="mono">cron_health</span> · laatste run 02-04-2026 22:24</div>
-</div></div>
-</div><div class="p" style="margin-bottom:14px">
-<div class="ph"><div><div class="ey">Workflow lane</div><h2>Content &amp; publishing</h2></div></div>
-<div class="card-grid"><div class="list-card">
-  <strong>Queue Scoring</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Zet signalen om naar Top 5, Next Up, Refresh en Watchlist.</div>
-  <div class="desc"><span class="mono">queue_scoring</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Specialist Trigger Generation</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">hybrid</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Genereert triggeradviezen voor specialist-agents.</div>
-  <div class="desc"><span class="mono">specialist_trigger_generation</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Publish Readiness</strong>
-  <div class="meta"><span class="pill pill-g">ready</span><span class="pill pill-s">hybrid</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Controleert of publish-flow technisch klaarstaat.</div>
-  <div class="desc"><span class="mono">publish_readiness</span> · laatste run 26-03-2026 22:48</div>
-</div><div class="list-card">
-  <strong>Publish Execute</strong>
-  <div class="meta"><span class="pill pill-g">ok</span><span class="pill pill-s">manual</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Gecontroleerde Shopify publish subflow voor EcoHandel.</div>
-  <div class="desc"><span class="mono">publish_execute</span> · laatste run 26-03-2026 22:48</div>
-</div></div>
-</div><div class="p" style="margin-bottom:14px">
-<div class="ph"><div><div class="ey">Workflow lane</div><h2>Partner &amp; deploy</h2></div></div>
-<div class="card-grid"><div class="list-card">
-  <strong>Partner Campaign Page Render</strong>
-  <div class="meta"><span class="pill pill-g">success</span><span class="pill pill-s">auto</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Bouwt de partner outreach cockpitpagina voor leads, hot prospects en campaign readiness.</div>
-  <div class="desc"><span class="mono">partner_campaign_render</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Deploy Sync</strong>
-  <div class="meta"><span class="pill pill-c">dry_run</span><span class="pill pill-s">manual</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Schrijft deploy status terug en blijft nu bewust in dry-run.</div>
-  <div class="desc"><span class="mono">deploy_sync</span> · laatste run 02-04-2026 22:24</div>
-</div><div class="list-card">
-  <strong>Finance Sync (Wefact)</strong>
-  <div class="meta"><span class="pill pill-s">live</span><span class="pill pill-s">manual</span><span class="pill pill-s">ops_agent</span></div>
-  <div class="desc">Read-only finance truth layer voor facturen, offertes en omzetvalidatie.</div>
-  <div class="desc"><span class="mono">finance_sync</span> · laatste run 04-04-2026 18:00</div>
-</div></div>
-</div>
-
-<div class="g g12">
-  <div class="p s12"><div class="ph"><div><div class="ey">AI recommendations</div><h2>Advies voor de machine</h2></div></div><div class="sub" style="margin-bottom:12px">AI-duiding voor de operatiekant van EcoHandel: wat moet deze OS-laag vooral wel en juist niet doen?</div><div class="card-grid"><div class="list-card">
-  <strong>Hou de machine klein en waarheidsgetrouw</strong>
-  <div class="meta"><span class="pill pill-g">ops</span></div>
-  <div class="desc">Alleen workflows tonen die echt bijdragen aan EcoHandel. Minder lanes, minder ruis, meer vertrouwen in de cockpit.</div>
-</div><div class="list-card">
-  <strong>Finance Sync mag nu als live bouwsteen gelden</strong>
-  <div class="meta"><span class="pill pill-c">finance</span></div>
-  <div class="desc">Wefact is weer echt live. Gebruik die status ook verderop in automations voor follow-up, signalering en omzetcontext.</div>
-</div><div class="list-card">
-  <strong>Cronlaag strak houden op ritme, niet op volume</strong>
-  <div class="meta"><span class="pill pill-w">cron</span></div>
-  <div class="desc">Core heartbeat plus partner-slots is voorlopig genoeg. Voeg alleen nieuwe crons toe als timing echt exact moet zijn.</div>
-</div><div class="list-card">
-  <strong>Volgende stap: agent-acties bovenop deze workflows</strong>
-  <div class="meta"><span class="pill pill-c">next</span></div>
-  <div class="desc">De workflowlaag is nu schoon genoeg om later slimme triggers, opvolgadviezen en operator-actions erbovenop te bouwen.</div>
-</div></div></div>
-</div>
-
-<div class="g g12">
-  <div class="p s7">
-    <div class="ph"><div><div class="ey">Ops cycle</div><h2>Laatste runstappen</h2></div></div>
-    <div class="tw mobile-cards"><table><thead><tr><th>Stap</th><th>Status</th><th>Output</th></tr></thead><tbody><tr><td data-label="Stap"><strong>refresh_sources</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/source-signals.json</td></tr><tr><td data-label="Stap"><strong>score_queue</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/queue/SMART_CONTENT_QUEUE.json</td></tr><tr><td data-label="Stap"><strong>update_state</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/queue-health.json</td></tr><tr><td data-label="Stap"><strong>sync_db</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">🔄 EcoHandel OS — Sync naar SQLite</td></tr><tr><td data-label="Stap"><strong>render_dashboard</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/index.html</td></tr><tr><td data-label="Stap"><strong>render_queue_page</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/smart-content-queue.html</td></tr><tr><td data-label="Stap"><strong>trigger_specialists</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/specialist-triggers.json</td></tr><tr><td data-label="Stap"><strong>generate_workflow_state</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/workflow-registry.json</td></tr><tr><td data-label="Stap"><strong>render_workflows_page</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/agents.html</td></tr><tr><td data-label="Stap"><strong>fetch_brevo_stats</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">▶ Fetching Brevo stats...</td></tr><tr><td data-label="Stap"><strong>partner_daily_cycle</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">{&quot;imported&quot;: 11, &quot;skipped&quot;: 290, &quot;unmatched&quot;: 3, &quot;fetched&quot;: 301}</td></tr><tr><td data-label="Stap"><strong>render_partner_campaign_page</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">✅ Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/partner-campaign.html (30,898 bytes)</td></tr><tr><td data-label="Stap"><strong>render_pwa_assets</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/build/app.webmanifest</td></tr><tr><td data-label="Stap"><strong>deploy_live</strong></td><td data-label="Status">OK</td><td data-label="Output" class="muted">Wrote /Users/ecohandel.nl/.openclaw/workspace/ecohandel/econtrol-room/state/deploy-status.json</td></tr></tbody></table></div>
-  </div>
-  <div class="p s5">
-    <div class="ph"><div><div class="ey">Focus</div><h2>Wat hier bewust niet staat</h2></div></div>
-    <div class="note"><strong>Opgeschoond</strong><ul>
-      <li>Geen verouderde EcoDash-verwijzingen meer als primaire cockpitlogica</li>
-      <li>Geen oude placeholder-cronlijstjes meer</li>
-      <li>Geen dump van alle state-files zonder context</li>
-      <li>Alleen workflows die nu echt onderdeel zijn van de machine of bewust paused staan</li>
-    </ul></div>
-  </div>
-</div>
-
-<div class="p" style="margin-bottom:14px">
-<div class="ph"><div><div class="ey">Cron group</div><h2>Core</h2></div></div>
-<div class="card-grid"><div class="list-card">
-  <strong>Jean Clawd Heartbeat</strong>
-  <div class="meta"><span class="pill pill-g">live</span><span class="pill pill-g">ok</span><span class="pill pill-s">every 30 min</span></div>
-  <div class="desc">Main heartbeat for inbox, reminders and housekeeping.</div>
-  <div class="desc">volgende run —</div>
-</div><div class="list-card">
-  <strong>EcoHandel 07:00 ochtendupdate voor Milan</strong>
-  <div class="meta"><span class="pill pill-g">live</span><span class="pill pill-s">scheduled</span><span class="pill pill-s">07:00 daily</span></div>
-  <div class="desc">Short morning update for Milan focused on EcoHandel overnight work.</div>
-  <div class="desc">volgende run —</div>
-</div></div>
-</div><div class="p" style="margin-bottom:14px">
-<div class="ph"><div><div class="ey">Cron group</div><h2>Partner campaign</h2></div></div>
-<div class="card-grid"><div class="list-card">
-  <strong>EcoHandel partner campaign daily prepare</strong>
-  <div class="meta"><span class="pill pill-g">live</span><span class="pill pill-s">scheduled</span><span class="pill pill-s">08:50 daily</span></div>
-  <div class="desc">Builds the daily partner send batches.</div>
-  <div class="desc">volgende run —</div>
-</div><div class="list-card">
-  <strong>EcoHandel partner campaign send A 09:00</strong>
-  <div class="meta"><span class="pill pill-g">live</span><span class="pill pill-s">scheduled</span><span class="pill pill-s">09:00 daily</span></div>
-  <div class="desc">Morning send slot for variant A.</div>
-  <div class="desc">volgende run —</div>
-</div><div class="list-card">
-  <strong>EcoHandel partner campaign send B 12:00</strong>
-  <div class="meta"><span class="pill pill-g">live</span><span class="pill pill-s">scheduled</span><span class="pill pill-s">12:00 daily</span></div>
-  <div class="desc">Midday send slot for variant B.</div>
-  <div class="desc">volgende run —</div>
-</div></div>
-</div>
-
-  </div>
-</div>
-<nav class="bnav"><div class="bnav-in"><a href="/" class=""><span class="ic">⌂</span><span>Dashboard</span></a>
-<a href="/smart-content-queue.html" class=""><span class="ic">◎</span><span>Queue</span></a>
-<a href="/workflows.html" class="on"><span class="ic">◈</span><span>Workflows</span></a>
-<a href="/partner-campaign.html" class=""><span class="ic">✉</span><span>Partners</span></a></div></nav>
-<script>if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(r=>r.forEach(w=>w.unregister()));
-</script>
+  <nav class="bottom-nav" aria-label="App navigatie">
+      <div class="bottom-nav-inner">
+        <a href="/" class=""><span class="icon">⌂</span><span>Dashboard</span></a>
+        <a href="/smart-content-queue.html" class=""><span class="icon">◎</span><span>Queue</span></a>
+        <a href="/workflows.html" class="is-active"><span class="icon">◈</span><span>Flows</span></a>
+        <a href="/partner-campaign.html" class=""><span class="icon">✉</span><span>Partners</span></a>
+      </div>
+    </nav>
+  
 </body>
 </html>

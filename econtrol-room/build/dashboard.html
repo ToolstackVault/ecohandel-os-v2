@@ -1,242 +1,402 @@
 <!doctype html>
 <html lang="nl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>EcoHandel.nl — Dashboard</title>
-<meta name="theme-color" content="#07111d">
-<meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
-<link rel="manifest" href="/app.webmanifest?v=1775338984">
-<link rel="icon" href="/favicon.png?v=1775338984" type="image/png">
-<link rel="shortcut icon" href="/favicon.png?v=1775338984" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1775338984">
-<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=1775338984">
-<style>:root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:20px}
-*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-.shell{max-width:1680px;margin:0 auto;padding:calc(10px + var(--safe-top)) 14px 0;overflow-x:hidden}
-.topbar{position:sticky;top:0;z-index:20;padding-top:4px;backdrop-filter:blur(20px)}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.86);border-radius:20px;box-shadow:0 12px 36px rgba(0,0,0,.22)}
-.brand{display:flex;align-items:center;gap:10px;min-width:0}
-.brand-mark{width:38px;height:38px;border-radius:12px;display:block;object-fit:cover;background:#0b1b2b;border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 20px rgba(0,0,0,.22)}
-.brand-copy{min-width:0}.brand-ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
-.brand-t{font-size:17px;font-weight:900;letter-spacing:-.03em}.brand-s{font-size:11px;color:var(--muted)}
-.pill-page{padding:6px 10px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.04em}
-.dnav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
-.dnav a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
-.dnav a.on{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 6px 16px rgba(22,163,74,.22)}
-.wrap{padding:14px 0 0}
-.hero{padding:22px;border-radius:24px;background:linear-gradient(180deg,rgba(15,34,54,.97),rgba(20,49,77,.93));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.28);margin-bottom:18px}
-.ey{font-size:10px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
-h1{margin:8px 0 10px;font-size:clamp(30px,6vw,46px);line-height:.94;letter-spacing:-.05em}
-.sub{color:var(--muted);font-size:13px;line-height:1.6;max-width:920px}
-.ts{color:var(--muted);font-size:12px;margin-top:10px}
-.g{display:grid;gap:14px;margin-top:14px}
-.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g12{grid-template-columns:repeat(12,1fr)}
-.s6{grid-column:span 6}.s7{grid-column:span 7}.s5{grid-column:span 5}.s12{grid-column:span 12}.s4{grid-column:span 4}.s8{grid-column:span 8}
-.p{padding:18px;border-radius:22px;background:linear-gradient(180deg,rgba(15,34,54,.94),rgba(20,49,77,.88));border:1px solid rgba(255,255,255,.08);box-shadow:0 16px 50px rgba(0,0,0,.22)}
-.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:16px}
-h2{margin:2px 0 0;font-size:21px;letter-spacing:-.035em}
-.badge{padding:5px 10px;border-radius:999px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
-.badge-ok{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
-.badge-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
-.badge-off{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.08)}
-.sg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.hero .sg{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:16px}
-.sc{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-.sl{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.sv{display:block;margin-top:7px;font-size:24px;letter-spacing:-.045em;font-weight:900;line-height:1.05}
-.sn{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.45}
-.sc-g .sv{color:#86efac}.sc-w .sv{color:#fcd34d}.sc-c .sv{color:var(--cyan)}.sc-r .sv{color:#fca5a5}
-.tw{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(34,211,238,.35) transparent}
-.tw::-webkit-scrollbar{height:8px}
-.tw::-webkit-scrollbar-thumb{background:rgba(34,211,238,.28);border-radius:999px}
-table{width:100%;border-collapse:collapse}th,td{padding:8px 6px;border-top:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}
-th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-.pill{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
-.pill-g{background:rgba(34,197,94,.16);color:#86efac}.pill-w{background:rgba(245,158,11,.16);color:#fcd34d}
-.pill-c{background:rgba(34,211,238,.12);color:var(--cyan)}.pill-s{background:rgba(255,255,255,.05);color:var(--muted)}
-.pill-r{background:rgba(239,68,68,.16);color:#fca5a5}
-.note{padding:15px 16px;border-radius:18px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.14);margin-top:12px}
-.note ul,.note ol{margin:8px 0 0;padding-left:16px;display:grid;gap:6px}
-.stack{display:grid;gap:12px}.stack-tight{display:grid;gap:10px}.stretch{height:100%}
-.insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
-.insight-card{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06)}
-.insight-card strong{display:block;font-size:12px;letter-spacing:-.01em;margin-bottom:6px}.insight-card .mini{font-size:12px;color:var(--muted);line-height:1.45}
-.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.stat-card{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07)}
-.stat-card .k{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.stat-card .v{display:block;margin-top:8px;font-size:23px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
-.stat-card .n{display:block;margin-top:6px;font-size:12px;line-height:1.5;color:var(--muted)}
-.list-card{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);overflow:hidden}
-.list-card strong{display:block;font-size:14px;letter-spacing:-.01em;word-break:break-word}
-.list-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.list-card .desc{margin-top:8px;font-size:12px;line-height:1.55;color:var(--muted);word-break:break-word}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.muted{color:var(--muted)}
-.refresh-btn{position:fixed;top:calc(var(--safe-top) + 70px);right:16px;z-index:30;width:42px;height:42px;border-radius:50%;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.25);color:var(--cyan);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 6px 20px rgba(0,0,0,.3);transition:transform .2s}
-.refresh-btn:active{transform:scale(.9)}
-.bnav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + var(--safe-bottom));pointer-events:none}
-.bnav-in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:20px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -8px 30px rgba(0,0,0,.28);pointer-events:auto}
-.bnav a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:14px;color:#cfe2f3;font-size:10px;font-weight:800;letter-spacing:.04em}
-.bnav a .ic{font-size:16px;line-height:1}
-.bnav a.on{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
-@media(max-width:1180px){.sg,.hero .sg,.g2,.g3,.g4,.insight-grid,.card-grid{grid-template-columns:1fr}.g12{grid-template-columns:1fr}.s4,.s5,.s6,.s7,.s8,.s12{grid-column:span 1}.dnav{display:none}.shell{padding:calc(8px + var(--safe-top)) 10px 0}.topbar{padding-top:2px}.topbar-inner{flex-direction:column;align-items:flex-start;padding:12px 12px 10px}.brand{width:100%}.brand-s{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4}.pill-page{width:100%;text-align:center;justify-content:center}.hero{padding:16px 14px 14px;border-radius:20px}.p{padding:14px;border-radius:20px}.ph{margin-bottom:12px}.refresh-btn{top:auto;bottom:calc(var(--safe-bottom) + 92px);right:12px;width:46px;height:46px}h1{font-size:clamp(28px,9vw,36px);line-height:1}h2{font-size:18px}.sub,.ts,.sn,.list-card .desc{font-size:12px}.sv{font-size:22px}.tw{margin:0 -4px;padding:0 4px 8px}.tw::after{content:'↔ swipe';display:block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-align:right}.tw table,table{min-width:680px}.mobile-cards{overflow:visible;margin:0;padding:0}.mobile-cards::after{display:none}.mobile-cards table{min-width:0}.mobile-cards thead{display:none}.mobile-cards tbody{display:grid;gap:10px}.mobile-cards tr{display:block;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)}.mobile-cards td{display:block;border-top:none;padding:0 0 8px;font-size:13px;word-break:break-word}.mobile-cards td:last-child{padding-bottom:0}.mobile-cards td::before{content:attr(data-label);display:block;margin-bottom:4px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.mobile-cards td .sub{margin-top:4px;font-size:12px;line-height:1.45}.mobile-cards .pill{margin-top:2px;max-width:100%;white-space:normal}.mobile-cards strong,.mobile-cards span,.mobile-cards div{word-break:break-word}}
-@media(min-width:1181px){.bnav{display:none}.shell{padding-left:24px;padding-right:24px}}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>EcoHandel.nl — Dashboard</title>
+  <meta name="description" content="Econtrol Room dashboard voor EcoHandel.nl">
+  <meta name="theme-color" content="#07111d">
+  <meta name="apple-mobile-web-app-title" content="EcoHandel.nl">
+  <link rel="manifest" href="/app.webmanifest">
+  <link rel="icon" href="/favicon.png?v=3" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png?v=3">
+  <style>
+    :root{--bg:#06111d;--bg2:#091827;--panel:#0f2236;--panel2:#14314d;--panel3:#0b1b2b;--line:#21415c;--text:#e8f0f7;--muted:#8ea7be;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--blue:#38bdf8;--purple:#8b5cf6;--pink:#ec4899;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--nav-h:76px;--radius:24px;}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:radial-gradient(circle at top right,#163857 0,#06111d 44%);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 20px);overflow-x:hidden}
+    a{color:inherit}
+    .app-shell{max-width:1680px;margin:0 auto;padding:calc(16px + var(--safe-top)) 18px 0;overflow-x:hidden}
+    .topbar{position:sticky;top:0;z-index:20;padding-top:8px;backdrop-filter:blur(20px)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.08);background:rgba(8,17,28,.78);border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.22)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#22d3ee,#8b5cf6 55%,#ec4899);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:0 10px 24px rgba(34,211,238,.25)}
+    .brand-copy{min-width:0}
+    .brand-eyebrow{font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+    .brand-title{font-size:18px;font-weight:900;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand-sub{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .top-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .page-pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.18);color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.04em}
+    .wrap{padding:18px 0 0}
+    .desktop-nav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+    .desktop-nav a{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dbe8f5}
+    .desktop-nav a.is-active{background:#16a34a;color:#fff;border-color:rgba(22,163,74,.35);box-shadow:0 8px 20px rgba(22,163,74,.22)}
+    .hero-card,.panel{background:linear-gradient(180deg,var(--panel) 0,var(--panel2) 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 20px 70px rgba(0,0,0,.28)}
+    .hero-card{padding:22px}
+    .eyebrow{font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+    h1{margin:8px 0 10px;font-size:clamp(34px,7vw,54px);line-height:.96;letter-spacing:-.05em}
+    .subhead{color:var(--muted);line-height:1.6;max-width:900px}
+    .timestamp{color:var(--muted);font-size:13px;line-height:1.6}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:18px}
+    .span-4{grid-column:span 4} .span-5{grid-column:span 5} .span-6{grid-column:span 6} .span-7{grid-column:span 7} .span-8{grid-column:span 8} .span-12{grid-column:span 12}
+    .panel{padding:18px 18px 16px}
+    .panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
+    h2{margin:4px 0 0;font-size:24px;letter-spacing:-.03em}
+    .status{padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+    .status-live{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+    .status-seed{background:rgba(34,211,238,.12);color:var(--cyan);border:1px solid rgba(34,211,238,.25)}
+    .status-warn{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+    .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .hero-metric,.kpi-card{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .label,.kpi-label,.mini-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+    .value,.kpi-value{font-size:26px;font-weight:900;margin-top:7px;letter-spacing:-.04em}
+    .muted{color:var(--muted)}
+    .sub{color:var(--muted);font-size:14px;line-height:1.55;margin-top:4px}
+    .stack{display:grid;gap:10px;margin:0;padding-left:18px}
+    .table-wrap,.tw{position:relative;overflow-x:auto;overflow-y:hidden;margin:0 -4px;padding:0 4px 6px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(34,211,238,.35) transparent}
+    .table-wrap::-webkit-scrollbar,.tw::-webkit-scrollbar{height:8px}
+    .table-wrap::-webkit-scrollbar-thumb,.tw::-webkit-scrollbar-thumb{background:rgba(34,211,238,.28);border-radius:999px}
+    .table-wrap table,.tw table,table{width:100%;border-collapse:collapse;min-width:0}
+    th,td{padding:10px 8px;border-top:1px solid var(--line);text-align:left;vertical-align:top;word-break:break-word}
+    th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    .pill{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+    .pill-soft{background:rgba(255,255,255,.05);color:var(--muted)}
+    .pill-live{background:rgba(34,197,94,.16);color:#86efac}
+    .pill-warn{background:rgba(245,158,11,.16);color:#fcd34d}
+    .pill-accent{background:rgba(34,211,238,.12);color:var(--cyan)}
+    .stat-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .empty{color:var(--muted)}
+    .bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 14px calc(10px + var(--safe-bottom));pointer-events:none}
+    .bottom-nav-inner{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px;border-radius:24px;background:rgba(8,17,28,.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 40px rgba(0,0,0,.28);pointer-events:auto}
+    .bottom-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 8px;border-radius:16px;text-decoration:none;color:#cfe2f3;font-size:11px;font-weight:800;letter-spacing:.04em}
+    .bottom-nav a .icon{font-size:18px;line-height:1}
+    .bottom-nav a.is-active{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));color:#fff;border:1px solid rgba(255,255,255,.08)}
+    .install-hint{display:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    
+    .hero-main{margin-top:4px}
+    .hero-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-end}
+    .summary-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:18px}
+    .summary-card{padding:16px;border-radius:18px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.03)}
+    .summary-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+    .summary-value{display:block;margin-top:8px;font-size:26px;letter-spacing:-.04em}
+    .summary-note{margin-top:6px;color:var(--muted);font-size:13px;line-height:1.5}
+    .summary-live .summary-value{color:#86efac}
+    .summary-warn .summary-value{color:#fcd34d}
+    .summary-accent .summary-value{color:var(--cyan)}
+    .range-switch-wrap{margin-top:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+    .range-switch{display:flex;gap:10px;flex-wrap:nowrap;min-width:max-content}
+    .range-pill{appearance:none;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:#d9e7f3;padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer;white-space:nowrap;flex:0 0 auto}
+    .range-pill.is-active{background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));border-color:rgba(255,255,255,.14);color:#fff}
+    .hero-note{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.6}
+    .pulse-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .pulse-card{padding:18px;border-radius:20px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03)}
+    .pulse-title{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--muted)}
+    .pulse-body{margin-top:10px;font-size:16px;line-height:1.6;overflow-wrap:anywhere}
+    .pulse-accent .pulse-body{color:#dff8ff}
+    .pulse-warn .pulse-body{color:#fde68a}
+    .pulse-live .pulse-body{color:#bbf7d0}
+    .finance-spotlight{background:linear-gradient(180deg,rgba(12,36,28,.92),rgba(13,42,34,.96));border-color:rgba(34,197,94,.22)}
+    .finance-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px}
+    .finance-card{padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);min-width:0}
+    .finance-card strong{display:block;margin-top:8px;font-size:32px;letter-spacing:-.05em;color:#bbf7d0;overflow-wrap:anywhere}
+    .finance-primary strong{font-size:38px}
+    .sources-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .source-card{padding:18px;border-radius:20px;background:linear-gradient(180deg,rgba(7,19,31,.8),rgba(10,24,40,.95));border:1px solid rgba(255,255,255,.07);min-width:0}
+    .source-card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .source-card h3{margin:6px 0 8px;font-size:22px;letter-spacing:-.03em}
+    .source-card p{margin:0;color:var(--muted);line-height:1.6}
+    .source-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+    .source-metric{padding:14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);min-width:0}
+    .source-metric span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    .source-metric strong{display:block;margin-top:7px;font-size:23px;letter-spacing:-.04em;overflow-wrap:anywhere}
+    .source-foot{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+    .source-pending .source-metric strong{font-size:18px}
+    .queue-grid,.refresh-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .queue-card,.refresh-card{padding:18px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);min-width:0}
+    .queue-card-top,.refresh-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .queue-score{width:50px;height:50px;border-radius:15px;background:linear-gradient(135deg,rgba(34,211,238,.22),rgba(139,92,246,.22));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;flex:0 0 auto}
+    .queue-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .queue-card h3,.refresh-card h3{margin:14px 0 10px;font-size:20px;line-height:1.2;letter-spacing:-.03em;overflow-wrap:anywhere}
+    .queue-card p,.refresh-card p{margin:0;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
+    .warning-box{margin-top:16px;padding:16px;border-radius:18px;background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.22)}
+    .warning-box ul{margin:0;padding-left:18px;display:grid;gap:8px}
+    .pmax-shell{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+    .pmax-summary,.pmax-ag-card{padding:18px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .pmax-summary h3{margin:6px 0 8px;font-size:24px;letter-spacing:-.03em}
+    .pmax-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+    .pmax-metric{padding:14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
+    .pmax-metric span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    .pmax-metric strong{display:block;margin-top:7px;font-size:22px;letter-spacing:-.04em}
+    .pmax-live strong{color:#86efac}.pmax-warn strong{color:#fcd34d}.pmax-accent strong{color:var(--cyan)}
+    .pmax-ag-list{display:grid;gap:12px}
+    .pmax-ag-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .pmax-ag-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+    .pmax-ag-grid strong{display:block;margin-top:5px}
+    @media (max-width:1180px){.hero-head,.summary-grid,.pulse-grid,.sources-grid,.queue-grid,.refresh-grid,.source-metrics,.pmax-shell,.pmax-metrics,.pmax-ag-grid,.finance-grid{grid-template-columns:1fr;display:grid}.hero-head{gap:12px}.source-metrics{gap:10px}.finance-card strong{font-size:30px}.finance-primary strong{font-size:34px}}
+    
+    @media (max-width:1180px){.grid,.hero-grid{grid-template-columns:1fr} .span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 1} .desktop-nav{display:none} h2{font-size:22px} .topbar-inner{align-items:flex-start;flex-direction:column} .brand-sub{white-space:normal;overflow:visible;text-overflow:clip} .top-actions{width:100%} .page-pill{width:100%;justify-content:center} .table-wrap,.tw{margin:0 -8px;padding:0 8px 10px} .table-wrap::after,.tw::after{content:'↔ swipe';display:block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-align:right} .table-wrap table,.tw table,table{min-width:680px} th,td{font-size:13px;padding:10px 6px} .mobile-cards{overflow:visible;margin:0;padding:0} .mobile-cards::after{display:none} .mobile-cards table{min-width:0} .mobile-cards thead{display:none} .mobile-cards tbody{display:grid;gap:10px} .mobile-cards tr{display:block;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)} .mobile-cards td{display:flex;justify-content:space-between;gap:12px;border-top:none;padding:6px 0;font-size:13px} .mobile-cards td::before{content:attr(data-label);display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;flex:0 0 38%}}
+    @media (min-width:1181px){.bottom-nav{display:none} .app-shell{padding-left:28px;padding-right:28px}}
+  </style>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js').catch(function(){}); });
+    }
+  </script>
 </head>
 <body>
-<button class="refresh-btn" onclick="location.reload(true)" title="Refresh">⟳</button>
-<div class="shell">
-  <div class="topbar"><div class="topbar-inner">
-    <div class="brand"><img class="brand-mark" src="/favicon.png?v=1775338984" alt="EcoHandel logo"><div class="brand-copy"><div class="brand-ey">Mission board</div><div class="brand-t">EcoHandel.nl</div><div class="brand-s">Centrale cockpit</div></div></div>
-    <span class="pill-page">Dashboard</span>
-  </div></div>
-  <div class="wrap">
-    <nav class="dnav"><a href="/" class="on">Dashboard</a>
-<a href="/smart-content-queue.html" class="">Queue</a>
-<a href="/workflows.html" class="">Workflows</a>
-<a href="/partner-campaign.html" class="">Partners</a></nav>
-    
-<div class="hero">
-  <div class="ey">Dashboard</div>
-  <h1>Econtrol Room</h1>
-  <div class="sub">Centrale cockpit — verkeer, zoekvraag, finance, partner campaign en stijgende lijn.</div>
-  <div class="ts">Laatst ververst: 04-04-2026 21:43 · Ops: <span class="badge badge-ok">ok</span></div>
-  <div class="sg">
-<div class="sc sc-c"><span class="sl">Vandaag verkeer</span><span class="sv">45</span><span class="sn">gisteren 69 · ↓ 34.8%</span></div>
-<div class="sc sc-g"><span class="sl">GSC clicks 7d</span><span class="sv">27</span><span class="sn">28d 49 · CTR 16,2%</span></div>
-<div class="sc sc-c"><span class="sl">Traffic 7d</span><span class="sv">408</span><span class="sn">28d 709 · users 414</span></div>
-<div class="sc sc-c"><span class="sl">PMax 7d</span><span class="sv">4.00x</span><span class="sn">spend €93,71 · value €375,00</span></div>
-<div class="sc sc-g"><span class="sl">Wefact 28d</span><span class="sv">€52.293,18</span><span class="sn">7d €0,00 · 4 offertes</span></div>
-</div>
-</div>
-
-<div class="g g12">
-  <div class="p s7 stretch">
-    <div class="ph"><div><div class="ey">Traffic snapshot</div><h2>Vandaag / gisteren / last 7 days / last 28 days</h2></div></div>
-    <div class="tw mobile-cards"><table><thead><tr><th>Periode</th><th>GA4 sessies</th><th>Users</th><th>GSC clicks</th><th>Impr.</th><th>CTR</th><th>Lijn</th></tr></thead><tbody>
-<tr><td data-label="Periode"><strong>Vandaag</strong></td><td data-label="Sessies">45</td><td data-label="Users">36</td><td data-label="Clicks">0</td><td data-label="Impressions">0</td><td data-label="CTR">-</td><td data-label="Trend" class="muted">↓ 34.8% vs gister</td></tr>
-<tr><td data-label="Periode"><strong>Gisteren</strong></td><td data-label="Sessies">69</td><td data-label="Users">44</td><td data-label="Clicks">0</td><td data-label="Impressions">0</td><td data-label="CTR">-</td><td data-label="Trend" class="muted">Referentie</td></tr>
-<tr><td data-label="Periode"><strong>Last 7 days</strong></td><td data-label="Sessies">408</td><td data-label="Users">279</td><td data-label="Clicks">27</td><td data-label="Impressions">51</td><td data-label="CTR">52,9%</td><td data-label="Trend" class="muted">↑ 130.2% vs 28d avg</td></tr>
-<tr><td data-label="Periode"><strong>Last 28 days</strong></td><td data-label="Sessies">709</td><td data-label="Users">414</td><td data-label="Clicks">49</td><td data-label="Impressions">302</td><td data-label="CTR">16,2%</td><td data-label="Trend" class="muted">Basislijn</td></tr>
-</tbody></table></div>
-    
-    <div class="insight-grid">
-      <div class="insight-card">
-        <strong>Traffic trend</strong>
-        <div class="mini">Vandaag 45 sessies tegenover gisteren 69. ↓ 34.8% vs gister.</div>
-      </div>
-      <div class="insight-card">
-        <strong>Organic signal</strong>
-        <div class="mini">GSC pakt 27 clicks in 7 dagen bij 16,2% CTR over 28 dagen.</div>
-      </div>
-      <div class="insight-card">
-        <strong>PMax pulse</strong>
-        <div class="mini">Spend €93,71, value €375,00, ROAS 4.00x op PMax-EcoHandel Deye.</div>
-      </div>
-      <div class="insight-card">
-        <strong>Finance pulse</strong>
-        <div class="mini">Wefact 28d €52.293,18, open €40.867,75, follow-up 3 offertes.</div>
+  <div class="app-shell">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">EH</div>
+          <div class="brand-copy">
+            <div class="brand-eyebrow">Mission board</div>
+            <div class="brand-title">EcoHandel.nl</div>
+            <div class="brand-sub">Traffic, omzet, SEO en workflows in één mobiele shell</div>
+          </div>
+        </div>
+        <div class="top-actions"><span class="page-pill">Dashboard</span></div>
       </div>
     </div>
+    <div class="wrap">
+      <nav class="desktop-nav" aria-label="Hoofdnavigatie">
+        <a href="/" class="is-active">Dashboard</a>
+        <a href="/smart-content-queue.html" class="">Queue</a>
+        <a href="/workflows.html" class="">Workflows</a>
+        <a href="/partner-campaign.html" class="">Partners</a>
+      </nav>
+    
+      
+    <section class="hero-card hero-main">
+      <div class="hero-head">
+        <div>
+          <div class="eyebrow">Econtrol Room</div>
+          <h1>EcoHandel.nl</h1>
+          <div class="subhead">Econtrol Room blijft leidend. Deze app-laag volgt de control room, maakt hem iPhone-proof en houdt de kern scanbaar: verkeer, SEO, ads, omzet, signalen en prioriteiten.</div>
+        </div>
+        <div class="timestamp">Rendered 2026-04-04 18:00 UTC<br>Data refresh: 2026-04-04T18:00:00.933601+00:00<br>Ops status: ok · Workflow health: healthy</div>
+      </div>
+      <div class="summary-grid"><article class="summary-card summary-live" data-today="€0,00" data-yesterday="€0,00" data-last_7_days="€0,00" data-last_28_days="€52.293,18">
+      <span class="summary-label">Wefact omzet</span>
+      <strong class="summary-value" data-role="summary-value">€0,00</strong>
+      <div class="summary-note">Facturen via Wefact</div>
+    </article><article class="summary-card summary-accent" data-today="45" data-yesterday="69" data-last_7_days="408" data-last_28_days="709">
+      <span class="summary-label">Bezoeken</span>
+      <strong class="summary-value" data-role="summary-value">408</strong>
+      <div class="summary-note">GA4 verkeer</div>
+    </article><article class="summary-card summary-accent" data-today="0" data-yesterday="0" data-last_7_days="27" data-last_28_days="49">
+      <span class="summary-label">Organic clicks</span>
+      <strong class="summary-value" data-role="summary-value">27</strong>
+      <div class="summary-note">GSC klikvolume</div>
+    </article><article class="summary-card summary-warn" data-today="€18,10" data-yesterday="€10,47" data-last_7_days="€93,71" data-last_28_days="€152,18">
+      <span class="summary-label">Ads spend</span>
+      <strong class="summary-value" data-role="summary-value">€93,71</strong>
+      <div class="summary-note">Google Ads spend</div>
+    </article><article class="summary-card summary-live" data-today="-" data-yesterday="-" data-last_7_days="-" data-last_28_days="-">
+      <span class="summary-label">Shopify omzet</span>
+      <strong class="summary-value" data-role="summary-value">-</strong>
+      <div class="summary-note">Shop omzet nu</div>
+    </article></div>
+      <div class="range-switch-wrap"><div class="range-switch" data-range-switch>
+        <button class="range-pill" data-range="today">Today</button>
+        <button class="range-pill" data-range="yesterday">Yesterday</button>
+        <button class="range-pill is-active" data-range="last_7_days">Last 7 days</button>
+        <button class="range-pill" data-range="last_28_days">Last 28 days</button>
+      </div></div>
+      <div class="hero-note">De periode-switch stuurt verkeer/SEO/ads/shop-waarden. Wefact staat hieronder ook als vaste finance truth op 28 dagen, zodat omzet nooit “weg” lijkt op mobile.</div>
+    </section>
+    
+      <div class="grid">
+        <section class="panel span-12 finance-spotlight">
+      <div class="panel-head"><div><div class="eyebrow">Finance truth</div><h2>Wefact direct zichtbaar</h2></div><span class="status status-live">live</span></div>
+      <div class="finance-grid">
+        <article class="finance-card finance-primary"><span class="mini-label">Wefact omzet 28d</span><strong>€52.293,18</strong><div class="sub">Factuurwaarde uit Wefact, altijd zichtbaar los van de periode-switch.</div></article>
+        <article class="finance-card"><span class="mini-label">Openstaand</span><strong>€40.867,75</strong><div class="sub">Open bedrag volgens Wefact.</div></article>
+        <article class="finance-card"><span class="mini-label">Offertes follow-up</span><strong>3</strong><div class="sub">€10.735,40 in opvolging.</div></article>
+      </div>
+    </section>
+        <section class="panel span-12">
+          <div class="panel-head"><div><div class="eyebrow">Executive pulse</div><h2>Wat nu aandacht vraagt</h2></div><span class="status status-live">lead layer</span></div>
+          <div class="pulse-grid"><article class="pulse-card pulse-accent">
+      <div class="pulse-title">Traffic</div>
+      <div class="pulse-body">408 sessies in 7 dagen. Genoeg om de commerciële signalen serieus te nemen.</div>
+    </article><article class="pulse-card pulse-live">
+      <div class="pulse-title">Ads</div>
+      <div class="pulse-body">€93,71 spend, €375,00 value in 7 dagen. PMax staat op 4.00x ROAS.</div>
+    </article><article class="pulse-card pulse-live">
+      <div class="pulse-title">Finance truth</div>
+      <div class="pulse-body">Shopify en Wefact draaien nu naast elkaar. Wefact laat €52.293,18 aan factuurwaarde zien, met 3 offertes in follow-up en €0,00 achterstallig open.</div>
+    </article></div>
+        </section>
+
+        
+        <section class="panel span-12">
+          <div class="panel-head"><div><div class="eyebrow">Paid performance</div><h2>PMax cockpit</h2></div><span class="status status-live">ENABLED</span></div>
+          <div class="pmax-shell">
+            <div class="pmax-summary">
+              <div class="eyebrow">Campaign</div>
+              <h3>PMax-EcoHandel Deye</h3>
+              <div class="sub">Actieve PMax-campagne live in dashboard.</div>
+              <div class="pmax-metrics"><div class="pmax-metric pmax-warn"><span>Spend 7d</span><strong>€93,71</strong></div><div class="pmax-metric pmax-live"><span>Value 7d</span><strong>€375,00</strong></div><div class="pmax-metric pmax-live"><span>ROAS</span><strong>4.00x</strong></div><div class="pmax-metric pmax-accent"><span>CPA</span><strong>€93,71</strong></div><div class="pmax-metric pmax-accent"><span>Clicks</span><strong>475</strong></div><div class="pmax-metric pmax-live"><span>Conv.</span><strong>1,0</strong></div></div>
+            </div>
+            <div class="pmax-ag-list"><article class="pmax-ag-card">
+      <div class="pmax-ag-top"><strong>Deye Nederland</strong><span class="pill pill-live">ENABLED</span></div>
+      <div class="pmax-ag-grid">
+        <div><span class="mini-label">Spend</span><strong>€93,71</strong></div>
+        <div><span class="mini-label">Value</span><strong>€375,00</strong></div>
+        <div><span class="mini-label">Clicks</span><strong>475</strong></div>
+        <div><span class="mini-label">Conv.</span><strong>1,0</strong></div>
+      </div>
+    </article></div>
+          </div>
+        </section>
+        
+
+        <section class="panel span-12">
+          <div class="panel-head"><div><div class="eyebrow">Core data</div><h2>Kernblokken van de machine</h2></div><span class="status status-live">live shell</span></div>
+          <div class="sources-grid"><article class="source-card source-live" data-source-card="ga4">
+      <div class="source-card-top">
+        <div>
+          <div class="eyebrow">Data source</div>
+          <h3>GA4</h3>
+        </div>
+        <span class="pill pill-live">live</span>
+      </div>
+      <p>Verkeer en bezoekgedrag vanuit GA4. Dit is je bezoeklaag.</p>
+      <div class="source-metrics"><div class="source-metric" data-today="45" data-yesterday="69" data-last_7_days="408" data-last_28_days="709"><span>Sessions</span><strong data-role="metric-value">45</strong></div><div class="source-metric" data-today="36" data-yesterday="44" data-last_7_days="279" data-last_28_days="414"><span>Active users</span><strong data-role="metric-value">36</strong></div><div class="source-metric" data-today="€645,00" data-yesterday="€0,00" data-last_7_days="€1.020,00" data-last_28_days="€1.955,00"><span>Revenue</span><strong data-role="metric-value">€645,00</strong></div></div>
+      <div class="source-foot">Property 529517517 · G-00J93RYPET · ga4-data-api-live</div>
+    </article><article class="source-card source-live" data-source-card="ads">
+      <div class="source-card-top">
+        <div>
+          <div class="eyebrow">Data source</div>
+          <h3>Google Ads</h3>
+        </div>
+        <span class="pill pill-live">live</span>
+      </div>
+      <p>Campagnes, spend en gemeten conversion value. Hier wil je later Wefact-validatie naast hebben.</p>
+      <div class="source-metrics"><div class="source-metric" data-today="€18,10" data-yesterday="€10,47" data-last_7_days="€93,71" data-last_28_days="€152,18"><span>Spend</span><strong data-role="metric-value">€18,10</strong></div><div class="source-metric" data-today="67" data-yesterday="48" data-last_7_days="475" data-last_28_days="690"><span>Clicks</span><strong data-role="metric-value">67</strong></div><div class="source-metric" data-today="2,0%" data-yesterday="1,6%" data-last_7_days="1,5%" data-last_28_days="1,7%"><span>CTR</span><strong data-role="metric-value">2,0%</strong></div><div class="source-metric" data-today="€0,00" data-yesterday="€0,00" data-last_7_days="€375,00" data-last_28_days="€1.310,00"><span>Value</span><strong data-role="metric-value">€0,00</strong></div></div>
+      <div class="source-foot">PERFORMANCE_MAX · Spend €93,71 · Value €375,00</div>
+    </article><article class="source-card source-live" data-source-card="gsc">
+      <div class="source-card-top">
+        <div>
+          <div class="eyebrow">Data source</div>
+          <h3>Google Search Console</h3>
+        </div>
+        <span class="pill pill-live">live</span>
+      </div>
+      <p>SEO-prestaties, klikken en zichtbaarheid in Google.</p>
+      <div class="source-metrics"><div class="source-metric" data-today="0" data-yesterday="0" data-last_7_days="27" data-last_28_days="49"><span>Clicks</span><strong data-role="metric-value">0</strong></div><div class="source-metric" data-today="0" data-yesterday="0" data-last_7_days="51" data-last_28_days="302"><span>Impressions</span><strong data-role="metric-value">0</strong></div><div class="source-metric" data-today="-" data-yesterday="-" data-last_7_days="52,9%" data-last_28_days="16,2%"><span>CTR</span><strong data-role="metric-value">-</strong></div><div class="source-metric" data-today="-" data-yesterday="-" data-last_7_days="3.5" data-last_28_days="5.9"><span>Position</span><strong data-role="metric-value">-</strong></div></div>
+      <div class="source-foot">sc-domain:ecohandel.nl · opportunities en top-pages voeden de queue.</div>
+    </article><article class="source-card source-warn" data-source-card="shopify">
+      <div class="source-card-top">
+        <div>
+          <div class="eyebrow">Data source</div>
+          <h3>Shopify omzet</h3>
+        </div>
+        <span class="pill pill-warn">warn</span>
+      </div>
+      <p>Directe shop-omzet. Niet de volledige waarheid zodra Wefact meedoet.</p>
+      <div class="source-metrics"><div class="source-metric" data-today="-" data-yesterday="-" data-last_7_days="-" data-last_28_days="-"><span>Revenue</span><strong data-role="metric-value">-</strong></div><div class="source-metric" data-today="-" data-yesterday="-" data-last_7_days="-" data-last_28_days="-"><span>Orders</span><strong data-role="metric-value">-</strong></div><div class="source-metric" data-today="-" data-yesterday="-" data-last_7_days="-" data-last_28_days="-"><span>AOV</span><strong data-role="metric-value">-</strong></div></div>
+      <div class="source-foot">n6f6ja-qr.myshopify.com · </div>
+    </article><article class="source-card source-live" data-source-card="wefact">
+      <div class="source-card-top">
+        <div>
+          <div class="eyebrow">Data source</div>
+          <h3>Wefact</h3>
+        </div>
+        <span class="pill pill-live">live</span>
+      </div>
+      <p>Finance truth layer voor offertes en facturen. Deze laag draait nu live naast Shopify.</p>
+      <div class="source-metrics"><div class="source-metric" data-today="0" data-yesterday="0" data-last_7_days="0" data-last_28_days="8"><span>Facturen</span><strong data-role="metric-value">0</strong></div><div class="source-metric" data-today="€0,00" data-yesterday="€0,00" data-last_7_days="€0,00" data-last_28_days="€52.293,18"><span>Omzet</span><strong data-role="metric-value">€0,00</strong></div><div class="source-metric" data-today="0" data-yesterday="0" data-last_7_days="0" data-last_28_days="4"><span>Offertes</span><strong data-role="metric-value">0</strong></div><div class="source-metric" data-today="€0,00" data-yesterday="€0,00" data-last_7_days="€0,00" data-last_28_days="€40.867,75"><span>Open</span><strong data-role="metric-value">€0,00</strong></div></div>
+      <div class="source-foot">3 offertes ouder dan 3 dagen · €10.735,40 pipeline vraagt follow-up.</div>
+    </article></div>
+        </section>
+
+        <section class="panel span-5">
+          <div class="panel-head"><div><div class="eyebrow">Attention</div><h2>Belangrijkste signalen</h2></div></div>
+          <ul class="stack"><li><strong>specialists</strong><div class='sub'>15 specialist triggers klaar voor review.</div></li></ul>
+          <div class="warning-box"><ul><li>Geen kritieke warnings.</li></ul></div>
+        </section>
+
+        <section class="panel span-7">
+          <div class="panel-head"><div><div class="eyebrow">Mission priority</div><h2>Waar Jean nu op stuurt</h2></div></div>
+          <div class="queue-grid"><article class="queue-card">
+      <div class="queue-card-top"><span class="queue-score">76</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">maintenance</span></div></div>
+      <h3>Refresh: missing title meta pattern</h3>
+      <p>Audit indicated standard title/meta tags were missing sitewide and likely need template-level recovery.</p>
+    </article><article class="queue-card">
+      <div class="queue-card-top"><span class="queue-score">89</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">revenue_direct</span></div></div>
+      <h3>Beste thuisbatterij voor dynamisch energiecontract</h3>
+      <p>Sterke koopintentie en direct relevant voor EcoHandel thuisbatterij-omzet.</p>
+    </article><article class="queue-card">
+      <div class="queue-card-top"><span class="queue-score">89</span><div class="queue-tags"><span class="pill pill-live">P1</span><span class="pill pill-soft">revenue_direct</span></div></div>
+      <h3>Deye vs Marstek: welke thuisbatterij past beter bij jouw situatie?</h3>
+      <p>Merkenvergelijking met directe koopintentie en sterk commercieel anker.</p>
+    </article></div>
+        </section>
+
+        <section class="panel span-7">
+          <div class="panel-head"><div><div class="eyebrow">Refresh first</div><h2>Snelste verbeterkansen</h2></div></div>
+          <div class="refresh-grid"><article class="refresh-card">
+      <div class="refresh-top"><span class="pill pill-warn">high</span><span class="pill pill-soft">missing_title_meta_pattern</span></div>
+      <h3>https://www.ecohandel.nl/</h3>
+      <p>Validate current theme output and restore title/meta structure in the correct non-live Shopify theme first.</p>
+    </article><article class="refresh-card">
+      <div class="refresh-top"><span class="pill pill-warn">high</span><span class="pill pill-soft">low_ctr_high_impressions</span></div>
+      <h3>https://www.ecohandel.nl/</h3>
+      <p>Review title/meta/H1 alignment and strengthen commercial framing for home battery intent.</p>
+    </article><article class="refresh-card">
+      <div class="refresh-top"><span class="pill pill-accent">medium</span><span class="pill pill-soft">missing_h1</span></div>
+      <h3>https://www.ecohandel.nl/pages/contact</h3>
+      <p>Add a clear commercial-contact H1 and improve supporting headings.</p>
+    </article></div>
+        </section>
+
+        <section class="panel span-5">
+          <div class="panel-head"><div><div class="eyebrow">System notes</div><h2>Mission board status</h2></div></div>
+          <ul class="stack">
+            <li><strong>Econtrol Room is leidend</strong><div class="sub">Deze laag volgt de machine en krijgt geen losse logica buiten de control room om.</div></li>
+            <li><strong>Finance truth draait live</strong><div class="sub">Shopify blijft shoplaag. Wefact is de factuur- en offertewaarheid en staat daarom nu ook expliciet vooraan in de mobile cockpit.</div></li>
+            <li><strong>Data freshness</strong><div class="sub">GA4 2026-04-04T18:00:00.933601+00:00 · Ads 2026-04-04T18:00:00.933601+00:00 · GSC 2026-04-04T18:00:00.933601+00:00 · Shopify 2026-04-04T18:00:00.933601+00:00 · Wefact 2026-04-04T18:00:00.933601+00:00</div></li>
+          </ul>
+        </section>
+      </div>
     
   </div>
-  <div class="p s5 stretch">
-    <div class="ph"><div><div class="ey">Business</div><h2>Finance + partners</h2></div></div>
-    <div class="stack-tight">
-      <div class="sc sc-g"><span class="sl">Facturen 7d</span><span class="sv">0</span><span class="sn">€0,00</span></div>
-      <div class="sc sc-g"><span class="sl">Facturen 28d</span><span class="sv">8</span><span class="sn">€52.293,18</span></div>
-      <div class="sc sc-w"><span class="sl">Offerte follow-up</span><span class="sv">3</span><span class="sn">€10.735,40</span></div>
-      <div class="sc sc-w"><span class="sl">Achterstallig open</span><span class="sv">0</span><span class="sn">€0,00</span></div>
-      <div class="sc sc-c"><span class="sl">Partner leads</span><span class="sv">174</span><span class="sn">96 met email</span></div>
-      <div class="sc sc-c"><span class="sl">Brevo campaign</span><span class="sv">0</span><span class="sn">credits 255 · open —</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="g g12">
-  <div class="p s12"><div class="ph"><div><div class="ey">AI recommendations</div><h2>Stuuradvies voor EcoHandel</h2></div></div><div class="sub" style="margin-bottom:12px">AI-duiding voor de hoofdcockpit: waar zit nu de meeste commerciële hefboom?</div><div class="card-grid"><div class="list-card">
-  <strong>Focus de contentmachine op thuisbatterij-money pages</strong>
-  <div class="meta"><span class="pill pill-g">revenue</span></div>
-  <div class="desc">De hoogste business-fit zit nu op thuisbatterij + Deye-combi’s. Eerst deze money pages domineren, daarna pas verbreden naar randtopics.</div>
-</div><div class="list-card">
-  <strong>Gebruik Wefact als waarheid voor omzet</strong>
-  <div class="meta"><span class="pill pill-c">finance</span></div>
-  <div class="desc">Wefact toont nu €52.293,18 in 28 dagen. Gebruik finance-truth als stuurlaag voor prioriteit en opvolging, niet alleen verkeer of Ads.</div>
-</div><div class="list-card">
-  <strong>PMax pas opschalen na betere landingsfit</strong>
-  <div class="meta"><span class="pill pill-w">ads</span></div>
-  <div class="desc">PMax draait op spend €93,71 en value €375,00. Eerst betere landing pages en value messaging, daarna pas agressiever budgetten.</div>
-</div><div class="list-card">
-  <strong>Partner machine warm houden</strong>
-  <div class="meta"><span class="pill pill-c">partners</span></div>
-  <div class="desc">De partnerlaag laat 19 clicks en 1 replies zien. Dat is nu een directe groeimotor en verdient dagelijks ritme.</div>
-</div></div></div>
-</div>
-
-<div class="g g12">
-  <div class="p s7">
-    <div class="ph"><div><div class="ey">Paid performance</div><h2>Google Ads + PMax</h2></div></div>
-    <div class="tw mobile-cards"><table><thead><tr><th>Periode</th><th>Spend</th><th>Value</th><th>Clicks</th><th>CTR</th><th>Conv.</th></tr></thead><tbody>
-<tr><td data-label="Periode"><strong>Vandaag</strong></td><td data-label="Spend">€18,10</td><td data-label="Value">€0,00</td><td data-label="Clicks">67</td><td data-label="CTR">2,0%</td><td data-label="Conversies">0.0</td></tr>
-<tr><td data-label="Periode"><strong>Gisteren</strong></td><td data-label="Spend">€10,47</td><td data-label="Value">€0,00</td><td data-label="Clicks">48</td><td data-label="CTR">1,6%</td><td data-label="Conversies">0.0</td></tr>
-<tr><td data-label="Periode"><strong>Last 7 days</strong></td><td data-label="Spend">€93,71</td><td data-label="Value">€375,00</td><td data-label="Clicks">475</td><td data-label="CTR">1,5%</td><td data-label="Conversies">1.0</td></tr>
-<tr><td data-label="Periode"><strong>Last 28 days</strong></td><td data-label="Spend">€152,18</td><td data-label="Value">€1.310,00</td><td data-label="Clicks">690</td><td data-label="CTR">1,7%</td><td data-label="Conversies">2.0</td></tr>
-</tbody></table></div>
-  </div>
-  <div class="p s5">
-    <div class="ph"><div><div class="ey">PMax</div><h2>Actieve campagne</h2></div></div>
-    <div class="sg" style="grid-template-columns:1fr">
-      <div class="sc sc-c"><span class="sl">Campagne</span><span class="sv">PMax-EcoHandel Deye</span><span class="sn">ENABLED</span></div>
-      <div class="sc sc-g"><span class="sl">ROAS 7d</span><span class="sv">4.00x</span><span class="sn">CPA €93,71 · value €375,00</span></div>
-      <div class="sc sc-c"><span class="sl">Clicks / impr.</span><span class="sv">475</span><span class="sn">impr. 32.088 · conv. 1,0</span></div>
-    </div>
-    <div class="note"><strong>Asset groups</strong><div class="tw mobile-cards"><table><thead><tr><th>Naam</th><th>Status</th><th>Spend</th><th>Value</th><th>Clicks</th><th>Conv.</th></tr></thead><tbody><tr><td data-label='Naam'><strong>Deye Nederland</strong></td><td data-label='Status'>ENABLED</td><td data-label='Spend'>€93,71</td><td data-label='Value'>€375,00</td><td data-label='Clicks'>475</td><td data-label='Conversies'>1,0</td></tr></tbody></table></div></div>
-  </div>
-</div>
-
-<div class="g g12">
-  <div class="p s7">
-    <div class="ph"><div><div class="ey">Databronnen</div><h2>Live koppelingen</h2></div></div>
-    <div class="tw mobile-cards"><table><thead><tr><th>Bron</th><th>Type</th><th>Status</th><th>Laatst</th></tr></thead><tbody><tr><td data-label="Bron"><strong>Google Search Console</strong></td><td data-label="Type">GSC</td><td data-label="Status"><span class="pill pill-g">OK</span></td><td data-label="Ververst" class="muted">02-04-2026 22:24</td></tr><tr><td data-label="Bron"><strong>Google Analytics 4</strong></td><td data-label="Type">GA4</td><td data-label="Status"><span class="pill pill-g">OK</span></td><td data-label="Ververst" class="muted">02-04-2026 22:24</td></tr><tr><td data-label="Bron"><strong>Wefact</strong></td><td data-label="Type">Finance</td><td data-label="Status"><span class="pill pill-g">OK</span></td><td data-label="Ververst" class="muted">02-04-2026 22:24</td></tr><tr><td data-label="Bron"><strong>Google Ads</strong></td><td data-label="Type">Ads</td><td data-label="Status"><span class="pill pill-g">OK</span></td><td data-label="Ververst" class="muted">02-04-2026 22:24</td></tr><tr><td data-label="Bron"><strong>Shopify</strong></td><td data-label="Type">Orders</td><td data-label="Status"><span class="pill pill-g">OK</span></td><td data-label="Ververst" class="muted">02-04-2026 22:24</td></tr><tr><td data-label="Bron"><strong>Brevo</strong></td><td data-label="Type">Email</td><td data-label="Status"><span class="pill pill-g">OK</span></td><td data-label="Ververst" class="muted">04-04-2026 21:02</td></tr></tbody></table></div>
-  </div>
-  <div class="p s5">
-    <div class="ph"><div><div class="ey">Finance</div><h2>Wefact snapshot</h2></div></div>
-    <div class="note"><strong>Vensters</strong><ul>
-      <li>Vandaag: €0,00 · 0 facturen</li>
-      <li>Gisteren: €0,00 · 0 facturen</li>
-      <li>7d: €0,00 · 0 offertes</li>
-      <li>28d: €52.293,18 · open €40.867,75</li>
-    </ul></div>
-    <div class="note"><strong>Finance signalen</strong><ul>
-      <li>Offerte follow-up: 3 · €10.735,40</li>
-      <li>Achterstallig open: 0 · €0,00</li>
-      <li>Grootste debiteur: Qilowatt Solutions B.V. · €40.867,75</li>
-    </ul></div>
-    <div class="note"><strong>Brevo partner campaign</strong><ul>
-      <li>Credits: 255</li>
-      <li>Campagnes: 0</li>
-      <li>Open rate: —</li>
-      <li>Click rate: —</li>
-    </ul></div>
-  </div>
-</div>
-
-<div class="g g12">
-  <div class="p s12">
-    <div class="ph"><div><div class="ey">SEO opportunities</div><h2>Content kansen uit data</h2></div></div>
-    <div class="tw mobile-cards"><table><thead><tr><th>Onderwerp / kans</th><th>Bron</th></tr></thead><tbody><tr><td data-label="Onderwerp / kans">Beste thuisbatterij voor dynamisch energiecontract</td><td data-label="Bron" class="muted">manual_milan, manual_jean, trend</td></tr><tr><td data-label="Onderwerp / kans">Deye vs Marstek: welke thuisbatterij past beter bij jouw situatie?</td><td data-label="Bron" class="muted">manual_milan, competitor_serp</td></tr><tr><td data-label="Onderwerp / kans">Wat levert een thuisbatterij echt op in 2026?</td><td data-label="Bron" class="muted">manual_jean, trend</td></tr><tr><td data-label="Onderwerp / kans">Thuisbatterij zonder zonnepanelen: slim of niet?</td><td data-label="Bron" class="muted">manual_jean, support_question</td></tr><tr><td data-label="Onderwerp / kans">Deye hybride omvormer met thuisbatterij: welke combinatie klopt?</td><td data-label="Bron" class="muted">manual_milan, manual_jean</td></tr><tr><td data-label="Onderwerp / kans">Welke thuisbatterij past bij 1-fase of 3-fase?</td><td data-label="Bron" class="muted">manual_jean, support_question</td></tr><tr><td data-label="Onderwerp / kans">Deye thuisbatterij voor installateurs: welke systemen verkopen het makkelijkst?</td><td data-label="Bron" class="muted">manual_milan, manual_jean</td></tr><tr><td data-label="Onderwerp / kans">Ecohandel</td><td data-label="Bron" class="muted">gsc</td></tr></tbody></table></div>
-  </div>
-</div>
-
-  </div>
-</div>
-<nav class="bnav"><div class="bnav-in"><a href="/" class="on"><span class="ic">⌂</span><span>Dashboard</span></a>
-<a href="/smart-content-queue.html" class=""><span class="ic">◎</span><span>Queue</span></a>
-<a href="/workflows.html" class=""><span class="ic">◈</span><span>Workflows</span></a>
-<a href="/partner-campaign.html" class=""><span class="ic">✉</span><span>Partners</span></a></div></nav>
-<script>if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(r=>r.forEach(w=>w.unregister()));
-</script>
+  <nav class="bottom-nav" aria-label="App navigatie">
+      <div class="bottom-nav-inner">
+        <a href="/" class="is-active"><span class="icon">⌂</span><span>Dashboard</span></a>
+        <a href="/smart-content-queue.html" class=""><span class="icon">◎</span><span>Queue</span></a>
+        <a href="/workflows.html" class=""><span class="icon">◈</span><span>Flows</span></a>
+        <a href="/partner-campaign.html" class=""><span class="icon">✉</span><span>Partners</span></a>
+      </div>
+    </nav>
+  <script>
+    (function(){
+      const switcher = document.querySelector('[data-range-switch]');
+      if (!switcher) return;
+      const setRange = (range) => {
+        document.querySelectorAll('.range-pill').forEach(btn => btn.classList.toggle('is-active', btn.dataset.range === range));
+        document.querySelectorAll('.source-metric').forEach(metric => {
+          const target = metric.querySelector('[data-role="metric-value"]');
+          const value = metric.getAttribute('data-' + range);
+          if (target && value !== null) target.textContent = value;
+        });
+        document.querySelectorAll('.summary-card').forEach(card => {
+          const target = card.querySelector('[data-role="summary-value"]');
+          const value = card.getAttribute('data-' + range);
+          if (target && value !== null) target.textContent = value;
+        });
+      };
+      switcher.addEventListener('click', (event) => {
+        const btn = event.target.closest('[data-range]');
+        if (!btn) return;
+        setRange(btn.dataset.range);
+      });
+      setRange('last_7_days');
+    })();
+    </script>
 </body>
 </html>
