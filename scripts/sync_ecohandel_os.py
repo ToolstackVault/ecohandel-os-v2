@@ -7,7 +7,8 @@ from datetime import datetime, timezone
 
 DB_PATH = "/var/www/html/control.ecohandel.nl/data/ecohandel.db"
 TENANT = "eco001"
-SHOP_TOKEN = "***REMOVED***"
+# Token loaded from .env/apis.env on VPS
+SHOP_TOKEN = os.environ.get("SHOPIFY_ADMIN_TOKEN", "")
 SHOP_BLOG = 126678466901
 CONTENT_TYPE = "kennisblog"
 VPS_DASHBOARD = "/var/www/html/control.ecohandel.nl/dashboard-data/data/"

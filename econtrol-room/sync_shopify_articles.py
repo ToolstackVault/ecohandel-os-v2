@@ -2,10 +2,10 @@
 """
 EcoHandel OS — Shopify Articles → queue_items Sync
 """
-import json, sqlite3, urllib.request, urllib.error, re
+import json, sqlite3, urllib.request, urllib.error, re, os
 from datetime import datetime, timezone
 
-SHOPIFY_TOKEN = "***REMOVED***"
+SHOPIFY_TOKEN = os.environ.get("SHOPIFY_ACCESS_TOKEN", "")
 SHOPIFY_SHOP = "n6f6ja-qr.myshopify.com"
 BLOG_ID = "126678466901"
 TENANT_ID = "eco001"
