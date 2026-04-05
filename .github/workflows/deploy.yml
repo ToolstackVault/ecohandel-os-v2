@@ -16,39 +16,85 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
 
-      - name: Run DB migrations if schema.sql changed
+      - name: Pre-deploy: Backup runtime data (DB + dashboard) on VPS
         run: |
-          if [ -f schema.sql ]; then
-            echo "schema.sql found, checking for changes..."
-            git diff --name-only HEAD~1 HEAD | grep -q schema.sql && echo "MIGRATION: schema.sql changed"
-          fi
+          ssh root@135.181.148.220 '
+            set -e
+            BACKUP_DIR="/root/.ecohandel-backup-before-deploy"
+            mkdir -p "$BACKUP_DIR"
+            # Backup runtime data dirs if they exist
+            [ -d /var/www/html/control.ecohandel.nl/data ] && cp -r /var/www/html/control.ecohandel.nl/data "$BACKUP_DIR/data"
+            [ -d /var/www/html/control.ecohandel.nl/dashboard-data ] && cp -r /var/www/html/control.ecohandel.nl/dashboard-data "$BACKUP_DIR/dashboard-data"
+            # Backup .env if exists
+            [ -f /var/www/html/control.ecohandel.nl/.env ] && cp /var/www/html/control.ecohandel.nl/.env "$BACKUP_DIR/.env"
+            # Backup .htpasswd if exists
+            [ -f /var/www/html/control.ecohandel.nl/.htpasswd ] && cp /var/www/html/control.ecohandel.nl/.htpasswd "$BACKUP_DIR/.htpasswd"
+            echo "✅ Runtime data backed up to $BACKUP_DIR"
+            ls -la "$BACKUP_DIR"
+          '
 
       - name: Deploy to VPS
         run: |
           ssh-keyscan -H 135.181.148.220 >> ~/.ssh/known_hosts 2>/dev/null
-          rsync -avz --delete \
+          rsync -avz \
             --exclude='.git' \
             --exclude='*.db' \
             --exclude='*.log' \
             --exclude='logs/' \
             --exclude='__pycache__/' \
             --exclude='.venv/' \
-            --exclude='data/' \
-            --exclude='dashboard-data/' \
             --exclude='.env' \
             --exclude='.htpasswd' \
-            --exclude='scripts/debug*' \
+            --exclude='*.key' \
+            --exclude='*.pem' \
             --exclude='.gitignore' \
             --exclude='README*' \
+            --exclude='*.md' \
             ./ \
             root@135.181.148.220:/var/www/html/control.ecohandel.nl/
 
-      - name: Fix permissions after deploy
+      - name: Post-deploy: Restore runtime data + fix perms
         run: |
-          ssh root@135.181.148.220 \
-            "chown -R www-data:www-data /var/www/html/control.ecohandel.nl/ && \
-             find /var/www/html/control.ecohandel.nl/ -type d -exec chmod 755 {} \; && \
-             find /var/www/html/control.ecohandel.nl/ -type f -exec chmod 644 {} \;"
+          ssh root@135.181.148.220 '
+            set -e
+            BACKUP_DIR="/root/.ecohandel-backup-before-deploy"
+            TARGET="/var/www/html/control.ecohandel.nl"
+
+            # Restore .env if backup exists
+            if [ -f "$BACKUP_DIR/.env" ]; then
+              cp "$BACKUP_DIR/.env" "$TARGET/.env"
+              echo "✅ .env restored"
+            fi
+
+            # Restore .htpasswd if backup exists
+            if [ -f "$BACKUP_DIR/.htpasswd" ]; then
+              cp "$BACKUP_DIR/.htpasswd" "$TARGET/.htpasswd"
+              echo "✅ .htpasswd restored"
+            fi
+
+            # Restore data/ (runtime DB) if backup exists
+            if [ -d "$BACKUP_DIR/data" ]; then
+              rm -rf "$TARGET/data"
+              cp -r "$BACKUP_DIR/data" "$TARGET/data"
+              echo "✅ runtime data/ restored ($(ls $TARGET/data/*.db 2>/dev/null | xargs -I{} basename {}))"
+            fi
+
+            # Restore dashboard-data/ (runtime JSON data) if backup exists
+            if [ -d "$BACKUP_DIR/dashboard-data" ]; then
+              rm -rf "$TARGET/dashboard-data"
+              cp -r "$BACKUP_DIR/dashboard-data" "$TARGET/dashboard-data"
+              echo "✅ dashboard-data/ restored"
+            fi
+
+            # Fix permissions
+            chown -R www-data:www-data "$TARGET"
+            find "$TARGET" -type d -exec chmod 755 {} \;
+            find "$TARGET" -type f -exec chmod 644 {} \;
+            # Ensure DB is writable
+            chmod 644 "$TARGET/data"/*.db 2>/dev/null || true
+            chmod 755 "$TARGET/data" 2>/dev/null || true
+            echo "✅ Permissions fixed"
+          '
 
       - name: Install Google API libs on VPS
         run: |
@@ -58,7 +104,7 @@ jobs:
       - name: Setup cron job for auto-fetch
         run: |
           ssh root@135.181.148.220 \
-            "cat > /etc/cron.d/ecohandel-fetch << CRONEOF
+            "cat > /etc/cron.d/ecohandel-fetch << 'CRONEOF'
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 */30 * * * * www-data /opt/ecohandel-venv/bin/python3 /var/www/html/control.ecohandel.nl/dashboard-data/scripts/fetch_all.py >> /var/log/ecohandel-fetch.log 2>&1

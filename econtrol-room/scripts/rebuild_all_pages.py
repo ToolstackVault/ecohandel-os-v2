@@ -150,14 +150,17 @@ th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08
 .note ul,.note ol{margin:8px 0 0;padding-left:16px;display:grid;gap:6px}
 .stack{display:grid;gap:12px}.stack-tight{display:grid;gap:10px}.stretch{height:100%}
 .insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
-.insight-card{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06)}
+.insight-card{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.028);border:1px solid rgba(255,255,255,.06);transition:transform 0.2s, background 0.2s}
+.insight-card:hover{transform:translateY(-2px);background:rgba(255,255,255,.04)}
 .insight-card strong{display:block;font-size:12px;letter-spacing:-.01em;margin-bottom:6px}.insight-card .mini{font-size:12px;color:var(--muted);line-height:1.45}
 .card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.stat-card{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07)}
+.stat-card{padding:15px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07);transition:transform 0.2s}
+.stat-card:hover{transform:translateY(-2px)}
 .stat-card .k{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 .stat-card .v{display:block;margin-top:8px;font-size:23px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
 .stat-card .n{display:block;margin-top:6px;font-size:12px;line-height:1.5;color:var(--muted)}
-.list-card{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);overflow:hidden}
+.list-card{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);overflow:hidden;transition:transform 0.2s}
+.list-card:hover{transform:translateY(-2px)}
 .list-card strong{display:block;font-size:14px;letter-spacing:-.01em;word-break:break-word}
 .list-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .list-card .desc{margin-top:8px;font-size:12px;line-height:1.55;color:var(--muted);word-break:break-word}
@@ -273,19 +276,28 @@ def build_dashboard() -> str:
 {card("Wefact 28d", we_28d.get('invoice_total_fmt', fmt_num(wefact_total)), f"7d {we_7d.get('invoice_total_fmt', '—')} · {we_28d.get('quote_count_fmt', fmt_num(wefact_quotes))} offertes", "sc-g")}
 </div>'''
 
+    wefact_ok = 'error' not in wefact
+    wefact_err = wefact.get('error', '')
+    gsc_ok = 'error' not in gsc
+    gsc_err = gsc.get('error', '')
+    ga4_ok = 'error' not in ga4
+    ga4_err = ga4.get('error', '')
+
     sources = [
-        ('Google Search Console', 'GSC', snap.get('gsc_fetched_at', ''), True),
-        ('Google Analytics 4', 'GA4', snap.get('ga4_fetched_at', ''), ga4_sessions and ga4_sessions > 0),
-        ('Wefact', 'Finance', snap.get('wefact_fetched_at', ''), wefact_total and wefact_total > 0),
-        ('Google Ads', 'Ads', snap.get('ads_fetched_at', ''), True),
-        ('Shopify', 'Orders', snap.get('shopify_fetched_at', ''), True),
-        ('Brevo', 'Email', brevo.get('fetched_at', ''), brevo.get('brevo_ok', False)),
+        ('Google Search Console', 'GSC', snap.get('gsc_fetched_at', ''), gsc_ok, gsc_err),
+        ('Google Analytics 4', 'GA4', snap.get('ga4_fetched_at', ''), ga4_ok, ga4_err),
+        ('Wefact', 'Finance', snap.get('wefact_fetched_at', ''), wefact_ok, wefact_err),
+        ('Google Ads', 'Ads', snap.get('ads_fetched_at', ''), True, ''),
+        ('Shopify', 'Orders', snap.get('shopify_fetched_at', ''), True, ''),
+        ('Brevo', 'Email', brevo.get('fetched_at', ''), brevo.get('brevo_ok', False), ''),
     ]
     src_rows = ''
-    for name, stype, fetched, ok in sources:
-        badge = '<span class="pill pill-g">OK</span>' if ok else '<span class="pill pill-w">CHECK</span>'
+    for name, stype, fetched, ok, err in sources:
+        badge = '<span class="pill pill-g">OK</span>' if ok else f'<span class="pill pill-r" title="{esc(err)}">ERROR</span>'
         ts = fmt_dt(fetched)
-        src_rows += f'<tr><td data-label="Bron"><strong>{esc(name)}</strong></td><td data-label="Type">{esc(stype)}</td><td data-label="Status">{badge}</td><td data-label="Ververst" class="muted">{esc(ts)}</td></tr>'
+        err_msg = f'<div style="color:var(--red);font-size:10px;margin-top:4px;">{esc(err[:50])}...</div>' if err else ''
+        src_rows += f'<tr><td data-label="Bron"><strong>{esc(name)}</strong>{err_msg}</td><td data-label="Type">{esc(stype)}</td><td data-label="Status">{badge}</td><td data-label="Ververst" class="muted">{esc(ts)}</td></tr>'
+
 
     seo_html = ''
     topics = signals.get('topics', [])

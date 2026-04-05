@@ -1,0 +1,11 @@
+batch,rank,company_name,email,phone,website,province,contact_person,warmth,deye_knowledge,battery_experience,lead_score,hot_score,segment,notes
+A0900,1,Recharged Zakelijk,info@recharged.nl,,recharged.nl,Den Hoorn (ZH),,WARM,,JA - zakelijk,67.0,0.0,installer,Zakelijke focus - goede prospect
+A0900,2,Thuisbatterij eindhoven,info@dienstverleningsns.nl,057023965,dienstverleningsns.nl,Eindhoven,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Eindhoven search
+A0900,3,Thuisbatterij,info@workomy.com,075668579,workomy.com,Zwolle,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Zwolle search
+A0900,4,Thuisbatterij Zwolle,info@batterijadviseurs.nl,+31629332293,batterijadviseurs.nl,Zwolle,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Zwolle search
+A0900,5,Thuisbatterij Zwolle,info@deduurzamebond.nl,+31657323950,deduurzamebond.nl,Zwolle,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Zwolle search
+A0900,6,GroenPlan,martcornelissen@groenplan.com,081611960,groenplan.com,Haarlem,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Haarlem search
+A0900,7,vakmanindebuurt.be,info@vakmanindebuurt.be,05597898987,vakmanindebuurt.be,Middelburg,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Middelburg search
+A0900,8,Thuisbatterij Middelburg,info@novectra.nl,072604939,novectra.nl,Middelburg,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Middelburg search
+A0900,9,Energieopslag bij u thuis,info@speg.nl,024-7009830,batterijencentrum.nl,Nijmegen,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Nijmegen search
+A0900,10,Thuisbatterij in Nijmegen,info@mentingelektro.nl,06386626661,mentingelektro.nl,Nijmegen,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Nijmegen search

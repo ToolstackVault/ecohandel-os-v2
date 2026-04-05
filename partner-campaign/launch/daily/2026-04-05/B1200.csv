@@ -1,0 +1,11 @@
+batch,rank,company_name,email,phone,website,province,contact_person,warmth,deye_knowledge,battery_experience,lead_score,hot_score,segment,notes
+B1200,1,Thuisbatterij installateur,info@e2energie.nl,0854011246,nettion.nl,Nijmegen,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Nijmegen search
+B1200,2,Thuisbatterij in Groningen,klantenservice@groenvolt.nl,0309169259,groenvolt.nl,Groningen,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Groningen search
+B1200,3,thuisbatterij,info@coro-zonnepanelen.nl,0765879002,coro-zonnepanelen.nl,Breda,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Breda search
+B1200,4,thuisbatterij-rotterdam.com,info@thuisbatterijrotterdam.com,052050667,thuisbatterij-rotterdam.com,Rotterdam,,MIDDEL,,JA - B2B Scrape,45.0,0.0,installer,Gevonden via Rotterdam search
+B1200,5,Sessy,info@sessy.nl,,sessy.nl,Nederland (NL),,MIDDEL,NIET,JA - Nederlandse thuisbatterij (eigen merk),37.0,0.0,installer,Nederlands fabricaat - concurrent maar ook mogelijke samenwerking installer network
+B1200,6,Solarwatt,info@solarwatt.nl,,solarwatt.nl,Nederland (NL),,MIDDEL,NIET,JA - thuisbatterij + omvormer,37.0,0.0,installer,Compleet systeem (panelen+batterij+omvormer) - concurrent maar kan switchen
+B1200,7,Solar Concept,info@solarconcept.nl,,solarconcept.nl,Nijkerk (GE),,MIDDEL,,JA - thuisbatterij,37.0,0.0,installer,Biedt SGZE (Stichting Garantiefonds Zonne-energie) - goede service focus - regio Nijkerk/Gelderland
+B1200,8,thuisbatterij-utrecht.com,info@thuisbatterij-utrecht.com,,thuisbatterij-utrecht.com,Utrecht,,MIDDEL,,JA - B2B Scrape,37.0,0.0,installer,Gevonden via Utrecht search
+B1200,9,Thuisbatterij Eindhoven,info@prezon.nl,,prezon.nl,Eindhoven,,MIDDEL,,JA - B2B Scrape,37.0,0.0,installer,Gevonden via Eindhoven search
+B1200,10,Domogo,info@domogo.nl,085-301 9360,domogo.nl,Utrecht (UT),,Trustoo reviews + Google,WARMWarm/MIDDEL,JA - AlphaESS/Enphase/HYXI/Sigenergy,35.0,0.0,installer,2026-03-22

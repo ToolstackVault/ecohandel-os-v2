@@ -36,6 +36,10 @@ echo "[$(date '+%Y-%m-%d %H:%M')] score_queue..." >> "$LOG"
 "$PYTHON3" "$BASE/scripts/score_queue.py" >> "$LOG" 2>&1
 
 # Step 1.5: Fetch all dashboard data (GSC, GA4, Ads, etc)
+
+echo "[$(date '+%Y-%m-%d %H:%M')] fetch_ads_local..." >> "$LOG"
+"$PYTHON3_GADS" "$BASE/dashboard-data/scripts/fetch_ads_local.py" >> "$LOG" 2>&1
+
 echo "[$(date '+%Y-%m-%d %H:%M')] fetch_all dashboard data..." >> "$LOG"
 "$PYTHON3_GADS" "$BASE/dashboard-data/scripts/fetch_all.py" >> "$LOG" 2>&1
 

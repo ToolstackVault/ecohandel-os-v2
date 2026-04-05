@@ -1,3 +1,8 @@
+# Build artifacts (generated at deploy time, tracked separately)
+econtrol-room/build/
+
+# Secrets (runtime credentials, never in git)
+secrets/
 
 # Runtime data (local only)
 data/
@@ -28,3 +33,7 @@ Thumbs.db
 *.pem
 *.key
 *.htpasswd
+
+*.db
+*.db-shm
+*.db-wal
