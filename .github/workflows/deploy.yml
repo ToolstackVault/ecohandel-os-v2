@@ -36,7 +36,10 @@ jobs:
             --exclude='data/' \
             --exclude='dashboard-data/' \
             --exclude='.env' \
+            --exclude='.htpasswd' \
             --exclude='scripts/debug*' \
+            --exclude='.gitignore' \
+            --exclude='README*' \
             ./ \
             root@135.181.148.220:/var/www/html/control.ecohandel.nl/
 
@@ -67,7 +70,7 @@ chmod 644 /etc/cron.d/ecohandel-fetch"
           echo "Waiting 3s for server to settle..."
           sleep 3
           HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-            -u "milan:ecohandel2026" \
+            -u "milan:clawd" \
             http://127.0.0.1:5555/health)
           echo "Health check HTTP code: $HTTP_CODE"
           if [ "$HTTP_CODE" = "200" ]; then
