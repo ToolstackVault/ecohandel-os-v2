@@ -60,9 +60,7 @@ jobs:
 
       - name: Setup cron job for auto-fetch
         run: |
-          ssh root@135.181.148.220 "echo 'SHELL=/bin/bash
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-*/30 * * * * www-data /opt/ecohandel-venv/bin/python3 /var/www/html/control.ecohandel.nl/dashboard-data/scripts/fetch_all.py >> /var/log/ecohandel-fetch.log 2>&1' | tee /etc/cron.d/ecohandel-fetch && chmod 644 /etc/cron.d/ecohandel-fetch"
+          ssh root@135.181.148.220 "printf '%s\n' 'SHELL=/bin/bash' 'PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin' '*/30 * * * * www-data /opt/ecohandel-venv/bin/python3 /var/www/html/control.ecohandel.nl/dashboard-data/scripts/fetch_all.py >> /var/log/ecohandel-fetch.log 2>&1' > /etc/cron.d/ecohandel-fetch && chmod 644 /etc/cron.d/ecohandel-fetch && echo 'Cron installed'
 
       - name: Health check after deploy
         run: |
