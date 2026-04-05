@@ -16,38 +16,30 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
 
-      - name: Pre-deploy: Backup runtime data (DB + dashboard) on VPS
+      - name: Pre-deploy: Backup runtime data on VPS
         run: |
-          ssh root@135.181.148.220 '
-            set -e
-            BACKUP_DIR="/root/.ecohandel-backup-before-deploy"
-            mkdir -p "$BACKUP_DIR"
-            # Backup runtime data dirs if they exist
-            [ -d /var/www/html/control.ecohandel.nl/data ] && cp -r /var/www/html/control.ecohandel.nl/data "$BACKUP_DIR/data"
-            [ -d /var/www/html/control.ecohandel.nl/dashboard-data ] && cp -r /var/www/html/control.ecohandel.nl/dashboard-data "$BACKUP_DIR/dashboard-data"
-            # Backup .env if exists
-            [ -f /var/www/html/control.ecohandel.nl/.env ] && cp /var/www/html/control.ecohandel.nl/.env "$BACKUP_DIR/.env"
-            # Backup .htpasswd if exists
-            [ -f /var/www/html/control.ecohandel.nl/.htpasswd ] && cp /var/www/html/control.ecohandel.nl/.htpasswd "$BACKUP_DIR/.htpasswd"
-            echo "✅ Runtime data backed up to $BACKUP_DIR"
-            ls -la "$BACKUP_DIR"
-          '
+          ssh root@135.181.148.220 "mkdir -p /root/.ecohandel-backup-before-deploy"
+          ssh root@135.181.148.220 "test -d /var/www/html/control.ecohandel.nl/data && cp -r /var/www/html/control.ecohandel.nl/data /root/.ecohandel-backup-before-deploy/ || true"
+          ssh root@135.181.148.220 "test -d /var/www/html/control.ecohandel.nl/dashboard-data && cp -r /var/www/html/control.ecohandel.nl/dashboard-data /root/.ecohandel-backup-before-deploy/ || true"
+          ssh root@135.181.148.220 "test -f /var/www/html/control.ecohandel.nl/.env && cp /var/www/html/control.ecohandel.nl/.env /root/.ecohandel-backup-before-deploy/.env || true"
+          ssh root@135.181.148.220 "test -f /var/www/html/control.ecohandel.nl/.htpasswd && cp /var/www/html/control.ecohandel.nl/.htpasswd /root/.ecohandel-backup-before-deploy/.htpasswd || true"
+          ssh root@135.181.148.220 "echo 'Backup done:' && ls /root/.ecohandel-backup-before-deploy/"
 
       - name: Deploy to VPS
         run: |
           ssh-keyscan -H 135.181.148.220 >> ~/.ssh/known_hosts 2>/dev/null
           rsync -avz \
-            --exclude='.git' \
+            --exclude=.git \
             --exclude='*.db' \
             --exclude='*.log' \
-            --exclude='logs/' \
-            --exclude='__pycache__/' \
-            --exclude='.venv/' \
-            --exclude='.env' \
-            --exclude='.htpasswd' \
+            --exclude=logs \
+            --exclude=__pycache__ \
+            --exclude=.venv \
+            --exclude=.env \
+            --exclude=.htpasswd \
             --exclude='*.key' \
             --exclude='*.pem' \
-            --exclude='.gitignore' \
+            --exclude=.gitignore \
             --exclude='README*' \
             --exclude='*.md' \
             ./ \
@@ -55,69 +47,28 @@ jobs:
 
       - name: Post-deploy: Restore runtime data + fix perms
         run: |
-          ssh root@135.181.148.220 '
-            set -e
-            BACKUP_DIR="/root/.ecohandel-backup-before-deploy"
-            TARGET="/var/www/html/control.ecohandel.nl"
-
-            # Restore .env if backup exists
-            if [ -f "$BACKUP_DIR/.env" ]; then
-              cp "$BACKUP_DIR/.env" "$TARGET/.env"
-              echo "✅ .env restored"
-            fi
-
-            # Restore .htpasswd if backup exists
-            if [ -f "$BACKUP_DIR/.htpasswd" ]; then
-              cp "$BACKUP_DIR/.htpasswd" "$TARGET/.htpasswd"
-              echo "✅ .htpasswd restored"
-            fi
-
-            # Restore data/ (runtime DB) if backup exists
-            if [ -d "$BACKUP_DIR/data" ]; then
-              rm -rf "$TARGET/data"
-              cp -r "$BACKUP_DIR/data" "$TARGET/data"
-              echo "✅ runtime data/ restored ($(ls $TARGET/data/*.db 2>/dev/null | xargs -I{} basename {}))"
-            fi
-
-            # Restore dashboard-data/ (runtime JSON data) if backup exists
-            if [ -d "$BACKUP_DIR/dashboard-data" ]; then
-              rm -rf "$TARGET/dashboard-data"
-              cp -r "$BACKUP_DIR/dashboard-data" "$TARGET/dashboard-data"
-              echo "✅ dashboard-data/ restored"
-            fi
-
-            # Fix permissions
-            chown -R www-data:www-data "$TARGET"
-            find "$TARGET" -type d -exec chmod 755 {} \;
-            find "$TARGET" -type f -exec chmod 644 {} \;
-            # Ensure DB is writable
-            chmod 644 "$TARGET/data"/*.db 2>/dev/null || true
-            chmod 755 "$TARGET/data" 2>/dev/null || true
-            echo "✅ Permissions fixed"
-          '
+          ssh root@135.181.148.220 "BACKUP=/root/.ecohandel-backup-before-deploy; TARGET=/var/www/html/control.ecohandel.nl; \
+            test -f $BACKUP/.env && cp $BACKUP/.env $TARGET/.env && echo 'env restored' || true; \
+            test -f $BACKUP/.htpasswd && cp $BACKUP/.htpasswd $TARGET/.htpasswd && echo 'htpasswd restored' || true; \
+            test -d $BACKUP/data && rm -rf $TARGET/data && cp -r $BACKUP/data $TARGET/data && echo 'data restored' || true; \
+            test -d $BACKUP/dashboard-data && rm -rf $TARGET/dashboard-data && cp -r $BACKUP/dashboard-data $TARGET/dashboard-data && echo 'dashboard restored' || true"
+          ssh root@135.181.148.220 "chown -R www-data:www-data /var/www/html/control.ecohandel.nl && find /var/www/html/control.ecohandel.nl -type d -exec chmod 755 {} \; && find /var/www/html/control.ecohandel.nl -type f -exec chmod 644 {} \; && chmod 644 /var/www/html/control.ecohandel.nl/data/*.db 2>/dev/null || true && chmod 755 /var/www/html/control.ecohandel.nl/data 2>/dev/null || true && echo 'Perms fixed'"
 
       - name: Install Google API libs on VPS
         run: |
-          ssh root@135.181.148.220 \
-            "/opt/ecohandel-venv/bin/pip install --quiet google-api-python-client google-auth 2>/dev/null || true"
+          ssh root@135.181.148.220 "/opt/ecohandel-venv/bin/pip install --quiet google-api-python-client google-auth 2>/dev/null || true"
 
       - name: Setup cron job for auto-fetch
         run: |
-          ssh root@135.181.148.220 \
-            "cat > /etc/cron.d/ecohandel-fetch << 'CRONEOF'
-SHELL=/bin/bash
+          ssh root@135.181.148.220 "echo 'SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-*/30 * * * * www-data /opt/ecohandel-venv/bin/python3 /var/www/html/control.ecohandel.nl/dashboard-data/scripts/fetch_all.py >> /var/log/ecohandel-fetch.log 2>&1
-CRONEOF
-chmod 644 /etc/cron.d/ecohandel-fetch"
+*/30 * * * * www-data /opt/ecohandel-venv/bin/python3 /var/www/html/control.ecohandel.nl/dashboard-data/scripts/fetch_all.py >> /var/log/ecohandel-fetch.log 2>&1' | tee /etc/cron.d/ecohandel-fetch && chmod 644 /etc/cron.d/ecohandel-fetch"
 
       - name: Health check after deploy
         run: |
           echo "Waiting 3s for server to settle..."
           sleep 3
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-            -u "milan:clawd" \
-            http://127.0.0.1:5555/health)
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -u "milan:clawd" http://127.0.0.1:5555/health)
           echo "Health check HTTP code: $HTTP_CODE"
           if [ "$HTTP_CODE" = "200" ]; then
             echo "✅ Health check passed"
@@ -128,8 +79,4 @@ chmod 644 /etc/cron.d/ecohandel-fetch"
 
       - name: Cache busting — update service worker version
         run: |
-          ssh root@135.181.148.220 \
-            "cd /var/www/html/control.ecohandel.nl && \
-             SW_VERSION=$(date +%s) && \
-             sed -i \"s/const CACHE_VERSION = '[0-9]*'/const CACHE_VERSION = '$SW_VERSION'/\" sw.js && \
-             echo \"Service worker cache version updated to: \$SW_VERSION\""
+          ssh root@135.181.148.220 "cd /var/www/html/control.ecohandel.nl && SW_VERSION=$(date +%s) && sed -i \"s/const CACHE_VERSION = '[0-9]*'/const CACHE_VERSION = '$SW_VERSION'/\" sw.js && echo \"SW version: $SW_VERSION\""
