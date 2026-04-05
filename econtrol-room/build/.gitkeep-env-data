@@ -1,0 +1,3 @@
+# This file prevents git from removing empty directories
+# The actual .env, data/, and dashboard-data/ should NOT be in git
+# They are preserved on VPS by rsync --exclude flags in deploy.yml

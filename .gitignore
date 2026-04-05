@@ -1,6 +1,3 @@
-# Build artifacts (generated at deploy time, tracked separately)
-econtrol-room/build/
-
 # Secrets (runtime credentials, never in git)
 secrets/
 
