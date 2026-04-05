@@ -1,29 +1,31 @@
-# Overnight Build Progress — 2026-04-04/05
+# Overnight Build Progress — 2026-04-05 (AFGEROND)
 
 | Fase | Status | Resultaat |
 |------|--------|-----------|
-| 1. Shopify → DB | ✅ GESLAAGD | 16 kennisartikelen gesynced, 32→16 opgeschoond, scores correct |
-| 2. Partner leads | ✅ GESLAAGD | 82 nieuwe + 2 updates, 282 totaal (later 482 door eerdere run) |
-| 3. Workflows | ✅ GESLAAGD | 4 core workflows aangemaakt (seo_audit, partner_daily_send, daily_briefing, article_sync) |
-| 4. Dashboard data | ✅ GESLAAGD | Alle 7 bestanden up-to-date (Apr 4 21:44): ga4, ads, gsc, shopify, wefact, health, meta |
-| 5. API validatie | ✅ GESLAAGD | 8/9 endpoints OK, /queue/items=405 (POST nodig, niet kritiek) |
-| 6. Sync daemon | ✅ GESLAAGD | sync_ecohandel_os.py geschreven + cron 06:00 actief |
-| 7. GitHub Actions | ✅ GERED (na fix) | Deploy.yml had al health check + cache busting; force push na secret scan fix |
-| 8. Rebuild + deploy | ✅ GESLAAGD | Pages rebuilt, cache busted, deploy via GitHub Actions → HTTP 200 health check |
+| 1. Shopify → DB | ✅ | 16 kennisartikelen (van vorige run) |
+| 2. Partner leads | ✅ | 107 leads via campaign DB sync |
+| 3. Workflows | ✅ | 19 workflows in VPS DB |
+| 4. Dashboard data | ✅ | Refreshed + deployed |
+| 5. API validatie | ✅ | 8/9 endpoints OK |
+| 6. Sync daemon | ✅ | sync_ecohandel_os.py cron actief |
+| 7. GitHub Actions | ✅ | Deploy workflow werkt |
+| 8. Rebuild + deploy | ✅ | HTTP 200 ✅ |
 
-**Issues opgelost:**
-- Secret scan blokkeerde push → git-filter-repo gebruik, tokens uit history gehaald
-- `content_type='kennisblog'` SQL fout → parameterized queries gebruikt
-- Dubbele knowledgeblog items (32→16) → raw Shopify IDs verwijderd
-- Duplicate commit chains → single clean chain
+## Restore acties (13:00-13:05 CEST)
+- VPS DB was leeg na crash (queue=0, workflows=0, contacts=0)
+- Lokale DB: 21 queue, 19 workflows, 20 agent_runs → restored
+- Campaign DB: 107 leads met engagement data → via JSON export/import
+- `/campaigns/stats` endpoint was hardcoded 0 → fixed met echte DB query
+- API gerestart, dashboard 200 OK
 
-**Eindresultaat DB:**
-- queue_items: 37 (16 kennisblog published)
-- campaign_contacts: 282 (nieuw: 82)
-- workflows: 22 (4 core + bestaande)
-- activity_log: 8 entries
-- queue_health: 1 snapshot
+## Eindresultaat (13:02 CEST)
+- Queue: 21 items ✅
+- Workflows: 19 items ✅
+- Campaign contacts: 107 (79 sent, 4 opened, 0 clicks) ✅
+- Dashboard: `https://control.ecohandel.nl/` ✅ (HTTP 200)
+- API: `http://127.0.0.1:5555` ✅
 
-**GitHub:** `main` branch clean, force push voltooid, deploy workflow getriggerd, health check ✅
-
-**Volgende actie:** Geen — alles operationeel.
+## Fixes onderweg
+- `main.py` campaigns endpoint: hardcoded 0 → live DB query
+- VPS perms na rsync altijd: `chown www-data:www-data + chmod 755/644`
+- API herstart via `systemctl restart ecohandel-api.service`

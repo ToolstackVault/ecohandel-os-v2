@@ -1,4 +1,4 @@
-// Auto-generated — v1775392403
+// Auto-generated — v1775393900
 // Network-first with no aggressive caching
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", e => e.waitUntil(
