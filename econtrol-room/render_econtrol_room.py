@@ -84,18 +84,18 @@ def pulse_card(title: str, body: str, tone: str = 'accent') -> str:
     </article>'''
 
 
-def pmax_metric(label: str, value: str, tone: str = 'accent') -> str:
-    return f'''<div class="pmax-metric pmax-{escape(tone)}"><span>{escape(label)}</span><strong>{escape(value)}</strong></div>'''
+def pmax_metric(label: str, value: str | int | float, tone: str = 'accent') -> str:
+    return f'''<div class="pmax-metric pmax-{escape(tone)}"><span>{escape(label)}</span><strong>{escape(str(value))}</strong></div>'''
 
 
 def pmax_asset_group_card(item: dict) -> str:
     return f'''<article class="pmax-ag-card">
-      <div class="pmax-ag-top"><strong>{escape(item.get('name', '-'))}</strong><span class="pill {'pill-live' if item.get('status') == 'ENABLED' else 'pill-soft'}">{escape(item.get('status', '-'))}</span></div>
+      <div class="pmax-ag-top"><strong>{escape(str(item.get('name', '-')))}</strong><span class="pill {'pill-live' if item.get('status') == 'ENABLED' else 'pill-soft'}">{escape(str(item.get('status', '-')))}</span></div>
       <div class="pmax-ag-grid">
-        <div><span class="mini-label">Spend</span><strong>{escape(item.get('cost_eur', '-'))}</strong></div>
-        <div><span class="mini-label">Value</span><strong>{escape(item.get('value_eur', '-'))}</strong></div>
-        <div><span class="mini-label">Clicks</span><strong>{escape(item.get('clicks', '-'))}</strong></div>
-        <div><span class="mini-label">Conv.</span><strong>{escape(item.get('conversions', '-'))}</strong></div>
+        <div><span class="mini-label">Spend</span><strong>{escape(str(item.get('cost_eur', '-')))}</strong></div>
+        <div><span class="mini-label">Value</span><strong>{escape(str(item.get('value_eur', '-')))}</strong></div>
+        <div><span class="mini-label">Clicks</span><strong>{escape(str(item.get('clicks', '-')))}</strong></div>
+        <div><span class="mini-label">Conv.</span><strong>{escape(str(item.get('conversions', '-')))}</strong></div>
       </div>
     </article>'''
 

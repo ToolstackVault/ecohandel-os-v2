@@ -35,13 +35,16 @@ echo "Using PYTHON3_GADS=$PYTHON3_GADS" >> "$LOG"
 echo "[$(date '+%Y-%m-%d %H:%M')] score_queue..." >> "$LOG"
 "$PYTHON3" "$BASE/scripts/score_queue.py" >> "$LOG" 2>&1
 
-# Step 1.5: Fetch all dashboard data (GSC, GA4, Ads, etc)
+# Step 1.5: Fetch all dashboard data (GSC, GA4, Ads, Wefact)
 
 echo "[$(date '+%Y-%m-%d %H:%M')] fetch_ads_local..." >> "$LOG"
 "$PYTHON3_GADS" "$BASE/dashboard-data/scripts/fetch_ads_local.py" >> "$LOG" 2>&1
 
-echo "[$(date '+%Y-%m-%d %H:%M')] fetch_all dashboard data..." >> "$LOG"
-"$PYTHON3_GADS" "$BASE/dashboard-data/scripts/fetch_all.py" >> "$LOG" 2>&1
+echo "[$(date '+%Y-%m-%d %H:%M')] fetch_wefact_local..." >> "$LOG"
+"$PYTHON3" "$BASE/scripts/fetch_wefact_local.py" >> "$LOG" 2>&1
+
+echo "[$(date '+%Y-%m-%d %H:%M')] fetch_all dashboard data on VPS..." >> "$LOG"
+ssh "$VPS" /opt/ecohandel-venv/bin/python3 /var/www/html/control.ecohandel.nl/dashboard-data/scripts/fetch_all.py >> "$LOG" 2>&1
 
 # Step 1.6: Render all live-facing Econtrol Room pages
 for script in \
