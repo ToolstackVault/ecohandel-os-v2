@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import sqlite3
 import time
 import urllib.error
@@ -28,13 +29,19 @@ from pathlib import Path
 
 BASE = Path('/Users/ecohandel.nl/.openclaw/workspace/ecohandel/partner-campaign')
 CONFIG = json.loads((BASE / 'config.local.json').read_text(encoding='utf-8'))
+
+_brevo_key = CONFIG['brevo']['api_key']
+if _brevo_key == '__ENV_BREVO_API_KEY__':
+    API_KEY = os.environ.get('BREVO_API_KEY', '')
+else:
+    API_KEY = _brevo_key
+
 DB_PATH = BASE / 'data' / 'partner_campaign.db'
 LAUNCH_DIR = BASE / 'launch'
 EMAILS_DIR = BASE / 'emails'
 
 SENDER_NAME = CONFIG['brevo']['sender_name']
 SENDER_EMAIL = CONFIG['brevo']['sender_email']
-API_KEY = CONFIG['brevo']['api_key']
 ECO_LOGO_URL = CONFIG['brevo']['pricelist_logo_eco']
 DEYE_LOGO_URL = CONFIG['brevo']['pricelist_logo_deye']
 
@@ -244,6 +251,8 @@ def create_brevo_campaign(name: str, subject: str, html_content: str,
         'replyTo': SENDER_EMAIL,
         'recipients': {'listIds': [list_id]},
         'utmCampaign': campaign_key,
+        'linkTracking': True,
+        'trackieLinks': True,
     }
     status, result = brevo_request('POST', '/emailCampaigns', payload=payload)
     if status not in (200, 201):
@@ -261,6 +270,8 @@ def update_campaign(brevo_campaign_id: int, list_id: int, subject: str, html_con
         'htmlContent': html_content,
         'recipients': {'listIds': [list_id]},
         'utmCampaign': campaign_key,
+        'linkTracking': True,
+        'trackieLinks': True,
     })
     log(f'  Updated campaign {brevo_campaign_id}: HTTP {status} {json.dumps(result, ensure_ascii=False)[:160]}')
 

@@ -34,9 +34,6 @@ BAD_EMAIL_SUFFIXES = (
     '@ecohandel.nl',
     '@nova-cell.com',
     '@dekeizonnepanelen.nl',
-    '@gmail.com',
-    '@hotmail.com',
-    '@outlook.com',
 )
 
 BAD_TEXT_TOKENS = (
@@ -50,7 +47,6 @@ BAD_TEXT_TOKENS = (
     'nova-cell',
     'de kei',
     'bekend contact',
-    'ecohandel',
 )
 
 BAD_TAG_TOKENS = (
