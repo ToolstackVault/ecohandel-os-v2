@@ -245,6 +245,21 @@ def mode_preflight() -> tuple[str, list[str], dict[str, Any], list[Finding], lis
     if not schedule_path.exists():
         findings.append(Finding('WARN', 'SCHEDULE_MISSING', f'Geen schedule.json gevonden voor vandaag ({schedule_path}).'))
         proposals.append('Laat prepare job eerder lopen (bijv. 08:45) of laat send-slot auto-prepare en log dit expliciet.')
+    else:
+        try:
+            schedule = json.loads(schedule_path.read_text(encoding='utf-8'))
+            low: list[str] = []
+            for b in schedule.get('batches', []) or []:
+                key = str(b.get('batch') or '')
+                req = int(b.get('count_requested') or 0)
+                sel = int(b.get('count_selected') or 0)
+                if req and sel < req:
+                    low.append(f'{key}: {sel}/{req}')
+            if low:
+                findings.append(Finding('FAIL', 'SCHEDULE_LOW_SELECTION', 'Te weinig unieke leads geselecteerd: ' + ', '.join(low)))
+                proposals.append('Beslissing nodig: (A) vandaag B-slot met minder, (B) regels versoepelen (resend pool), of (C) extra leads importeren vóór 12:00.')
+        except Exception as e:
+            findings.append(Finding('FAIL', 'SCHEDULE_PARSE_FAILED', f'Kon schedule.json niet parsen: {e}'))
 
     metrics = {
         'brevo_ok': bool((state.get('brevo') or {}).get('brevo_ok')),
