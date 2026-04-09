@@ -488,12 +488,16 @@ def main() -> int:
     log(f'\n[4/5] Local DB update')
     conn = open_db()
     imported_emails = [e['email'] for e in import_results['imported']]
-    if args.dry_run:
+    # IMPORTANT: test sends must never reserve or mutate the production tracking DB.
+    if args.dry_run or args.test_email:
         local_campaign_id = None
         db_results = []
         report['local_campaign_id'] = None
         report['db_updates'] = []
-        log('  [DRY RUN] No local DB reservation/write performed')
+        if args.dry_run:
+            log('  [DRY RUN] No local DB reservation/write performed')
+        else:
+            log('  [TEST MODE] Skipping local DB reservation/write (send still performed)')
     else:
         local_campaign_id = ensure_campaign_db(
             conn, campaign_key, subject, batch, html_file,
