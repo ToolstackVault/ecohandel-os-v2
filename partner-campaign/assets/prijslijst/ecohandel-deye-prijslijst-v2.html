@@ -2719,27 +2719,34 @@
     </div>
   </div>
 
-  <script>
+<script>
     function handleCTA() {
       // Show popup immediately
       document.getElementById('thankYouModal').classList.add('active');
 
-      // Send email notification via FormSubmit.co
-      fetch('https://formsubmit.co/ajax/info@EcoHandel.nl', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: 'Nieuwe Installatie Partner Aanvraag — Prijslijst',
-          bericht: 'Er is een nieuwe aanvraag binnengekomen via de interactieve prijslijst (mailcampagne). Iemand heeft op "Word Installatie Partner" geklikt.',
-          bron: 'EcoHandel Prijslijst 2026 — Mailcampagne',
-          datum: new Date().toLocaleString('nl-NL', { timeZone: 'Europe/Amsterdam' })
-        })
-      }).catch(function () {
+      // Log CTA click to EcoHandel endpoint (tracking waarheid)
+      try {
+        var params = new URLSearchParams(window.location.search || '');
+        var email = (params.get('cid') || '').trim().toLowerCase();
+        var campaign = (params.get('utm_campaign') || 'direct').trim();
+        fetch('https://control.ecohandel.nl/partners/api/aanvraag.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            event_type: 'cta_click',
+            email: email,
+            bron: 'prijslijst_cta',
+            campaign: campaign
+          })
+        }).catch(function () {
+          // Silently fail — popup is already shown
+        });
+      } catch (e) {
         // Silently fail — popup is already shown
-      });
+      }
     }
 
     function closeModal() {
