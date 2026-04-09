@@ -6,6 +6,9 @@ data/
 *.json
 !README.json
 
+# Keep campaign config in git (non-secret)
+!partner-campaign/daily_send_config.json
+
 # VPS sync
 dashboard-data/
 .vps_sync
